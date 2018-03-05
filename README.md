@@ -1,8 +1,8 @@
 # Distance-Based Sampling (Supplementary Website)
 
-Note that we have included the plots and tables as pdf and as picture (jpg/png).
+Note that we have included the plots and tables as pdf.
 However, the anonymization tool does not allow accessing any files but text files.
-Therefore, we have uploaded the pictures and embedded them in this README.
+Therefore, we have uploaded the plots as pictures and embedded them in this README.
 
 In Section 1, we show the variances of the sampling strategies.
 In Section 2, we show the results of the comparison of different machine-learning techniques.

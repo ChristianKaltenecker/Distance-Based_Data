@@ -1,7 +1,7 @@
 # Distance-Based Sampling (Supplementary Website)
 
 Note that we have included the plots and tables as pdf and as picture (jpg/png).
-However, the anonymization tool does not allow accessing files but text files.
+However, the anonymization tool does not allow accessing any files but text files.
 Therefore, we have uploaded the pictures and embedded them in this README.
 
 In Section 1, we show the variances of the sampling strategies.

@@ -1,12 +1,8 @@
 # Distance-Based Sampling (Supplementary Website)
 
-Note that we have included the plots and tables as pdf.
-However, the anonymization tool does not allow accessing any files but text files.
-Therefore, we have uploaded the plots as pictures and embedded them in this README.
-
-In Section 1, we show the variances of the sampling strategies.
-In Section 2, we show the results of the comparison of different machine-learning techniques.
-In Section 3, we show the results of applying distance-based sampling on numeric configuration options.
+In the first part, we show the variances of the sampling strategies. 
+Then, in part 2, we show the results when paring different machine-learning techniques with respect to their accuracy in predicting all configurations. 
+Last, we show the results of applying distance-based sampling on configuration spaces providing numeric configuration options.
 
 ## 1 Variance of the Sampling Strategies
 

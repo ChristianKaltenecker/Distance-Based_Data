@@ -10,9 +10,6 @@ For a detailed view on the variances of the sampling strategies on the subject s
 
 [![](https://preview.ibb.co/daJGnn/Variances.png)](https://image.ibb.co/nyZYYS/Variances.png)
 
-In the figure above, we illustrate the variances of all error rates as box-plots.
-It is important to note, that t-wise sampling has no variance in our setup.
-
 
 ## 2 Machine-Learning Techniques
 
@@ -20,9 +17,11 @@ In the parallel line of experiments, we compared six different machine-learning 
 * Classification Ad Regression Trees (CART)
 * k-Nearest Neighbors (knn)
 * Kernel Ridge Regression (KRR)
-* Multivariable Regression (MR)
+* Multiple linear Regression (MR)
 * Random Forest (RF)
 * Support Vector Machines (SVR)
+
+In the paper, we have used MR.
 
 The comparison was performed on software systems that contain binary and numeric configuration options.
 Thus, we used binary **and** numeric sampling strategies.
@@ -36,12 +35,12 @@ In the following table, we illustrate the results of the comparison as a heat ma
 
 [![](https://preview.ibb.co/kG2ntS/Machine_Learning_Techniques2.jpg)](https://image.ibb.co/kG2ntS/Machine_Learning_Techniques2.jpg)
 
-In this table, the binary sampling strategies are displayed column-wise.
-On the diagonal, we show the prediction error of the respective machine-learning technique.
-For the plots not on the diagonal, we show the difference between the machine-learning technique in the row to the machine-learning technique in the column.
-The green color indicates that the machine-learning technique in the column is more accurate, whereas the red color indicates that the machine-learning technique in the row is more accurate.
-As we can see, CART, MR, and RF outperform the other machine-learning strategies.
-However, RF has slightly lower error rates than CART and MR, as can be seen on the diagonal.
+In the table, we perform a pair-wise comparison of the machine-learning techniques with respect to their accuracy in predicting the performance of all configurations. On the diagonal, we show the prediction error of the respective machine-learning technique. 
+For the plots not on the diagonal, we show the difference between the machine-learning technique in the row to the machine-learning technique in the column. 
+The green color indicates that the machine-learning technique in the column is more accurate, whereas the red color indicates that the machine-learning technique in the row is more accurate. 
+As we can see, CART, MR, and RF outperform the other machine-learning technique. 
+However, RF has slightly lower error rates than CART and MR, as can be seen on the diagonal. 
+Besides, we also see that the accuracy of the machine-learning technique strongly depends on the learning set. 
 
 ## 3 Numeric Configuration Options
 

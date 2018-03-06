@@ -12,7 +12,7 @@ In Section 3, we show the results of applying distance-based sampling on numeric
 
 For a detailed view on the variances of the sampling strategies on the subject systems in the sample sizes *t=1*, *t=2*, and *t=3*, we provide the following table.
 
-![Table containing variances (If this text is shown, the picture can not be displayed)](https://infosun.fim.uni-passau.de/se/kaltenecker/Variances.png)
+[![](https://preview.ibb.co/jdQ0xn/Variances.png)](https://infosun.fim.uni-passau.de/se/kaltenecker/Variances.png)
 
 In the figure above, we illustrate the variances of all error rates as box-plots.
 It is important to note, that t-wise sampling has no variance in our setup.
@@ -38,7 +38,7 @@ The binary sampling strategies are:
 
 In the following table, we illustrate the results of the comparison as a heat map.
 
-![Table containing machine-learning techniques (If this text is shown, the picture can not be displayed)](https://infosun.fim.uni-passau.de/se/kaltenecker/MachineLearningTechniques.jpg)
+[![](https://preview.ibb.co/i09hA7/Machine_Learning_Techniques2.jpg)](https://infosun.fim.uni-passau.de/se/kaltenecker/MachineLearningTechniques.jpg)
 
 In this table, the binary sampling strategies are displayed column-wise.
 On the diagonal, we show the prediction error of the respective machine-learning technique.

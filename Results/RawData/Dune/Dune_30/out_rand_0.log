@@ -1,0 +1,42 @@
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: mlsettings bagging:False stopOnLongRound:False parallelization:True lossFunction:RELATIVE useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False learn_logFunction:True numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: solver z3
+command: vm ../FeatureModel.xml
+Warning: Variability model contains outdated notation. Children nodes will no longer have effect on the model. Instead use the parent node to describe the parent of an configuration option. You can also use the converter providedby the Variability Model GUI in export>convert legacy model.
+Warning: Default value nodes in models are no longer used and should be removed. You can also use the converter provided by the Variability Model GUI in export>convert legacy model to update your model.
+command: all ../measurements.xml
+Configs with too large deviation: 0
+2304 configurations loaded.
+command: nfp Performance
+command: binary random numConfigs:25 seed:30 fromFile:../allConfigurations.csv
+command: learn-splconqueror
+Learning: NumberOfConfigurationsLearning:25 NumberOfConfigurationsValidation:25
+Learning progress:
+1;11680.9207366071 * Precon + -1537.58208581349 * BiCGSTABSolver;19.1574994810887;19.1574994810887;19.1574994810887;19.1574994810887;0.1250013;2;-1537.58208581349 * BiCGSTABSolver;1;1.79769313486232E+308;
+2;9645.87147321428 * Precon + 497.467177579362 * BiCGSTABSolver + 4070.09852678571 * CGSolver;17.1603924289815;17.1603924289815;17.1603924289815;17.1603924289815;0.1250013;3;4070.09852678571 * CGSolver;1;1.99710705210718;
+3;10252.6207657675 * Precon + 160.384237272026 * BiCGSTABSolver + 3766.72388050911 * CGSolver + -2426.99717021277 * post_6;14.8327305058059;14.8327305058059;14.8327305058059;14.8327305058059;0.1406258;4;-2426.99717021277 * post_6;1;2.32766192317562;
+4;10391.8813662254 * Precon + 83.017237017657 * BiCGSTABSolver + 5515.21808625821 * CGSolver + -2984.03957204433 * post_6 + -7272.49802391214 * CGSolver * post_5;12.6325050919297;12.6325050919297;12.6325050919297;12.6325050919297;0.1562526;6;-7272.49802391214 * CGSolver * post_5;2;1.10011270693809;
+5;10439.068874051 * Precon + 56.8019548923103 * BiCGSTABSolver + 6107.68346229082 * CGSolver + -3172.78960334677 * post_6 + -6087.56727184691 * CGSolver * post_5 + -3649.16727184691 * CGSolver * pre_1;10.6273278854247;10.6273278854247;10.6273278854247;10.6273278854247;0.1875035;8;-3649.16727184691 * CGSolver * pre_1;2;1.00258860325252;
+6;10944.787580548 * Precon + -40.7614769805509 * BiCGSTABSolver + 5671.78078961112 * CGSolver + -3545.14178370561 * post_6 + -6134.11129439177 * CGSolver * post_5 + -3695.71129439177 * CGSolver * pre_1 + -1650.52264562912 * post_4;10.0288633786648;10.0288633786648;10.0288633786648;10.0288633786648;0.2187525;9;-1650.52264562912 * post_4;1;0.598464506759878;
+7;10553.2016393932 * Precon + 143.514260033451 * BiCGSTABSolver + 8129.55843203535 * CGSolver + -2278.24609173435 * post_6 + -7511.57242857142 * CGSolver * post_5 + -5073.17242857142 * CGSolver * pre_1 + -1351.07457298136 * post_4 + -6143.29238270424 * CGSolver * pre_3;8.47777939908691;8.47777939908691;8.47777939908691;8.47777939908691;0.2656283;11;-6143.29238270424 * CGSolver * pre_3;2;0.775541989788949;
+Elapsed=00:00:00.2742165
+average model: 
+
+command: analyze-learning
+Round, Model, LearningError, LearningErrorRel, ValidationError, ValidationErrorRel, ElapsedSeconds, ModelComplexity, BestCandidate, BestCandidateSize, BestCandidateScore, TestError
+Models:
+Termination reason: abortError
+1;11680.9207366071 * Precon + -1537.58208581349 * BiCGSTABSolver;19.1574994810887;19.1574994810887;19.1574994810887;19.1574994810887;0.1250013;2;-1537.58208581349 * BiCGSTABSolver;1;1.79769313486232E+308;22.767174651361
+2;9645.87147321428 * Precon + 497.467177579362 * BiCGSTABSolver + 4070.09852678571 * CGSolver;17.1603924289815;17.1603924289815;17.1603924289815;17.1603924289815;0.1250013;3;4070.09852678571 * CGSolver;1;1.99710705210718;21.4834594710677
+3;10252.6207657675 * Precon + 160.384237272026 * BiCGSTABSolver + 3766.72388050911 * CGSolver + -2426.99717021277 * post_6;14.8327305058059;14.8327305058059;14.8327305058059;14.8327305058059;0.1406258;4;-2426.99717021277 * post_6;1;2.32766192317562;20.4867220204457
+4;10391.8813662254 * Precon + 83.017237017657 * BiCGSTABSolver + 5515.21808625821 * CGSolver + -2984.03957204433 * post_6 + -7272.49802391214 * CGSolver * post_5;12.6325050919297;12.6325050919297;12.6325050919297;12.6325050919297;0.1562526;6;-7272.49802391214 * CGSolver * post_5;2;1.10011270693809;22.4621878709989
+5;10439.068874051 * Precon + 56.8019548923103 * BiCGSTABSolver + 6107.68346229082 * CGSolver + -3172.78960334677 * post_6 + -6087.56727184691 * CGSolver * post_5 + -3649.16727184691 * CGSolver * pre_1;10.6273278854247;10.6273278854247;10.6273278854247;10.6273278854247;0.1875035;8;-3649.16727184691 * CGSolver * pre_1;2;1.00258860325252;22.9083382867359
+6;10944.787580548 * Precon + -40.7614769805509 * BiCGSTABSolver + 5671.78078961112 * CGSolver + -3545.14178370561 * post_6 + -6134.11129439177 * CGSolver * post_5 + -3695.71129439177 * CGSolver * pre_1 + -1650.52264562912 * post_4;10.0288633786648;10.0288633786648;10.0288633786648;10.0288633786648;0.2187525;9;-1650.52264562912 * post_4;1;0.598464506759878;22.8442104127312
+7;10553.2016393932 * Precon + 143.514260033451 * BiCGSTABSolver + 8129.55843203535 * CGSolver + -2278.24609173435 * post_6 + -7511.57242857142 * CGSolver * post_5 + -5073.17242857142 * CGSolver * pre_1 + -1351.07457298136 * post_4 + -6143.29238270424 * CGSolver * pre_3;8.47777939908691;8.47777939908691;8.47777939908691;8.47777939908691;0.2656283;11;-6143.29238270424 * CGSolver * pre_3;2;0.775541989788949;24.8924919654344
+Analyze finished
+command: measurementstocsv ./sampledConfigurations_rand_0.csv
+command: clean-sampling
+command: clean-global
+command: script ./learn_rand_1.a
+command: log ./out_rand_1.log

@@ -1,0 +1,33 @@
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: mlsettings bagging:False stopOnLongRound:False parallelization:True lossFunction:RELATIVE useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False learn_logFunction:True numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: solver z3
+command: vm /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/7z_disc/FeatureModel.xml
+command: all /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/7z_disc/measurements.xml
+Configs with too large deviation: 0
+68640 configurations loaded.
+command: nfp Performance
+command: binary satoutput numConfigs:39 seed:61
+command: learn-splconqueror
+Learning: NumberOfConfigurationsLearning:39 NumberOfConfigurationsValidation:39
+Learning progress:
+1;3267.02702702703 * CompressionMethod + -157.027027027026 * BlockSize_1;27.8380330014001;27.8380330014001;27.8380330014001;27.8380330014001;0.031816;2;-157.027027027026 * BlockSize_1;1;1.79769313486232E+308;
+2;2942.12121212121 * CompressionMethod + 167.87878787879 * BlockSize_1 + 3005.37878787879 * BZip2;20.8141548744902;20.8141548744902;20.8141548744902;20.8141548744902;0.040466;3;3005.37878787879 * BZip2;1;7.02387812690997;
+3;2525.29411764706 * CompressionMethod + -275 * BlockSize_1 + 3422.20588235294 * BZip2 + 859.70588235294 * LZMA;14.5199586361649;14.5199586361649;14.5199586361649;14.5199586361649;0.05518;4;859.70588235294 * LZMA;1;6.29419623832523;
+4;2148.46153846154 * CompressionMethod + -275 * BlockSize_1 + 3799.03846153847 * BZip2 + 1236.53846153847 * LZMA + 1601.53846153846 * LZMA2;9.44391737888862;9.44391737888862;9.44391737888862;9.44391737888862;0.080026;5;1601.53846153846 * LZMA2;1;5.07604125727632;
+Elapsed=00:00:00.0816099
+average model: 
+command: analyze-learning
+Round, Model, LearningError, LearningErrorRel, ValidationError, ValidationErrorRel, ElapsedSeconds, ModelComplexity, BestCandidate, BestCandidateSize, BestCandidateScore, TestError
+Models:
+Termination reason: abortError
+1;3267.02702702703 * CompressionMethod + -157.027027027026 * BlockSize_1;27.8380330014001;27.8380330014001;27.8380330014001;27.8380330014001;0.031816;2;-157.027027027026 * BlockSize_1;1;1.79769313486232E+308;54.5038158092659
+2;2942.12121212121 * CompressionMethod + 167.87878787879 * BlockSize_1 + 3005.37878787879 * BZip2;20.8141548744902;20.8141548744902;20.8141548744902;20.8141548744902;0.040466;3;3005.37878787879 * BZip2;1;7.02387812690997;47.1766334257816
+3;2525.29411764706 * CompressionMethod + -275 * BlockSize_1 + 3422.20588235294 * BZip2 + 859.70588235294 * LZMA;14.5199586361649;14.5199586361649;14.5199586361649;14.5199586361649;0.05518;4;859.70588235294 * LZMA;1;6.29419623832523;45.4727380317369
+4;2148.46153846154 * CompressionMethod + -275 * BlockSize_1 + 3799.03846153847 * BZip2 + 1236.53846153847 * LZMA + 1601.53846153846 * LZMA2;9.44391737888862;9.44391737888862;9.44391737888862;9.44391737888862;0.080026;5;1601.53846153846 * LZMA2;1;5.07604125727632;42.0941143431505
+Analyze finished
+command: measurementstocsv /scratch/kaltenec/Distribution-Aware-Sampling/Results_test/7z_disc/7z_disc_61/sampledConfigurations_semi_0.csv
+command: clean-sampling
+command: clean-global
+command: script /scratch/kaltenec/Distribution-Aware-Sampling/Results_test/7z_disc/7z_disc_61/learn_semi_1.a
+command: log /scratch/kaltenec/Distribution-Aware-Sampling/Results_test/7z_disc/7z_disc_61/out_semi_1.log

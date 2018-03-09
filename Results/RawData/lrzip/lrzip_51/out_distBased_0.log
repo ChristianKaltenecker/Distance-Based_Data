@@ -1,0 +1,35 @@
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: mlsettings bagging:False stopOnLongRound:False parallelization:True lossFunction:RELATIVE useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False learn_logFunction:True numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: solver z3
+command: vm /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/lrzip/FeatureModel.xml
+Warning: Variability model contains outdated notation. Children nodes will no longer have effect on the model. Instead use the parent node to describe the parent of an configuration option. You can also use the converter providedby the Variability Model GUI in export>convert legacy model.
+Warning: Default value nodes in models are no longer used and should be removed. You can also use the converter provided by the Variability Model GUI in export>convert legacy model to update your model.
+command: all /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/lrzip/measurements.xml
+Configs with too large deviation: 0
+432 configurations loaded.
+command: nfp Performance
+command: hybrid distribution-aware distance-metric:manhattan distribution:uniform onlyBinary:true selection:SolverSelection  numConfigs:18 seed:51
+command: learn-splconqueror
+Learning: NumberOfConfigurationsLearning:18 NumberOfConfigurationsValidation:18
+Learning progress:
+1;47349.9999999998 * level + 661951.538461539 * compression;166.08893397272;166.08893397272;166.08893397272;166.08893397272;0.128464;2;661951.538461539 * compression;1;1.79769313486232E+308;
+2;47349.9999999996 * level + 236786.666666667 * compression + 5527143.33333333 * compressionZpaq;32.9120410178644;32.9120410178644;32.9120410178644;32.9120410178644;0.146475;3;5527143.33333333 * compressionZpaq;1;133.176892954856;
+3;47350.0000000001 * level + 256749.090909091 * compression + 5507180.90909091 * compressionZpaq + -239549.090909091 * compressionLzo;18.3189663286087;18.3189663286087;18.3189663286087;18.3189663286087;0.165345;4;-239549.090909091 * compressionLzo;1;14.5930746892557;
+4;47350.0000000003 * level + 203952 * compression + 5559978 * compressionZpaq + -186752 * compressionLzo + 580768 * compressionLrzip;5.93547521675535;5.93547521675535;5.93547521675535;5.93547521675535;0.193858;5;580768 * compressionLrzip;1;12.3834911118534;
+Elapsed=00:00:00.1956297
+average model: 
+command: analyze-learning
+Round, Model, LearningError, LearningErrorRel, ValidationError, ValidationErrorRel, ElapsedSeconds, ModelComplexity, BestCandidate, BestCandidateSize, BestCandidateScore, TestError
+Models:
+Termination reason: abortError
+1;47349.9999999998 * level + 661951.538461539 * compression;166.08893397272;166.08893397272;166.08893397272;166.08893397272;0.128464;2;661951.538461539 * compression;1;1.79769313486232E+308;341.322465836421
+2;47349.9999999996 * level + 236786.666666667 * compression + 5527143.33333333 * compressionZpaq;32.9120410178644;32.9120410178644;32.9120410178644;32.9120410178644;0.146475;3;5527143.33333333 * compressionZpaq;1;133.176892954856;157.174250542847
+3;47350.0000000001 * level + 256749.090909091 * compression + 5507180.90909091 * compressionZpaq + -239549.090909091 * compressionLzo;18.3189663286087;18.3189663286087;18.3189663286087;18.3189663286087;0.165345;4;-239549.090909091 * compressionLzo;1;14.5930746892557;95.7695780874833
+4;47350.0000000003 * level + 203952 * compression + 5559978 * compressionZpaq + -186752 * compressionLzo + 580768 * compressionLrzip;5.93547521675535;5.93547521675535;5.93547521675535;5.93547521675535;0.193858;5;580768 * compressionLrzip;1;12.3834911118534;101.317579149546
+Analyze finished
+command: measurementstocsv /scratch/kaltenec/Distribution-Aware-Sampling/Results_test/lrzip/lrzip_51/sampledConfigurations_solv_0.csv
+command: clean-sampling
+command: clean-global
+command: script /scratch/kaltenec/Distribution-Aware-Sampling/Results_test/lrzip/lrzip_51/learn_solv_1.a
+command: log /scratch/kaltenec/Distribution-Aware-Sampling/Results_test/lrzip/lrzip_51/out_solv_1.log

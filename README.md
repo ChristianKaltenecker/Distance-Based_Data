@@ -13,7 +13,7 @@ In the directory *RawData_Summary*, we have summarized our results in different 
 
 For a detailed view on the variances of the sampling strategies on the subject systems in the sample sizes *t=1*, *t=2*, and *t=3*, we provide the following table.
 
-[![](https://preview.ibb.co/daJGnn/Variances.png)](https://image.ibb.co/nyZYYS/Variances.png)
+[![](https://preview.ibb.co/bH2QH7/Variances.png)](https://image.ibb.co/fkNQH7/Variances.png)
 
 
 ## 3 Machine-Learning Techniques

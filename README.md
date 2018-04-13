@@ -38,7 +38,7 @@ The binary sampling strategies are:
 
 In the following table, we illustrate the results of the comparison as a heat map.
 
-[![](https://preview.ibb.co/kG2ntS/Machine_Learning_Techniques2.jpg)](https://image.ibb.co/kG2ntS/Machine_Learning_Techniques2.jpg)
+[![](http://preview.ibb.co/kEBaRn/Machine_Learning_Techniques2.jpg)](http://image.ibb.co/cGntCS/Machine_Learning_Techniques2.jpg)
 
 In the table, we perform a pair-wise comparison of the machine-learning techniques with respect to their accuracy in predicting the performance of all configurations. On the diagonal, we show the prediction error of the respective machine-learning technique. 
 For the plots not on the diagonal, we show the difference between the machine-learning technique in the row to the machine-learning technique in the column. 

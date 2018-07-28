@@ -15,7 +15,7 @@ In the directory *RawData_Summary*, we have summarized our results in different 
 
 In the following, we present the results for the Kruskal-Wallis test:
 
-![Kruskal-Wallis test](https://thumb.ibb.co/by7WPT/only_Tables.png)
+![Kruskal-Wallis test](https://image.ibb.co/cO07yo/only_Tables.png)
 
 ## 3 Error Rates of the Distributions
 

@@ -1,16 +1,23 @@
 # Distance-Based Sampling (Supplementary Website)
 
 In the first part, we briefly describe the location of the raw data.
-In part 2, we show the error rates by using different distributions.
-In part 3, we show the variances of the sampling strategies. 
-Last, in part 4, we show the results when paring different machine-learning techniques with respect to their accuracy in predicting all configurations. 
+In part 2, we show the results of the Kruskal-Wallis test for the different sample sizes.
+In part 3, we show the error rates by using different distributions.
+In part 4, we show the variances of the sampling strategies. 
+Last, in part 5, we show the results when paring different machine-learning techniques with respect to their accuracy in predicting all configurations. 
 
 ## 1 Raw Data
 
 The raw data for the subject systems can be accessed in the directory *Results*, which has two subdirectories, *RawData_Summary* and *RawData*.
 In the directory *RawData_Summary*, we have summarized our results in different csv-files and provide the feature models (a.k.a. variability models), whereas the results of all 100 runs of all subject systems are stored in the directory *RawData*.
 
-## 2 Error Rates of the Distributions
+## 2 Results of the Kruskal-Wallis Test
+
+In the following, we present the results for the Kruskal-Wallis test:
+
+![Kruskal-Wallis test](https://thumb.ibb.co/by7WPT/only_Tables.png)
+
+## 3 Error Rates of the Distributions
 
 For a detailed view on the error rates by using the optimized distance-based sampling strategy with different distributions (binomial distribution, geometric distribution, uniform distribution), we provide the following tables.
 
@@ -18,14 +25,14 @@ For a detailed view on the error rates by using the optimized distance-based sam
 
 [![](https://preview.ibb.co/gLnTJd/Statistic_binomial_geometric.png)](https://image.ibb.co/iOFtjJ/Statistic_binomial_geometric.png)
 
-## 3 Variance of the Sampling Strategies
+## 4 Variance of the Sampling Strategies
 
 For a detailed view on the variances of the sampling strategies on the subject systems in the sample sizes *t=1*, *t=2*, and *t=3*, we provide the following table.
 
 [![](https://preview.ibb.co/nuWPPJ/Variances.png)](https://image.ibb.co/eKHaWy/Variances.png)
 
 
-## 4 Machine-Learning Techniques
+## 5 Machine-Learning Techniques
 
 In the parallel line of experiments, we compared six different machine-learning techniques:
 * Classification And Regression Trees (CART)

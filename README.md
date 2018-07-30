@@ -29,7 +29,7 @@ For a detailed view on the error rates by using the optimized distance-based sam
 
 For a detailed view on the variances of the sampling strategies on the subject systems in the sample sizes *t=1*, *t=2*, and *t=3*, we provide the following table.
 
-[![](https://preview.ibb.co/nuWPPJ/Variances.png)](https://image.ibb.co/eKHaWy/Variances.png)
+[![](https://preview.ibb.co/jibfpT/Variances.png)](https://image.ibb.co/d35Jb8/Variances.png)
 
 
 ## 5 Machine-Learning Techniques

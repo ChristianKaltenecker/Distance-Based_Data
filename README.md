@@ -18,7 +18,7 @@ In the following, we present the results for the Kruskal-Wallis test:
 
 [![](https://image.ibb.co/kWTtto/kruskal.png)](https://image.ibb.co/cO07yo/only_Tables.png)
 
-## 3 Results of the Levene's Test
+## 3 Results of the Levene Test
 
 In the following, we present the results for the Levene's test:
 

@@ -22,7 +22,7 @@ In the following, we present the results for the Kruskal-Wallis test:
 
 In the following, we present the results for the Levene's test:
 
-[![](https://image.ibb.co/cGXUjT/levene.png)](https://image.ibb.co/jHDido/levene.png)
+[![](https://image.ibb.co/jiJVr8/levene.png)](https://image.ibb.co/fAoryo/levene.png)
 
 ## 4 Error Rates of the Distributions
 

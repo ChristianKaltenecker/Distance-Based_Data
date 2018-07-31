@@ -1,4 +1,4 @@
-# Distance-Based Sampling (Supplementary Website)
+# Distance-Based Sampling of Software Configuration Spaces (Supplementary Website)
 
 In the first part, we briefly describe the location of the raw data.
 In part 2, we show the results of the Kruskal-Wallis test for different sample sizes.
@@ -16,7 +16,7 @@ In the directory *RawData_Summary*, we have summarized our results in different 
 
 In the following, we present the results for the Kruskal-Wallis test:
 
-[![](https://image.ibb.co/kWTtto/kruskal.png)](https://image.ibb.co/cO07yo/only_Tables.png)
+[![](https://image.ibb.co/gZStuT/kruskal.png)](https://image.ibb.co/kdWKZT/kruskal.png)
 
 ## 3 Results of the Levene Test
 
@@ -36,7 +36,7 @@ For a detailed view on the error rates by using the optimized distance-based sam
 
 For a detailed view on the variances of the sampling strategies on the subject systems in the sample sizes *t=1*, *t=2*, and *t=3*, we provide the following table.
 
-[![](https://preview.ibb.co/jibfpT/Variances.png)](https://image.ibb.co/d35Jb8/Variances.png)
+[![](https://preview.ibb.co/fGbYTo/Variances.png)](https://image.ibb.co/erjyuT/Variances.png)
 
 
 ## 6 Machine-Learning Techniques

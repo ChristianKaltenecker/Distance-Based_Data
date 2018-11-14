@@ -5,12 +5,15 @@ In part 2, we show the results of the Kruskal-Wallis test for different sample s
 In part 3, we show the results of the Levene's test for different variances.
 In part 4, we show the error rates by using different distributions.
 In part 5, we show the variances of the sampling strategies. 
-Last, in part 6, we show the results when paring different machine-learning techniques with respect to their accuracy in predicting all configurations. 
+In part 6, we show the performance wall time of the sampling strategies.
+Last, in part 7, we show the results when paring different machine-learning techniques with respect to their accuracy in predicting all configurations. 
 
 ## 1 Raw Data
 
 The raw data for the subject systems can be accessed in the directory *Results*, which has two subdirectories, *RawData_Summary* and *RawData*.
 In the directory *RawData_Summary*, we have summarized our results in different csv-files and provide the feature models (a.k.a. variability models), whereas the results of all 100 runs of all subject systems are stored in the directory *RawData*.
+
+**New**: We additionally provide the data from the subject systems in the folder [Subject Systems](SubjectSystems/). Further information is provided there.
 
 ## 2 Results of the Kruskal-Wallis Test
 
@@ -39,7 +42,20 @@ For a detailed view on the variances of the sampling strategies on the subject s
 [![](https://preview.ibb.co/fGbYTo/Variances.png)](https://image.ibb.co/erjyuT/Variances.png)
 
 
-## 6 Machine-Learning Techniques
+## 6 Wall Time
+
+In the following, we provide the wall time for the sampling strategies and the subject systems presented in the paper.
+
+**Note**: For true random, we have only measured acquiring the whole population, since this needs the most time.
+Drawing from the whole population is negligible.
+
+[![](https://preview.ibb.co/fJPX9f/performance.png)](https://image.ibb.co/cMwOFL/performance.png)
+
+Generally, solver-based sampling has the lowest wall time. The reason for that is because of the simple SAT calls. 
+Coverage-based sampling is as generally similarly fast as distance-based sampling.
+The randomized solver-based sampling and true random sampling indicate the highest wall time, mainly in the larger subject systems.
+
+## 7 Machine-Learning Techniques
 
 In the parallel line of experiments, we compared six different machine-learning techniques:
 * Classification And Regression Trees (CART)

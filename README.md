@@ -54,7 +54,6 @@ Drawing from the whole population is negligible.
 Generally, solver-based sampling has the lowest wall time. The reason for that is because of the simple SAT calls. 
 Coverage-based sampling is as generally similarly fast as distance-based sampling.
 The randomized solver-based sampling and true random sampling indicate the highest wall time, mainly in the larger subject systems.
-**Note**: The speedup that was achieved by distance-based sampling for different sample sizes on VP9 and JavaGC is because of caching issues.
 
 ## 7 Machine-Learning Techniques
 

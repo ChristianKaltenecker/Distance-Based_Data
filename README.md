@@ -49,7 +49,7 @@ In the following, we provide the wall time for the sampling strategies and the s
 **Note**: For true random, we have only measured acquiring the whole population, since this needs the most time.
 Drawing from the whole population is negligible.
 
-[![](https://preview.ibb.co/fJPX9f/performance.png)](https://image.ibb.co/cMwOFL/performance.png)
+[![](https://image.ibb.co/cMwOFL/performance.png)](https://image.ibb.co/cMwOFL/performance.png)
 
 Generally, solver-based sampling has the lowest wall time. The reason for that is because of the simple SAT calls. 
 Coverage-based sampling is as generally similarly fast as distance-based sampling.

@@ -1,0 +1,31 @@
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: mlsettings bagging:False stopOnLongRound:False parallelization:True lossFunction:RELATIVE useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False learn_logFunction:True numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: solver z3
+command: vm /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/VP9_disc/FeatureModel.xml
+command: all /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/VP9_disc/measurements.xml
+Configs with too large deviation: 0
+216000 configurations loaded.
+command: nfp Performance
+command: hybrid distribution-aware distance-metric:manhattan distribution:uniform onlyBinary:true selection:SolverSelection  numConfigs:31 seed:86
+command: learn-splconqueror
+Learning: NumberOfConfigurationsLearning:31 NumberOfConfigurationsValidation:31
+Learning progress:
+1;36.2773684210526 * Quality + -31.3473684210527 * AutoAltRef;30.1571643330892;30.1571643330892;30.1571643330892;30.1571643330892;0.096084;2;-31.3473684210527 * AutoAltRef;1;1.79769313486232E+308;
+2;36.93 * Quality + -29.9333333333333 * AutoAltRef + -4.13333333333334 * lagInFrames_16;11.0295300264804;11.0295300264804;11.0295300264804;11.0295300264804;0.123575;3;-4.13333333333334 * lagInFrames_16;1;19.1276343066088;
+3;29.02 * Quality + -30.2928787878788 * AutoAltRef + 4.01636363636361 * lagInFrames_16 + 8.38939393939391 * lagInFrames_0;10.7986485606;10.7986485606;10.7986485606;10.7986485606;0.175719;4;8.38939393939391 * lagInFrames_0;1;0.230881465880421;
+Elapsed=00:00:00.1776101
+average model: 
+command: analyze-learning
+Round, Model, LearningError, LearningErrorRel, ValidationError, ValidationErrorRel, ElapsedSeconds, ModelComplexity, BestCandidate, BestCandidateSize, BestCandidateScore, TestError
+Models:
+Termination reason: minImprovementPerRound
+1;36.2773684210526 * Quality + -31.3473684210527 * AutoAltRef;30.1571643330892;30.1571643330892;30.1571643330892;30.1571643330892;0.096084;2;-31.3473684210527 * AutoAltRef;1;1.79769313486232E+308;316.947853341858
+2;36.93 * Quality + -29.9333333333333 * AutoAltRef + -4.13333333333334 * lagInFrames_16;11.0295300264804;11.0295300264804;11.0295300264804;11.0295300264804;0.123575;3;-4.13333333333334 * lagInFrames_16;1;19.1276343066088;316.606598206404
+3;29.02 * Quality + -30.2928787878788 * AutoAltRef + 4.01636363636361 * lagInFrames_16 + 8.38939393939391 * lagInFrames_0;10.7986485606;10.7986485606;10.7986485606;10.7986485606;0.175719;4;8.38939393939391 * lagInFrames_0;1;0.230881465880421;302.826834390913
+Analyze finished
+command: measurementstocsv /scratch/kaltenec/Distribution-Aware-Sampling/Results_test/VP9_disc/VP9_disc_86/sampledConfigurations_solv_0.csv
+command: clean-sampling
+command: clean-global
+command: script /scratch/kaltenec/Distribution-Aware-Sampling/Results_test/VP9_disc/VP9_disc_86/learn_solv_1.a
+command: log /scratch/kaltenec/Distribution-Aware-Sampling/Results_test/VP9_disc/VP9_disc_86/out_solv_1.log

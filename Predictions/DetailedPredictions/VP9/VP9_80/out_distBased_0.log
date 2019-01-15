@@ -1,0 +1,31 @@
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: mlsettings bagging:False stopOnLongRound:False parallelization:True lossFunction:RELATIVE useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False learn_logFunction:True numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: solver z3
+command: vm /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/VP9_disc/FeatureModel.xml
+command: all /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/VP9_disc/measurements.xml
+Configs with too large deviation: 0
+216000 configurations loaded.
+command: nfp Performance
+command: hybrid distribution-aware distance-metric:manhattan distribution:uniform onlyBinary:true selection:SolverSelection  numConfigs:31 seed:80
+command: learn-splconqueror
+Learning: NumberOfConfigurationsLearning:31 NumberOfConfigurationsValidation:31
+Learning progress:
+1;33.4766666666666 * Quality + -27.4191666666666 * AutoAltRef;36.8485881388276;36.8485881388276;36.8485881388276;36.8485881388276;0.054972;2;-27.4191666666666 * AutoAltRef;1;1.79769313486232E+308;
+2;33.4766666666666 * Quality + -30.6683333333333 * AutoAltRef + 5.19866666666667 * cpuUsed_4;12.8541157098491;12.8541157098491;12.8541157098491;12.8541157098491;0.082254;3;5.19866666666667 * cpuUsed_4;1;23.9944724289786;
+3;33.4766666666667 * Quality + -30.6683333333333 * AutoAltRef + 3.47916666666666 * cpuUsed_4 + 2.86583333333329 * cpuUsed_4 * realtime;9.04294760532104;9.04294760532104;9.04294760532104;9.04294760532104;0.13386;5;2.86583333333329 * cpuUsed_4 * realtime;2;1.905584052264;
+Elapsed=00:00:00.1362551
+average model: 
+command: analyze-learning
+Round, Model, LearningError, LearningErrorRel, ValidationError, ValidationErrorRel, ElapsedSeconds, ModelComplexity, BestCandidate, BestCandidateSize, BestCandidateScore, TestError
+Models:
+Termination reason: abortError
+1;33.4766666666666 * Quality + -27.4191666666666 * AutoAltRef;36.8485881388276;36.8485881388276;36.8485881388276;36.8485881388276;0.054972;2;-27.4191666666666 * AutoAltRef;1;1.79769313486232E+308;296.474405563734
+2;33.4766666666666 * Quality + -30.6683333333333 * AutoAltRef + 5.19866666666667 * cpuUsed_4;12.8541157098491;12.8541157098491;12.8541157098491;12.8541157098491;0.082254;3;5.19866666666667 * cpuUsed_4;1;23.9944724289786;302.856466054975
+3;33.4766666666667 * Quality + -30.6683333333333 * AutoAltRef + 3.47916666666666 * cpuUsed_4 + 2.86583333333329 * cpuUsed_4 * realtime;9.04294760532104;9.04294760532104;9.04294760532104;9.04294760532104;0.13386;5;2.86583333333329 * cpuUsed_4 * realtime;2;1.905584052264;301.803086067481
+Analyze finished
+command: measurementstocsv /scratch/kaltenec/Distribution-Aware-Sampling/Results_test/VP9_disc/VP9_disc_80/sampledConfigurations_solv_0.csv
+command: clean-sampling
+command: clean-global
+command: script /scratch/kaltenec/Distribution-Aware-Sampling/Results_test/VP9_disc/VP9_disc_80/learn_solv_1.a
+command: log /scratch/kaltenec/Distribution-Aware-Sampling/Results_test/VP9_disc/VP9_disc_80/out_solv_1.log

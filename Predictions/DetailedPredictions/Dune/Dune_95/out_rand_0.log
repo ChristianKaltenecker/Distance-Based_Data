@@ -1,0 +1,38 @@
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: mlsettings bagging:False stopOnLongRound:False parallelization:True lossFunction:RELATIVE useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False learn_logFunction:True numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: solver z3
+command: vm ../FeatureModel.xml
+Warning: Variability model contains outdated notation. Children nodes will no longer have effect on the model. Instead use the parent node to describe the parent of an configuration option. You can also use the converter providedby the Variability Model GUI in export>convert legacy model.
+Warning: Default value nodes in models are no longer used and should be removed. You can also use the converter provided by the Variability Model GUI in export>convert legacy model to update your model.
+command: all ../measurements.xml
+Configs with too large deviation: 0
+2304 configurations loaded.
+command: nfp Performance
+command: binary random numConfigs:25 seed:95 fromFile:../allConfigurations.csv
+command: learn-splconqueror
+Learning: NumberOfConfigurationsLearning:25 NumberOfConfigurationsValidation:25
+Learning progress:
+1;10055.3228409091 * Precon + -2233.15903138528 * BiCGSTABSolver;15.1044591271533;15.1044591271533;15.1044591271533;15.1044591271533;0.1718758;2;-2233.15903138528 * BiCGSTABSolver;1;1.79769313486232E+308;
+2;10239.6257321429 * Precon + -2417.46192261905 * BiCGSTABSolver + -2027.33180357143 * cells_54;14.0521219980528;14.0521219980528;14.0521219980528;14.0521219980528;0.1718758;3;-2027.33180357143 * cells_54;1;1.05233712910044;
+3;10088.1331450642 * Precon + -2770.94462580256 * BiCGSTABSolver + -2633.30215188603 * cells_54 + 1514.92587078651 * pre_2;12.3184968521193;12.3184968521193;12.3184968521193;12.3184968521193;0.2031252;4;1514.92587078651 * pre_2;1;1.73362514593355;
+4;9605.29064353099 * Precon + -2389.75317722372 * BiCGSTABSolver + -2302.93622978436 * cells_54 + 1819.87902964959 * pre_2 + 4523.471856469 * pre_4;11.6444475502224;11.6444475502224;11.6444475502224;11.6444475502224;0.2187504;5;4523.471856469 * pre_4;1;0.674049301896911;
+5;9605.29064353099 * Precon + -2389.75317722372 * BiCGSTABSolver + -2302.93622978436 * cells_54 + 1819.87902964958 * pre_2 + 1272.79149932615 * pre_4 + 6501.36071428571 * pre_4 * cells_55;9.70096701684756;9.70096701684756;9.70096701684756;9.70096701684756;0.250001;7;6501.36071428571 * pre_4 * cells_55;2;0.971740266687414;
+Elapsed=00:00:00.2560719
+average model: 
+
+command: analyze-learning
+Round, Model, LearningError, LearningErrorRel, ValidationError, ValidationErrorRel, ElapsedSeconds, ModelComplexity, BestCandidate, BestCandidateSize, BestCandidateScore, TestError
+Models:
+Termination reason: abortError
+1;10055.3228409091 * Precon + -2233.15903138528 * BiCGSTABSolver;15.1044591271533;15.1044591271533;15.1044591271533;15.1044591271533;0.1718758;2;-2233.15903138528 * BiCGSTABSolver;1;1.79769313486232E+308;19.8402641556991
+2;10239.6257321429 * Precon + -2417.46192261905 * BiCGSTABSolver + -2027.33180357143 * cells_54;14.0521219980528;14.0521219980528;14.0521219980528;14.0521219980528;0.1718758;3;-2027.33180357143 * cells_54;1;1.05233712910044;22.445064751278
+3;10088.1331450642 * Precon + -2770.94462580256 * BiCGSTABSolver + -2633.30215188603 * cells_54 + 1514.92587078651 * pre_2;12.3184968521193;12.3184968521193;12.3184968521193;12.3184968521193;0.2031252;4;1514.92587078651 * pre_2;1;1.73362514593355;24.1652907634011
+4;9605.29064353099 * Precon + -2389.75317722372 * BiCGSTABSolver + -2302.93622978436 * cells_54 + 1819.87902964959 * pre_2 + 4523.471856469 * pre_4;11.6444475502224;11.6444475502224;11.6444475502224;11.6444475502224;0.2187504;5;4523.471856469 * pre_4;1;0.674049301896911;25.9895719675969
+5;9605.29064353099 * Precon + -2389.75317722372 * BiCGSTABSolver + -2302.93622978436 * cells_54 + 1819.87902964958 * pre_2 + 1272.79149932615 * pre_4 + 6501.36071428571 * pre_4 * cells_55;9.70096701684756;9.70096701684756;9.70096701684756;9.70096701684756;0.250001;7;6501.36071428571 * pre_4 * cells_55;2;0.971740266687414;24.5466313202104
+Analyze finished
+command: measurementstocsv ./sampledConfigurations_rand_0.csv
+command: clean-sampling
+command: clean-global
+command: script ./learn_rand_1.a
+command: log ./out_rand_1.log

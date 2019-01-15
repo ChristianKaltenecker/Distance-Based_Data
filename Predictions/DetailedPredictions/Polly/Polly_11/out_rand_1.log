@@ -1,0 +1,33 @@
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: mlsettings bagging:False stopOnLongRound:False parallelization:True lossFunction:RELATIVE useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False learn_logFunction:True numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: solver z3
+command: vm ../FeatureModel.xml
+Warning: Variability model contains outdated notation. Children nodes will no longer have effect on the model. Instead use the parent node to describe the parent of an configuration option. You can also use the converter providedby the Variability Model GUI in export>convert legacy model.
+command: all ../measurements.xml
+Configs with too large deviation: 0
+60000 configurations loaded.
+command: nfp Performance
+command: binary random numConfigs:345 seed:11 fromFile:../allConfigurations.csv
+command: learn-splconqueror
+Learning: NumberOfConfigurationsLearning:345 NumberOfConfigurationsValidation:345
+Learning progress:
+1;25.3544372294373 * polly_vectorizer + 4.16629575485597 * max;20.8773018049846;20.8773018049846;20.8773018049846;20.8773018049846;0.0156241;2;4.16629575485597 * max;1;1.79769313486232E+308;
+2;24.7883326106844 * polly_vectorizer + 4.23520639562038 * max + 1.55678770157061 * parallel;19.8134106638263;19.8134106638263;19.8134106638263;19.8134106638263;0.0624998;3;1.55678770157061 * parallel;1;1.06389114115825;
+3;24.9167687074831 * polly_vectorizer + 4.00994924123495 * max + 1.20358843537411 * parallel + 0.656360282574586 * max * parallel;19.7574183698001;19.7574183698001;19.7574183698001;19.7574183698001;0.1250001;5;0.656360282574586 * max * parallel;2;0.0279961470131038;
+Elapsed=00:00:00.1341525
+average model: 
+
+command: analyze-learning
+Round, Model, LearningError, LearningErrorRel, ValidationError, ValidationErrorRel, ElapsedSeconds, ModelComplexity, BestCandidate, BestCandidateSize, BestCandidateScore, TestError
+Models:
+Termination reason: minImprovementPerRound
+1;25.3544372294373 * polly_vectorizer + 4.16629575485597 * max;20.8773018049846;20.8773018049846;20.8773018049846;20.8773018049846;0.0156241;2;4.16629575485597 * max;1;1.79769313486232E+308;28.6496677277155
+2;24.7883326106844 * polly_vectorizer + 4.23520639562038 * max + 1.55678770157061 * parallel;19.8134106638263;19.8134106638263;19.8134106638263;19.8134106638263;0.0624998;3;1.55678770157061 * parallel;1;1.06389114115825;27.6121969108955
+3;24.9167687074831 * polly_vectorizer + 4.00994924123495 * max + 1.20358843537411 * parallel + 0.656360282574586 * max * parallel;19.7574183698001;19.7574183698001;19.7574183698001;19.7574183698001;0.1250001;5;0.656360282574586 * max * parallel;2;0.0279961470131038;27.5908015716833
+Analyze finished
+command: measurementstocsv ./sampledConfigurations_rand_1.csv
+command: clean-sampling
+command: clean-global
+command: script ./learn_rand_2.a
+command: log ./out_rand_2.log

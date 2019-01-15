@@ -1,0 +1,37 @@
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: mlsettings bagging:False stopOnLongRound:False parallelization:True lossFunction:RELATIVE useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False learn_logFunction:True numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: solver z3
+command: vm /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/Hipacc_disc/FeatureModel.xml
+Warning: Variability model contains outdated notation. Children nodes will no longer have effect on the model. Instead use the parent node to describe the parent of an configuration option. You can also use the converter providedby the Variability Model GUI in export>convert legacy model.
+Warning: Default value nodes in models are no longer used and should be removed. You can also use the converter provided by the Variability Model GUI in export>convert legacy model to update your model.
+command: all /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/Hipacc_disc/measurements.xml
+Configs with too large deviation: 0
+13485 configurations loaded.
+command: nfp Performance
+command: hybrid distribution-aware distance-metric:manhattan distribution:uniform onlyBinary:true selection:SolverSelection number-weight-optimization:1-1 numConfigs:49 seed:48
+command: learn-splconqueror
+Learning: NumberOfConfigurationsLearning:49 NumberOfConfigurationsValidation:49
+Learning progress:
+1;37.9399555555556 * API + -8.02570555555557 * Array2D;35.8334343733809;35.8334343733809;35.8334343733809;35.8334343733809;0.044369;2;-8.02570555555557 * Array2D;1;1.79769313486232E+308;
+2;30.6583428571428 * API + -0.744092857142824 * Array2D + 32.7672571428572 * bs_512x2;16.0946332367979;16.0946332367979;16.0946332367979;16.0946332367979;0.085728;3;32.7672571428572 * bs_512x2;1;19.738801136583;
+3;34.1014739454094 * API + 3.3446253101737 * Array2D + 29.3241260545906 * bs_512x2 + -10.0424656741109 * pixelPerThread_3;11.5352696187682;11.5352696187682;11.5352696187682;11.5352696187682;0.160133;4;-10.0424656741109 * pixelPerThread_3;1;4.55936361802971;
+4;39.5969725274725 * API + 1.72830219780221 * Array2D + 23.8286274725275 * bs_512x2 + -15.2146996336996 * pixelPerThread_3 + -10.0212032967033 * padding_224;10.121438867759;10.121438867759;10.121438867759;10.121438867759;0.304465;5;-10.0212032967033 * padding_224;1;1.41383075100918;
+5;41.427134526037 * API + 1.48245954127865 * Array2D + 26.9699503058844 * bs_512x2 + -12.3556405911661 * pixelPerThread_3 + -9.556833834381 * padding_224 + -4.97148483192132 * CUDA;9.33501444937437;9.33501444937437;9.33501444937437;9.33501444937437;0.489357;6;-4.97148483192132 * CUDA;1;0.78642441838466;
+Elapsed=00:00:00.4914166
+average model: 
+command: analyze-learning
+Round, Model, LearningError, LearningErrorRel, ValidationError, ValidationErrorRel, ElapsedSeconds, ModelComplexity, BestCandidate, BestCandidateSize, BestCandidateScore, TestError
+Models:
+Termination reason: abortError
+1;37.9399555555556 * API + -8.02570555555557 * Array2D;35.8334343733809;35.8334343733809;35.8334343733809;35.8334343733809;0.044369;2;-8.02570555555557 * Array2D;1;1.79769313486232E+308;38.0401532418263
+2;30.6583428571428 * API + -0.744092857142824 * Array2D + 32.7672571428572 * bs_512x2;16.0946332367979;16.0946332367979;16.0946332367979;16.0946332367979;0.085728;3;32.7672571428572 * bs_512x2;1;19.738801136583;29.3037373130957
+3;34.1014739454094 * API + 3.3446253101737 * Array2D + 29.3241260545906 * bs_512x2 + -10.0424656741109 * pixelPerThread_3;11.5352696187682;11.5352696187682;11.5352696187682;11.5352696187682;0.160133;4;-10.0424656741109 * pixelPerThread_3;1;4.55936361802971;30.9538616026314
+4;39.5969725274725 * API + 1.72830219780221 * Array2D + 23.8286274725275 * bs_512x2 + -15.2146996336996 * pixelPerThread_3 + -10.0212032967033 * padding_224;10.121438867759;10.121438867759;10.121438867759;10.121438867759;0.304465;5;-10.0212032967033 * padding_224;1;1.41383075100918;37.6472809315822
+5;41.427134526037 * API + 1.48245954127865 * Array2D + 26.9699503058844 * bs_512x2 + -12.3556405911661 * pixelPerThread_3 + -9.556833834381 * padding_224 + -4.97148483192132 * CUDA;9.33501444937437;9.33501444937437;9.33501444937437;9.33501444937437;0.489357;6;-4.97148483192132 * CUDA;1;0.78642441838466;34.7667923533936
+Analyze finished
+command: measurementstocsv /scratch/kaltenec/Distribution-Aware-Sampling/Results_opt/Hipacc_disc/Hipacc_disc_48/sampledConfigurations_solv_0.csv
+command: clean-sampling
+command: clean-global
+command: script /scratch/kaltenec/Distribution-Aware-Sampling/Results_opt/Hipacc_disc/Hipacc_disc_48/learn_solv_1.a
+command: log /scratch/kaltenec/Distribution-Aware-Sampling/Results_opt/Hipacc_disc/Hipacc_disc_48/out_solv_1.log

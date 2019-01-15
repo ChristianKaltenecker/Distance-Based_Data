@@ -1,0 +1,36 @@
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: mlsettings bagging:False stopOnLongRound:False parallelization:True lossFunction:RELATIVE useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False learn_logFunction:True numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: solver z3
+command: vm /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/Polly_disc/FeatureModel.xml
+Warning: Variability model contains outdated notation. Children nodes will no longer have effect on the model. Instead use the parent node to describe the parent of an configuration option. You can also use the converter providedby the Variability Model GUI in export>convert legacy model.
+command: all /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/Polly_disc/measurements.xml
+Configs with too large deviation: 0
+60000 configurations loaded.
+command: nfp Performance
+command: binary satoutput numConfigs:345 seed:81
+command: learn-splconqueror
+Learning: NumberOfConfigurationsLearning:345 NumberOfConfigurationsValidation:345
+Learning progress:
+1;23.7060380952382 * polly_vectorizer + 6.03576582633054 * max;21.7246535787381;21.7246535787381;21.7246535787381;21.7246535787381;0.044766;2;6.03576582633054 * max;1;1.79769313486232E+308;
+2;21.3474517823221 * polly_vectorizer + 6.02285974527491 * max + 4.79944889256171 * polly_no_tiling;20.0311946434332;20.0311946434332;20.0311946434332;20.0311946434332;0.162096;3;4.79944889256171 * polly_no_tiling;1;1.69345893530491;
+3;19.0225468164795 * polly_vectorizer + 10.7537710129779 * max + -0.0698495754891206 * polly_no_tiling + 9.60020973575387 * polly_no_tiling * min;13.948985378873;13.948985378873;13.948985378873;13.948985378873;0.367679;5;9.60020973575387 * polly_no_tiling * min;2;3.04110463228011;
+4;17.7465807535208 * polly_vectorizer + 10.743118940896 * max + -0.0311542932322608 * polly_no_tiling + 9.55086238141511 * polly_no_tiling * min + 2.91181998982878 * parallel;13.0434027644979;13.0434027644979;13.0434027644979;13.0434027644979;0.671052;6;2.91181998982878 * parallel;1;0.905582614375064;
+5;17.7539594710455 * polly_vectorizer + 10.7431805402075 * max + -0.031378062159696 * polly_no_tiling + 10.802048267762 * polly_no_tiling * min + 2.89498137804168 * parallel + -2.5613677275545 * polly_no_tiling * min * polly;12.4037121786098;12.4037121786098;12.4037121786098;12.4037121786098;1.119383;9;-2.5613677275545 * polly_no_tiling * min * polly;3;0.213230195296037;
+Elapsed=00:00:01.1238542
+average model: 
+command: analyze-learning
+Round, Model, LearningError, LearningErrorRel, ValidationError, ValidationErrorRel, ElapsedSeconds, ModelComplexity, BestCandidate, BestCandidateSize, BestCandidateScore, TestError
+Models:
+Termination reason: minImprovementPerRound
+1;23.7060380952382 * polly_vectorizer + 6.03576582633054 * max;21.7246535787381;21.7246535787381;21.7246535787381;21.7246535787381;0.044766;2;6.03576582633054 * max;1;1.79769313486232E+308;28.3403822996565
+2;21.3474517823221 * polly_vectorizer + 6.02285974527491 * max + 4.79944889256171 * polly_no_tiling;20.0311946434332;20.0311946434332;20.0311946434332;20.0311946434332;0.162096;3;4.79944889256171 * polly_no_tiling;1;1.69345893530491;26.9885826712339
+3;19.0225468164795 * polly_vectorizer + 10.7537710129779 * max + -0.0698495754891206 * polly_no_tiling + 9.60020973575387 * polly_no_tiling * min;13.948985378873;13.948985378873;13.948985378873;13.948985378873;0.367679;5;9.60020973575387 * polly_no_tiling * min;2;3.04110463228011;20.9657733885359
+4;17.7465807535208 * polly_vectorizer + 10.743118940896 * max + -0.0311542932322608 * polly_no_tiling + 9.55086238141511 * polly_no_tiling * min + 2.91181998982878 * parallel;13.0434027644979;13.0434027644979;13.0434027644979;13.0434027644979;0.671052;6;2.91181998982878 * parallel;1;0.905582614375064;20.1353045743519
+5;17.7539594710455 * polly_vectorizer + 10.7431805402075 * max + -0.031378062159696 * polly_no_tiling + 10.802048267762 * polly_no_tiling * min + 2.89498137804168 * parallel + -2.5613677275545 * polly_no_tiling * min * polly;12.4037121786098;12.4037121786098;12.4037121786098;12.4037121786098;1.119383;9;-2.5613677275545 * polly_no_tiling * min * polly;3;0.213230195296037;19.7151801275706
+Analyze finished
+command: measurementstocsv /scratch/kaltenec/Distribution-Aware-Sampling/Results_test/Polly_disc/Polly_disc_81/sampledConfigurations_semi_1.csv
+command: clean-sampling
+command: clean-global
+command: script /scratch/kaltenec/Distribution-Aware-Sampling/Results_test/Polly_disc/Polly_disc_81/learn_semi_2.a
+command: log /scratch/kaltenec/Distribution-Aware-Sampling/Results_test/Polly_disc/Polly_disc_81/out_semi_2.log

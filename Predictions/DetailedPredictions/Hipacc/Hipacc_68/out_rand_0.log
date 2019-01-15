@@ -1,0 +1,44 @@
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: mlsettings bagging:False stopOnLongRound:False parallelization:True lossFunction:RELATIVE useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False learn_logFunction:True numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: solver z3
+command: vm ../FeatureModel.xml
+Warning: Variability model contains outdated notation. Children nodes will no longer have effect on the model. Instead use the parent node to describe the parent of an configuration option. You can also use the converter providedby the Variability Model GUI in export>convert legacy model.
+Warning: Default value nodes in models are no longer used and should be removed. You can also use the converter provided by the Variability Model GUI in export>convert legacy model to update your model.
+command: all ../measurements.xml
+Configs with too large deviation: 0
+13485 configurations loaded.
+command: nfp Performance
+command: binary random numConfigs:49 seed:68 fromFile:../allConfigurations.csv
+command: learn-splconqueror
+Learning: NumberOfConfigurationsLearning:49 NumberOfConfigurationsValidation:49
+Learning progress:
+1;34.4454583333333 * API + 22.1715416666666 * Array2D;34.0807417438885;34.0807417438885;34.0807417438885;34.0807417438885;0.2656286;2;22.1715416666666 * Array2D;1;1.79769313486232E+308;
+2;25.3495862068966 * API + 8.28836842105263 * Array2D + 22.9790453720508 * LocalMemory;19.7054744824871;19.7054744824871;19.7054744824871;19.7054744824871;0.3125036;3;22.9790453720508 * LocalMemory;1;14.3752672614014;
+3;25.3495862068966 * API + 11.4423888888889 * Array2D + 19.8250249042146 * LocalMemory + 59.9263888888889 * bs_1024x1;16.8517744212837;16.8517744212837;16.8517744212837;16.8517744212837;0.4687565;4;59.9263888888889 * bs_1024x1;1;2.85370006120342;
+4;24.0885707909745 * API + 14.9977517976692 * Array2D + 17.5306774113563 * LocalMemory + 54.3393900322341 * bs_1024x1 + 9.1423617654352 * pixelPerThread_1;14.6400975927491;14.6400975927491;14.6400975927491;14.6400975927491;0.5625073;5;9.1423617654352 * pixelPerThread_1;1;2.21167682853459;
+5;24.0160470324748 * API + 13.1710596304591 * Array2D + 19.4298933370661 * LocalMemory + 51.9869006159015 * bs_1024x1 + 9.6681590145577 * pixelPerThread_1 + -18.2805198768197 * bs_64x2;13.2074650433867;13.2074650433867;13.2074650433867;13.2074650433867;0.7656333;6;-18.2805198768197 * bs_64x2;1;1.4326325493624;
+6;24.0601488591299 * API + 9.35900798896491 * Array2D + 23.1978431519053 * LocalMemory + 48.4945872176561 * bs_1024x1 + 9.3484207713087 * pixelPerThread_1 + -21.9327023966895 * bs_64x2 + -19.6914656014714 * LocalMemory * Linear1D;10.7895827115546;10.7895827115546;10.7895827115546;10.7895827115546;0.9218859;8;-19.6914656014714 * LocalMemory * Linear1D;2;1.20894116591607;
+7;24.216456195738 * API + 10.0127308602999 * Array2D + 22.3878129439621 * LocalMemory + 50.2815382794001 * bs_1024x1 + 8.21519258089977 * pixelPerThread_1 + -20.71236543015 * bs_64x2 + -18.66 * LocalMemory * Linear1D + 14.1645382794001 * bs_32x32;10.0337492820651;10.0337492820651;10.0337492820651;10.0337492820651;1.2187666;9;14.1645382794001 * bs_32x32;1;0.755833429489448;
+8;23.9876546715088 * API + 9.78638956751405 * Array2D + 22.8429557609772 * LocalMemory + 50.734220864972 * bs_1024x1 + 7.53616870254209 * pixelPerThread_1 + -20.599194783757 * bs_64x2 + -21.7771132386927 * LocalMemory * Linear1D + 14.617220864972 * bs_32x32 + 9.35133971607797 * padding_224;9.29626561148571;9.29626561148571;9.29626561148571;9.29626561148571;1.5937697;10;9.35133971607797 * padding_224;1;0.737483670579396;
+Elapsed=00:00:01.5935016
+average model: 
+
+command: analyze-learning
+Round, Model, LearningError, LearningErrorRel, ValidationError, ValidationErrorRel, ElapsedSeconds, ModelComplexity, BestCandidate, BestCandidateSize, BestCandidateScore, TestError
+Models:
+Termination reason: abortError
+1;34.4454583333333 * API + 22.1715416666666 * Array2D;34.0807417438885;34.0807417438885;34.0807417438885;34.0807417438885;0.2656286;2;22.1715416666666 * Array2D;1;1.79769313486232E+308;32.6687927681809
+2;25.3495862068966 * API + 8.28836842105263 * Array2D + 22.9790453720508 * LocalMemory;19.7054744824871;19.7054744824871;19.7054744824871;19.7054744824871;0.3125036;3;22.9790453720508 * LocalMemory;1;14.3752672614014;21.1888453210622
+3;25.3495862068966 * API + 11.4423888888889 * Array2D + 19.8250249042146 * LocalMemory + 59.9263888888889 * bs_1024x1;16.8517744212837;16.8517744212837;16.8517744212837;16.8517744212837;0.4687565;4;59.9263888888889 * bs_1024x1;1;2.85370006120342;23.1120159738948
+4;24.0885707909745 * API + 14.9977517976692 * Array2D + 17.5306774113563 * LocalMemory + 54.3393900322341 * bs_1024x1 + 9.1423617654352 * pixelPerThread_1;14.6400975927491;14.6400975927491;14.6400975927491;14.6400975927491;0.5625073;5;9.1423617654352 * pixelPerThread_1;1;2.21167682853459;22.8365120471671
+5;24.0160470324748 * API + 13.1710596304591 * Array2D + 19.4298933370661 * LocalMemory + 51.9869006159015 * bs_1024x1 + 9.6681590145577 * pixelPerThread_1 + -18.2805198768197 * bs_64x2;13.2074650433867;13.2074650433867;13.2074650433867;13.2074650433867;0.7656333;6;-18.2805198768197 * bs_64x2;1;1.4326325493624;23.7413616900258
+6;24.0601488591299 * API + 9.35900798896491 * Array2D + 23.1978431519053 * LocalMemory + 48.4945872176561 * bs_1024x1 + 9.3484207713087 * pixelPerThread_1 + -21.9327023966895 * bs_64x2 + -19.6914656014714 * LocalMemory * Linear1D;10.7895827115546;10.7895827115546;10.7895827115546;10.7895827115546;0.9218859;8;-19.6914656014714 * LocalMemory * Linear1D;2;1.20894116591607;24.0874858214211
+7;24.216456195738 * API + 10.0127308602999 * Array2D + 22.3878129439621 * LocalMemory + 50.2815382794001 * bs_1024x1 + 8.21519258089977 * pixelPerThread_1 + -20.71236543015 * bs_64x2 + -18.66 * LocalMemory * Linear1D + 14.1645382794001 * bs_32x32;10.0337492820651;10.0337492820651;10.0337492820651;10.0337492820651;1.2187666;9;14.1645382794001 * bs_32x32;1;0.755833429489448;24.1031616123205
+8;23.9876546715088 * API + 9.78638956751405 * Array2D + 22.8429557609772 * LocalMemory + 50.734220864972 * bs_1024x1 + 7.53616870254209 * pixelPerThread_1 + -20.599194783757 * bs_64x2 + -21.7771132386927 * LocalMemory * Linear1D + 14.617220864972 * bs_32x32 + 9.35133971607797 * padding_224;9.29626561148571;9.29626561148571;9.29626561148571;9.29626561148571;1.5937697;10;9.35133971607797 * padding_224;1;0.737483670579396;25.2471325472882
+Analyze finished
+command: measurementstocsv ./sampledConfigurations_rand_0.csv
+command: clean-sampling
+command: clean-global
+command: script ./learn_rand_1.a
+command: log ./out_rand_1.log

@@ -8,12 +8,12 @@ In part 5, we show the variances of the sampling strategies.
 In part 6, we show the performance wall time of the sampling strategies.
 Last, in part 7, we show the results when paring different machine-learning techniques with respect to their accuracy in predicting all configurations. 
 
-## 1 Raw Data
+## 1 Prediction Results
 
-The raw data for the subject systems can be accessed in the directory *Results*, which has two subdirectories, *RawData_Summary* and *RawData*.
-In the directory *RawData_Summary*, we have summarized our results in different csv-files and provide the feature models (a.k.a. variability models), whereas the results of all 100 runs of all subject systems are stored in the directory *RawData*.
+The prediction results for the subject systems can be accessed in the directory *Predictions*, which has two subdirectories, *DetailedPredictions* and *SummarizedPredictions*.
+In the directory *SummarizedPredictions*, we have summarized our results in different csv-files and provide the feature models (i.e., variability models), whereas the results of all 100 runs of all subject systems are stored in the directory *DetailedPredictions*.
 
-**New**: We additionally provide the data from the subject systems in the folder [Subject Systems](SubjectSystems/). Further information is provided there.
+**New**: We additionally provide the data from the subject systems in the folder [RawPerformanceMeasurements](RawPerformanceMeasurements/). Further information is provided there.
 
 ## 2 Results of the Kruskal-Wallis Test
 

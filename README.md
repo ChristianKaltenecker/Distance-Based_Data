@@ -7,7 +7,7 @@ In this repository, we extensively describe how to reproduce our results in the 
 
 ## Overview
 
-TODO
+![Sketch](https://github.com/ChristianKaltenecker/Distance-Based_Data/raw/master/Sketch.png)
 
 ## Data 
 

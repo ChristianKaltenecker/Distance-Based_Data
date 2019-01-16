@@ -9,6 +9,18 @@ In this repository, we extensively describe how to reproduce our results in the 
 
 ![Sketch](https://github.com/ChristianKaltenecker/Distance-Based_Data/raw/master/Sketch.png)
 
+The picture above contains the sketch of our approach.
+The input are the variability model and the raw performance measurements from the given case study.
+Generally, our approach consists of 3 stages:
+
+I. Sampling: SPL Conqueror provides different sampling strategies to select a few configurations from the set of all valid configurations.
+The sample set is used afterwards as input for the machine-learning technique.
+
+II. Machine Learning: Uses a set of configurations to derive a performance model for performance predictions.
+The error between the predictions and the real values is given by the error rate.
+
+III. Scripts: Because of the high amount of data, we provide scripts to process the whole data and to generate the table in the paper, we further provide scripts.
+
 ## Data 
 
 In our paper, we use the sampling strategies to predict the performance of all valid configurations (i.e., the whole population) by only using a few configurations (i.e., a sample set).
@@ -60,7 +72,7 @@ Next, the container can be set up by invoking ```sudo docker build -t distance-b
 By invoking this script, all dependencies as described in Section [Manual Setup](#manual-setup) are installed, which might take a while.
 
 After setting up the docker container, all needed ressources (i.e., packages, programs, and scripts) are installed and can now be used inside the container.
-To begin an interactive session, the command ```sudo docker run -i -t distance-based /bin/bash```.
+To begin an interactive session, the command ```sudo docker run -i -t distance-based /bin/bash``` can be used.
 
 
 ### Manual setup
@@ -69,6 +81,8 @@ Requirements:
   * Operating system: Ubuntu/Debian
   * Mono (for running SPL Conqueror)
   * git (for cloning the needed repositories)
+  * wget
+  * unzip
   * Python (for the analysis):
     * scipy
   * R (for the analysis)
@@ -138,6 +152,7 @@ git clone https://github.com/se-passau/Distance-Based_Sampling.git
 ## Usage
 
 <!-- 
+Show it by using a case study as example (e.g., x264)
 Which scripts are available?
 How to configure the script?
 How to execute specific runs of given sampling strategies and use cases?

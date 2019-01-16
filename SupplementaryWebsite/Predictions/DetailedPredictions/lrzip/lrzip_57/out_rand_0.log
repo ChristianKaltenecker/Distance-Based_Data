@@ -1,0 +1,42 @@
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: mlsettings bagging:False stopOnLongRound:False parallelization:True lossFunction:RELATIVE useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False learn_logFunction:True numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: solver z3
+command: vm ../FeatureModel.xml
+Warning: Variability model contains outdated notation. Children nodes will no longer have effect on the model. Instead use the parent node to describe the parent of an configuration option. You can also use the converter providedby the Variability Model GUI in export>convert legacy model.
+Warning: Default value nodes in models are no longer used and should be removed. You can also use the converter provided by the Variability Model GUI in export>convert legacy model to update your model.
+command: all ../measurements.xml
+Configs with too large deviation: 0
+432 configurations loaded.
+command: nfp Performance
+command: binary random numConfigs:18 seed:57 fromFile:../allConfigurations.csv
+command: learn-splconqueror
+Learning: NumberOfConfigurationsLearning:18 NumberOfConfigurationsValidation:18
+Learning progress:
+1;47700.0000000009 * level + 499303.749999999 * compression;227.566607317413;227.566607317413;227.566607317413;227.566607317413;0.2343758;2;499303.749999999 * compression;1;1.79769313486232E+308;
+2;47700.0000000011 * level + 222286.923076922 * compression + 1477423.07692308 * compressionZpaq;91.1510339148563;91.1510339148563;91.1510339148563;91.1510339148563;0.2500014;3;1477423.07692308 * compressionZpaq;1;136.415573402557;
+3;47700.0000000009 * level + 285462.999999999 * compression + 1414247 * compressionZpaq + -273763 * compressionLzo;44.9032668671831;44.9032668671831;44.9032668671831;44.9032668671831;0.2812511;4;-273763 * compressionLzo;1;46.2477670476733;
+4;47700.0000000007 * level + 177466.249999999 * compression + 1522243.75 * compressionZpaq + -165766.25 * compressionLzo + 539983.75 * compressionLrzip;31.9979539364291;31.9979539364291;31.9979539364291;31.9979539364291;0.3281273;5;539983.75 * compressionLrzip;1;12.905312930754;
+5;47700.0000000005 * level + 177466.25 * compression + 2055408.75 * compressionZpaq + -165766.25 * compressionLzo + 539983.750000001 * compressionLrzip + -1599495 * compressionZpaq * level1;20.7398460963179;20.7398460963179;20.7398460963179;20.7398460963179;0.3593778;7;-1599495 * compressionZpaq * level1;2;5.6290539200556;
+6;47699.9999999996 * level + 177466.250000001 * compression + 2055408.75 * compressionZpaq + -165766.25 * compressionLzo + 954663.75 * compressionLrzip + -1599495 * compressionZpaq * level1 + -829360.000000002 * compressionLrzip * disableCompressibilityTesting;12.2138156438091;12.2138156438091;12.2138156438091;12.2138156438091;0.4218789;9;-829360.000000002 * compressionLrzip * disableCompressibilityTesting;2;4.26301522625439;
+7;47699.9999999996 * level + 200131.666666667 * compression + 2032743.33333333 * compressionZpaq + -188431.666666667 * compressionLzo + 931998.333333334 * compressionLrzip + -1599495 * compressionZpaq * level1 + -829360.000000001 * compressionLrzip * disableCompressibilityTesting + -90661.6666666668 * compressionGzip;8.69161424477862;8.69161424477862;8.69161424477862;8.69161424477862;0.51563;10;-90661.6666666668 * compressionGzip;1;3.52220139903048;
+Elapsed=00:00:00.5141014
+average model: 
+
+command: analyze-learning
+Round, Model, LearningError, LearningErrorRel, ValidationError, ValidationErrorRel, ElapsedSeconds, ModelComplexity, BestCandidate, BestCandidateSize, BestCandidateScore, TestError
+Models:
+Termination reason: abortError
+1;47700.0000000009 * level + 499303.749999999 * compression;227.566607317413;227.566607317413;227.566607317413;227.566607317413;0.2343758;2;499303.749999999 * compression;1;1.79769313486232E+308;254.390895495399
+2;47700.0000000011 * level + 222286.923076922 * compression + 1477423.07692308 * compressionZpaq;91.1510339148563;91.1510339148563;91.1510339148563;91.1510339148563;0.2500014;3;1477423.07692308 * compressionZpaq;1;136.415573402557;109.546746752054
+3;47700.0000000009 * level + 285462.999999999 * compression + 1414247 * compressionZpaq + -273763 * compressionLzo;44.9032668671831;44.9032668671831;44.9032668671831;44.9032668671831;0.2812511;4;-273763 * compressionLzo;1;46.2477670476733;60.7084843418927
+4;47700.0000000007 * level + 177466.249999999 * compression + 1522243.75 * compressionZpaq + -165766.25 * compressionLzo + 539983.75 * compressionLrzip;31.9979539364291;31.9979539364291;31.9979539364291;31.9979539364291;0.3281273;5;539983.75 * compressionLrzip;1;12.905312930754;54.2458566927523
+5;47700.0000000005 * level + 177466.25 * compression + 2055408.75 * compressionZpaq + -165766.25 * compressionLzo + 539983.750000001 * compressionLrzip + -1599495 * compressionZpaq * level1;20.7398460963179;20.7398460963179;20.7398460963179;20.7398460963179;0.3593778;7;-1599495 * compressionZpaq * level1;2;5.6290539200556;52.204191822327
+6;47699.9999999996 * level + 177466.250000001 * compression + 2055408.75 * compressionZpaq + -165766.25 * compressionLzo + 954663.75 * compressionLrzip + -1599495 * compressionZpaq * level1 + -829360.000000002 * compressionLrzip * disableCompressibilityTesting;12.2138156438091;12.2138156438091;12.2138156438091;12.2138156438091;0.4218789;9;-829360.000000002 * compressionLrzip * disableCompressibilityTesting;2;4.26301522625439;53.3457550832498
+7;47699.9999999996 * level + 200131.666666667 * compression + 2032743.33333333 * compressionZpaq + -188431.666666667 * compressionLzo + 931998.333333334 * compressionLrzip + -1599495 * compressionZpaq * level1 + -829360.000000001 * compressionLrzip * disableCompressibilityTesting + -90661.6666666668 * compressionGzip;8.69161424477862;8.69161424477862;8.69161424477862;8.69161424477862;0.51563;10;-90661.6666666668 * compressionGzip;1;3.52220139903048;44.8574028435785
+Analyze finished
+command: measurementstocsv ./sampledConfigurations_rand_0.csv
+command: clean-sampling
+command: clean-global
+command: script ./learn_rand_1.a
+command: log ./out_rand_1.log

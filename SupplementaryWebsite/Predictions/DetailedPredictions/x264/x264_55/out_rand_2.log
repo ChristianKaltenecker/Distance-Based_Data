@@ -1,0 +1,32 @@
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: mlsettings bagging:False stopOnLongRound:False parallelization:True lossFunction:RELATIVE useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False learn_logFunction:True numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: solver z3
+command: vm ../FeatureModel.xml
+Warning: Variability model contains outdated notation. Children nodes will no longer have effect on the model. Instead use the parent node to describe the parent of an configuration option. You can also use the converter providedby the Variability Model GUI in export>convert legacy model.
+Warning: Default value nodes in models are no longer used and should be removed. You can also use the converter provided by the Variability Model GUI in export>convert legacy model to update your model.
+command: all ../measurements.xml
+Configs with too large deviation: 0
+1152 configurations loaded.
+command: nfp Performance
+command: binary random numConfigs:212 seed:55 fromFile:../allConfigurations.csv
+command: learn-splconqueror
+Learning: NumberOfConfigurationsLearning:212 NumberOfConfigurationsValidation:212
+Learning progress:
+1;453.863238095239 * no_asm + 9.28875567423241 * no_8x8dct;36.2925983414269;36.2925983414269;36.2925983414269;36.2925983414269;0.046875;2;9.28875567423241 * no_8x8dct;1;1.79769313486232E+308;
+2;563.060561180285 * no_asm + -0.789034657214106 * no_8x8dct + -286.642973098246 * ref_1;14.5442634457672;14.5442634457672;14.5442634457672;14.5442634457672;0.0625006;3;-286.642973098246 * ref_1;1;21.7483348956597;
+3;658.937688688274 * no_asm + -5.20971658422901 * no_8x8dct + -380.395876823125 * ref_1 + -197.405694979492 * ref_5;8.60357939035543;8.60357939035543;8.60357939035543;8.60357939035543;0.1249997;4;-197.405694979492 * ref_5;1;5.9406840554118;
+Elapsed=00:00:00.1344134
+average model: 
+
+command: analyze-learning
+Round, Model, LearningError, LearningErrorRel, ValidationError, ValidationErrorRel, ElapsedSeconds, ModelComplexity, BestCandidate, BestCandidateSize, BestCandidateScore, TestError
+Models:
+Termination reason: abortError
+1;453.863238095239 * no_asm + 9.28875567423241 * no_8x8dct;36.2925983414269;36.2925983414269;36.2925983414269;36.2925983414269;0.046875;2;9.28875567423241 * no_8x8dct;1;1.79769313486232E+308;34.5912155462045
+2;563.060561180285 * no_asm + -0.789034657214106 * no_8x8dct + -286.642973098246 * ref_1;14.5442634457672;14.5442634457672;14.5442634457672;14.5442634457672;0.0625006;3;-286.642973098246 * ref_1;1;21.7483348956597;14.5850245036795
+3;658.937688688274 * no_asm + -5.20971658422901 * no_8x8dct + -380.395876823125 * ref_1 + -197.405694979492 * ref_5;8.60357939035543;8.60357939035543;8.60357939035543;8.60357939035543;0.1249997;4;-197.405694979492 * ref_5;1;5.9406840554118;9.19732426741572
+Analyze finished
+command: measurementstocsv ./sampledConfigurations_rand_2.csv
+command: clean-sampling
+command: clean-global

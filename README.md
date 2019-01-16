@@ -1,87 +1,145 @@
-# Distance-Based Sampling of Software Configuration Spaces (Supplementary Website)
+[![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 
-In the first part, we briefly describe the location of the raw data.
-In part 2, we show the results of the Kruskal-Wallis test for different sample sizes.
-In part 3, we show the results of the Levene's test for different variances.
-In part 4, we show the error rates by using different distributions.
-In part 5, we show the variances of the sampling strategies. 
-In part 6, we show the performance wall time of the sampling strategies.
-Last, in part 7, we show the results when paring different machine-learning techniques with respect to their accuracy in predicting all configurations. 
+# Distance-Based Sampling
 
-## 1 Prediction Results
+Distance-based sampling is a novel black-box sampling approach as described in the paper "Distance-Based Sampling of Software Configuration Spaces" by Christian Kaltenecker, Alexander Grebhahn, Norbert Siegmund, Jianmei Guo, and Sven Apel submitted to ICSE 2019.
+In this repository, we extensively describe how to reproduce our results in the paper. 
 
-The prediction results for the subject systems can be accessed in the directory *Predictions*, which has two subdirectories, *DetailedPredictions* and *SummarizedPredictions*.
-In the directory *SummarizedPredictions*, we have summarized our results in different csv-files and provide the feature models (i.e., variability models), whereas the results of all 100 runs of all subject systems are stored in the directory *DetailedPredictions*.
+## Overview
 
-**New**: We additionally provide the data from the subject systems in the folder [RawPerformanceMeasurements](RawPerformanceMeasurements/). Further information is provided there.
+TODO
 
-## 2 Results of the Kruskal-Wallis Test
+## Data 
 
-In the following, we present the results for the Kruskal-Wallis test:
+In our paper, we use the sampling strategies to predict the performance of all valid configurations (i.e., the whole population) by only using a few configurations (i.e., a sample set).
+For this process, we distinguish between the following data:
+* <i>Raw Performance Measurements</i>: Contains the performance values for the whole population of all case studies.
+* <i>Predictions</i>: Contains the prediction error that are a result by applying the machine-learning technique on the sample set.
 
-[![](https://image.ibb.co/gZStuT/kruskal.png)](https://image.ibb.co/kdWKZT/kruskal.png)
+The data is published in the [Distance-Based Data](https://github.com/se-passau/Distance-Based_Data) repository.
 
-## 3 Results of the Levene Test
+### Raw Measurements
 
-In the following, we present the results for the Levene's test:
+We have acquired the raw performance measurements for all used case studies in previous studies and selected a subset of it by using different sampling strategies.
+To replicate the raw performance measurements, we also provide detailed description files describing the environment and the used workload.
+However, we do not advise the replication of the raw data, since this process needs multiple months of CPU time per case study and has to be performed on a hardware with the same characteristics.
 
-[![](https://image.ibb.co/jiJVr8/levene.png)](https://image.ibb.co/fAoryo/levene.png)
+### Predictions
 
-## 4 Error Rates of the Distributions
+For comparing the different sampling strategies, we applied a machine-learning technique to learn performance models that can be used for performance prediction.
+For answering our research questions and, thus, for comparing the sampling strategies, we used the prediction error of these performance models.
+Since using a random seed in all sampling strategies (except for t-wise) results in different sample sets, we have performed the case studies with 100 different seeds from 1 to 100.
 
-For a detailed view on the error rates by using the optimized distance-based sampling strategy with different distributions (binomial distribution, geometric distribution, uniform distribution), we provide the following tables.
+## Programs & Scripts
 
-[![](https://preview.ibb.co/iXj8Jd/Results_binomial_geometric.png)](https://image.ibb.co/fwgAWy/Results_binomial_geometric.png)
+### SPL Conqueror
+The distance-based sampling strategy was implemented in [SPL Conqueror](https://github.com/se-passau/SPLConqueror), which is a library that currently contains the implementations of all sampling strategies considered in the paper, as well as the machine-learning technique (i.e., multiple linear regression).
+So, to perform sampling and to learn performance models, we depend only on SPL Conqueror.
 
-[![](https://preview.ibb.co/gLnTJd/Statistic_binomial_geometric.png)](https://image.ibb.co/iOFtjJ/Statistic_binomial_geometric.png)
+### Scripts
 
-## 5 Variance of the Sampling Strategies
+To process the prediction data and automatically generate tables as presented in Section V (Results), we additionally provide python scripts for data processing, which further invoke an R script for the significance tests.
+The output of the scrips are tex files that can be embedded in LaTeX.
 
-For a detailed view on the variances of the sampling strategies on the subject systems in the sample sizes *t=1*, *t=2*, and *t=3*, we provide the following table.
+## Installation
+<!-- TODO: Put the following text also in INSTALL -->
+For the reproduction of our results, one can use the provided Dockerfile to automatically deploy a docker container with a fully initialized environment.
+Alternatively, it is also possible to manually setup on a Linux-based operating system.
 
-[![](https://preview.ibb.co/fGbYTo/Variances.png)](https://image.ibb.co/erjyuT/Variances.png)
+### Setup via Dockerfile
+
+To ease the installation of our tool, we also provide a [Dockerfile](./Dockerfile) for setting up a docker container.
+Please note that the container will use up to 5 GB of space after the setup.
+
+For setting up a docker container, docker is needed. 
+Please refer to the [documentation](https://docs.docker.com/install/linux/docker-ce/ubuntu/) on how to install docker on your Linux operating system.
+
+After docker is installed, make sure that the docker daemon is running. On systemd, you can use ```sudo systemctl status docker``` to check the status of the daemon and ```sudo systemctl start docker``` to start the daemon.
+
+Next, the container can be set up by invoking ```sudo docker build -t distance-based ./```.
+By invoking this script, all dependencies as described in Section [Manual Setup](#manual-setup) are installed, which might take a while.
+
+After setting up the docker container, all needed ressources (i.e., packages, programs, and scripts) are installed and can now be used inside the container.
+To begin an interactive session, the command ```sudo docker run -i -t distance-based /bin/bash```.
 
 
-## 6 Wall Time
+### Manual setup
 
-In the following, we provide the wall time for the sampling strategies and the subject systems presented in the paper.
+Requirements:
+  * Operating system: Ubuntu/Debian
+  * Mono (for running SPL Conqueror)
+  * git (for cloning the needed repositories)
+  * Python (for the analysis):
+    * scipy
+  * R (for the analysis)
 
-**Note**: For true random, we have only measured acquiring the whole population, since this needs the most time.
-Drawing from the whole population is negligible.
+#### Data
 
-[![](https://i.ibb.co/74bX5Zd/performance.png)](https://i.ibb.co/74bX5Zd/performance.png)
+To clone the repository containing the data (variability models, raw performance measurements and predictions), use the following command:
 
-Generally, solver-based sampling has the lowest wall time. The reason for that is because of the simple SAT calls. 
-Coverage-based sampling is as generally similarly fast as distance-based sampling.
-The randomized solver-based sampling and true random sampling indicate the highest wall time, mainly in the larger subject systems.
+```
+git clone https://github.com/ChristianKaltenecker/Distance-Based_Data.git
+```
 
-## 7 Machine-Learning Techniques
+#### SPL Conqueror
 
-In the parallel line of experiments, we compared six different machine-learning techniques:
-* Classification And Regression Trees (CART)
-* k-Nearest Neighbors (knn)
-* Kernel Ridge Regression (KRR)
-* Multiple Linear Regression (MR)
-* Random Forest (RF)
-* Support Vector Machines (SVR)
+Since we performed SPL Conqueror with a specific version, additional steps are needed to reset the repository to the version from the paper.
+```
+git clone https://github.com/se-passau/SPLConqueror.git
+cd SPLConqueror
+git reset --hard 8d5e442f0e085f8df6d7807ca69c65deeae7e0b3
+```
 
-In the paper, we have used MR.
+SPL Conqueror is written in C# and, thus, depends on [Mono](https://www.mono-project.com/) and [NuGet](https://www.nuget.org/).
+The Mono packages can be downloaded by using a package manager, such as apt:
+```
+sudo apt install -y mono-complete
+```
+The current version of NuGet can be downloaded by using the command:
+```
+cd SPLConqueror
+wget https://dist.nuget.org/win-x86-commandline/latest/nuget.exe 
+``` 
 
-The comparison was performed on software systems that contain binary and numeric configuration options.
-Thus, we used binary **and** numeric sampling strategies.
-The binary sampling strategies are:
-* Option-Wise (OW)
-* Negative Option-Wise (NegOW)
-* Pair-Wise / t-wise with *t=2* (T2)
-* Tripple-Wise / t-wise with *t=3* (T3)
+After cloning the repository with the given version, SPL Conqueror has to be built. This can be done by using the following commands:
+```
+mono nuget.exe restore ./
+xbuild /p:Configuration=Release SPLConqueror.sln
+cd ~
+```
 
-In the following table, we illustrate the results of the comparison as a heat map.
+#### z3 Constraint solver
 
-[![](http://preview.ibb.co/kEBaRn/Machine_Learning_Techniques2.jpg)](http://image.ibb.co/cGntCS/Machine_Learning_Techniques2.jpg)
+Since we used the [z3](https://github.com/Z3Prover/z3) constraint solver to find solutions (i.e., valid configurations), the library for the z3 solver has to be additionally downloaded.
+This can be done as follows:
+```
+wget https://github.com/Z3Prover/z3/releases/download/z3-4.7.1/z3-4.7.1-x64-debian-8.10.zip
+unzip z3-4.7.1-x64-debian-8.10.zip -d z3
+rm z3-4.7.1-x64-debian-8.10.zip
+```
 
-In the table, we perform a pair-wise comparison of the machine-learning techniques with respect to their accuracy in predicting the performance of all configurations. On the diagonal, we show the prediction error of the respective machine-learning technique. 
-For the plots not on the diagonal, we show the difference between the machine-learning technique in the row to the machine-learning technique in the column. 
-The green color indicates that the machine-learning technique in the column is more accurate, whereas the red color indicates that the machine-learning technique in the row is more accurate. 
-As we can see, CART, MR, and RF outperform the other machine-learning technique. 
-However, RF has slightly lower error rates than CART and MR, as can be seen on the diagonal. 
-Besides, we also see that the accuracy of the machine-learning technique strongly depends on the learning set. 
+#### Scripts
+
+To execute the scripts, [python3](https://www.python.org/download/releases/3.0/) and [R](https://www.r-project.org/) are needed.
+These can be installed using apt as follows:
+```
+sudo apt install -y python3 r-recommend
+```
+
+
+
+<!-- Python and R packages? -->
+
+The data processing scripts are provided by this repository. You can clone it by using:
+```
+git clone https://github.com/se-passau/Distance-Based_Sampling.git
+```
+
+## Usage
+
+<!-- 
+Which scripts are available?
+How to configure the script?
+How to execute specific runs of given sampling strategies and use cases?
+ -->
+TODO

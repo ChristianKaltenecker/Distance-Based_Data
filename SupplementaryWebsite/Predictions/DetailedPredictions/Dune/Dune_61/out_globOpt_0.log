@@ -1,0 +1,37 @@
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: mlsettings bagging:False stopOnLongRound:False parallelization:True lossFunction:RELATIVE useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False learn_logFunction:True numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: solver z3
+command: vm /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/Dune_disc/FeatureModel.xml
+Warning: Variability model contains outdated notation. Children nodes will no longer have effect on the model. Instead use the parent node to describe the parent of an configuration option. You can also use the converter providedby the Variability Model GUI in export>convert legacy model.
+Warning: Default value nodes in models are no longer used and should be removed. You can also use the converter provided by the Variability Model GUI in export>convert legacy model to update your model.
+command: all /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/Dune_disc/measurements.xml
+Configs with too large deviation: 0
+2304 configurations loaded.
+command: nfp Performance
+command: hybrid distribution-aware distance-metric:manhattan distribution:uniform onlyBinary:true selection:SolverSelection number-weight-optimization:1-1 numConfigs:25 seed:61
+command: learn-splconqueror
+Learning: NumberOfConfigurationsLearning:25 NumberOfConfigurationsValidation:25
+Learning progress:
+1;11795.151875 * Precon + -742.54393849206 * BiCGSTABSolver;21.6655576459141;21.6655576459141;21.6655576459141;21.6655576459141;0.150511;2;-742.54393849206 * BiCGSTABSolver;1;1.79769313486232E+308;
+2;10502.6799489796 * Precon + 549.927987528347 * BiCGSTABSolver + 10339.7754081633 * cells_50;16.8974245287396;16.8974245287396;16.8974245287396;16.8974245287396;0.177889;3;10339.7754081633 * cells_50;1;4.76813311717455;
+3;9962.50977542109 * Precon + 249.833446662513 * BiCGSTABSolver + 10879.9455817218 * cells_50 + 7562.38242981909 * post_1;14.3164893494215;14.3164893494215;14.3164893494215;14.3164893494215;0.207521;4;7562.38242981909 * post_1;1;2.5809351793181;
+4;9962.50977542108 * Precon + 249.833446662498 * BiCGSTABSolver + 3256.98308172178 * cells_50 + 7562.38242981907 * post_1 + 15245.925 * cells_50 * pre_1;10.9387176523641;10.9387176523641;10.9387176523641;10.9387176523641;0.252338;6;15245.925 * cells_50 * pre_1;2;1.68888584852872;
+5;10202.8860057278 * Precon + 23.5969946091577 * BiCGSTABSolver + 3016.60685141511 * cells_50 + 7435.12442553908 * post_1 + 15245.925 * cells_50 * pre_1 + -3238.00922001347 * pre_4;9.46744564565845;9.46744564565845;9.46744564565845;9.46744564565845;0.329324;7;-3238.00922001347 * pre_4;1;1.4712720067056;
+Elapsed=00:00:00.3329070
+average model: 
+command: analyze-learning
+Round, Model, LearningError, LearningErrorRel, ValidationError, ValidationErrorRel, ElapsedSeconds, ModelComplexity, BestCandidate, BestCandidateSize, BestCandidateScore, TestError
+Models:
+Termination reason: abortError
+1;11795.151875 * Precon + -742.54393849206 * BiCGSTABSolver;21.6655576459141;21.6655576459141;21.6655576459141;21.6655576459141;0.150511;2;-742.54393849206 * BiCGSTABSolver;1;1.79769313486232E+308;24.0570691708138
+2;10502.6799489796 * Precon + 549.927987528347 * BiCGSTABSolver + 10339.7754081633 * cells_50;16.8974245287396;16.8974245287396;16.8974245287396;16.8974245287396;0.177889;3;10339.7754081633 * cells_50;1;4.76813311717455;37.512601452761
+3;9962.50977542109 * Precon + 249.833446662513 * BiCGSTABSolver + 10879.9455817218 * cells_50 + 7562.38242981909 * post_1;14.3164893494215;14.3164893494215;14.3164893494215;14.3164893494215;0.207521;4;7562.38242981909 * post_1;1;2.5809351793181;42.6840719729729
+4;9962.50977542108 * Precon + 249.833446662498 * BiCGSTABSolver + 3256.98308172178 * cells_50 + 7562.38242981907 * post_1 + 15245.925 * cells_50 * pre_1;10.9387176523641;10.9387176523641;10.9387176523641;10.9387176523641;0.252338;6;15245.925 * cells_50 * pre_1;2;1.68888584852872;32.2324192706756
+5;10202.8860057278 * Precon + 23.5969946091577 * BiCGSTABSolver + 3016.60685141511 * cells_50 + 7435.12442553908 * post_1 + 15245.925 * cells_50 * pre_1 + -3238.00922001347 * pre_4;9.46744564565845;9.46744564565845;9.46744564565845;9.46744564565845;0.329324;7;-3238.00922001347 * pre_4;1;1.4712720067056;32.3286927695252
+Analyze finished
+command: measurementstocsv /scratch/kaltenec/Distribution-Aware-Sampling/Results_opt/Dune_disc/Dune_disc_61/sampledConfigurations_solv_0.csv
+command: clean-sampling
+command: clean-global
+command: script /scratch/kaltenec/Distribution-Aware-Sampling/Results_opt/Dune_disc/Dune_disc_61/learn_solv_1.a
+command: log /scratch/kaltenec/Distribution-Aware-Sampling/Results_opt/Dune_disc/Dune_disc_61/out_solv_1.log

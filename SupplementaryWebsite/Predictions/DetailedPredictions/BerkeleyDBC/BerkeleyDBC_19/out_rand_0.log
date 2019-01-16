@@ -1,0 +1,42 @@
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: mlsettings bagging:False stopOnLongRound:False parallelization:True lossFunction:RELATIVE useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False learn_logFunction:True numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: solver z3
+command: vm ../FeatureModel.xml
+Warning: Variability model contains outdated notation. Children nodes will no longer have effect on the model. Instead use the parent node to describe the parent of an configuration option. You can also use the converter providedby the Variability Model GUI in export>convert legacy model.
+Warning: Default value nodes in models are no longer used and should be removed. You can also use the converter provided by the Variability Model GUI in export>convert legacy model to update your model.
+command: all ../measurements.xml
+Configs with too large deviation: 0
+2560 configurations loaded.
+command: nfp Performance
+command: binary random numConfigs:15 seed:19 fromFile:../allConfigurations.csv
+command: learn-splconqueror
+Learning: NumberOfConfigurationsLearning:15 NumberOfConfigurationsValidation:15
+Learning progress:
+1;4.47291021142904 * PAGESIZE + 15.2893867993672 * CS16MB;72.957351110139;72.957351110139;72.957351110139;72.957351110139;0.218754;2;15.2893867993672 * CS16MB;1;1.79769313486232E+308;
+2;5.71486679882398 * PAGESIZE + 14.0474302119722 * CS16MB + -4.13985529131647 * PS1K;48.4228204289161;48.4228204289161;48.4228204289161;48.4228204289161;0.2656298;3;-4.13985529131647 * PS1K;1;24.534530681223;
+3;5.71486679882399 * PAGESIZE + 1.61447985074869 * CS16MB + -4.13985529131648 * PS1K + 31.0823759030589 * PS32K;26.3763408403988;26.3763408403988;26.3763408403988;26.3763408403988;0.281255;4;31.0823759030589 * PS32K;1;22.0464795885173;
+4;5.71486679882399 * PAGESIZE + -5.199168824465 * CS16MB + -4.13985529131647 * PS1K + 27.675551565452 * PS32K + 10.2204730128205 * CS16MB * HAVE_CRYPTO;19.3615620815149;19.3615620815149;19.3615620815149;19.3615620815149;0.3125048;6;10.2204730128205 * CS16MB * HAVE_CRYPTO;2;3.50738937944194;
+5;5.71486679882399 * PAGESIZE + -5.199168824465 * CS16MB + -5.14531479882398 * PS1K + 27.6755515654521 * PS32K + 10.2204730128205 * CS16MB * HAVE_CRYPTO + 1.50818926126126 * PS1K * HAVE_CRYPTO;14.0631351906264;14.0631351906264;14.0631351906264;14.0631351906264;0.3437553;8;1.50818926126126 * PS1K * HAVE_CRYPTO;2;2.64921344544426;
+6;3.12688442768781 * PAGESIZE + -2.61118645332884 * CS16MB + -2.5573324276878 * PS1K + 27.6755515654521 * PS32K + 10.2204730128205 * CS16MB * HAVE_CRYPTO + 1.50818926126127 * PS1K * HAVE_CRYPTO + 18.1158765979532 * PS16K;13.5340786241064;13.5340786241064;13.5340786241064;13.5340786241064;0.4218792;9;18.1158765979532 * PS16K;1;0.52905656651995;
+7;0.543804667847504 * PAGESIZE + -0.0281066934885126 * CS16MB + 0.0257473321524937 * PS1K + 27.675551565452 * PS32K + 2.47123373329961 * CS16MB * HAVE_CRYPTO + -6.24105001825967 * PS1K * HAVE_CRYPTO + 12.9497170782726 * PS16K + 7.74923927952093 * HAVE_CRYPTO;7.64868160857379;7.64868160857379;7.64868160857379;7.64868160857379;0.4843795;10;7.74923927952093 * HAVE_CRYPTO;1;5.88539701553263;
+Elapsed=00:00:00.4805945
+average model: 
+
+command: analyze-learning
+Round, Model, LearningError, LearningErrorRel, ValidationError, ValidationErrorRel, ElapsedSeconds, ModelComplexity, BestCandidate, BestCandidateSize, BestCandidateScore, TestError
+Models:
+Termination reason: abortError
+1;4.47291021142904 * PAGESIZE + 15.2893867993672 * CS16MB;72.957351110139;72.957351110139;72.957351110139;72.957351110139;0.218754;2;15.2893867993672 * CS16MB;1;1.79769313486232E+308;153.807290305676
+2;5.71486679882398 * PAGESIZE + 14.0474302119722 * CS16MB + -4.13985529131647 * PS1K;48.4228204289161;48.4228204289161;48.4228204289161;48.4228204289161;0.2656298;3;-4.13985529131647 * PS1K;1;24.534530681223;146.474642597708
+3;5.71486679882399 * PAGESIZE + 1.61447985074869 * CS16MB + -4.13985529131648 * PS1K + 31.0823759030589 * PS32K;26.3763408403988;26.3763408403988;26.3763408403988;26.3763408403988;0.281255;4;31.0823759030589 * PS32K;1;22.0464795885173;191.736396284876
+4;5.71486679882399 * PAGESIZE + -5.199168824465 * CS16MB + -4.13985529131647 * PS1K + 27.675551565452 * PS32K + 10.2204730128205 * CS16MB * HAVE_CRYPTO;19.3615620815149;19.3615620815149;19.3615620815149;19.3615620815149;0.3125048;6;10.2204730128205 * CS16MB * HAVE_CRYPTO;2;3.50738937944194;170.591546278993
+5;5.71486679882399 * PAGESIZE + -5.199168824465 * CS16MB + -5.14531479882398 * PS1K + 27.6755515654521 * PS32K + 10.2204730128205 * CS16MB * HAVE_CRYPTO + 1.50818926126126 * PS1K * HAVE_CRYPTO;14.0631351906264;14.0631351906264;14.0631351906264;14.0631351906264;0.3437553;8;1.50818926126126 * PS1K * HAVE_CRYPTO;2;2.64921344544426;169.085708989075
+6;3.12688442768781 * PAGESIZE + -2.61118645332884 * CS16MB + -2.5573324276878 * PS1K + 27.6755515654521 * PS32K + 10.2204730128205 * CS16MB * HAVE_CRYPTO + 1.50818926126127 * PS1K * HAVE_CRYPTO + 18.1158765979532 * PS16K;13.5340786241064;13.5340786241064;13.5340786241064;13.5340786241064;0.4218792;9;18.1158765979532 * PS16K;1;0.52905656651995;269.697960222158
+7;0.543804667847504 * PAGESIZE + -0.0281066934885126 * CS16MB + 0.0257473321524937 * PS1K + 27.675551565452 * PS32K + 2.47123373329961 * CS16MB * HAVE_CRYPTO + -6.24105001825967 * PS1K * HAVE_CRYPTO + 12.9497170782726 * PS16K + 7.74923927952093 * HAVE_CRYPTO;7.64868160857379;7.64868160857379;7.64868160857379;7.64868160857379;0.4843795;10;7.74923927952093 * HAVE_CRYPTO;1;5.88539701553263;196.703844828346
+Analyze finished
+command: measurementstocsv ./sampledConfigurations_rand_0.csv
+command: clean-sampling
+command: clean-global
+command: script ./learn_rand_1.a
+command: log ./out_rand_1.log

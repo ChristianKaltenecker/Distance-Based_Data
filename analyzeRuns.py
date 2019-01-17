@@ -3,6 +3,9 @@ import os
 import math
 from shutil import copyfile
 
+# The sampling strategies that should be analyzed
+TYPES = ["local_"]  # , "binom_"] #["semi_", "solv_", "globOpt_", "locOpt_", "rand_", "henard_"]#, "solv_", "rand_"]
+
 SEPARATOR = "/"
 SPL_CONQUEROR_PREFIX = "out_"
 ALL_RESULTS_PREFIX = "all_"
@@ -12,7 +15,6 @@ T_TEST_PREFIX = "ttest_"
 KOLMOGOROV_SMIRNOV_PREFIX = "kstest_"
 WHOLE_POPULATION = "wp"
 VARIANCE_RESULT_PREFIX = "var_"
-TYPES = ["local_"]  # , "binom_"] #["semi_", "solv_", "globOpt_", "locOpt_", "rand_", "henard_"]#, "solv_", "rand_"]
 OTHER_FILE_PREFIXES = ["dist_", "measurement_", "point_"]
 OTHER_FILE_SUFFIX = ".txt"
 SAMPLED_CONFIGURATIONS_FILE = ["sampledConfigurations"]
@@ -24,6 +26,9 @@ PERCENT = "%"
 
 
 def print_usage():
+    '''
+    Prints the usage of this script.
+    '''
     print("Usage: <RunDirectory> <OriginalDirectory>")
     print("RunDirectory\t The directory containing the data of all runs.")
     print("OriginalDirectory\t The directory where the average run should be copied to.")
@@ -79,18 +84,37 @@ def get_specific_files_from_directory(path, prefixes, suffix, contains=None, exc
 
 
 def add_to_dictionary(dictionary, file_name, number_run, value):
+    '''
+    Adds the given data to the dictionary.
+    :param dictionary: the dictionary to add to
+    :param file_name: the file name
+    :param number_run: the number of the random seed run
+    :param value: the value to add to the dictionary
+    '''
     if file_name not in dictionary:
         dictionary[file_name] = {}
     dictionary[file_name][number_run] = value
 
 
 def add_bucket_to_dictionary(dict, bucket, numberRun, value):
+    '''
+    Adds the given bucket to the dictionary
+    :param dict: the dictionary to add to
+    :param bucket: the bucket (key)
+    :param numberRun: the number of run
+    :param value: the value to add
+    '''
     if bucket not in dict:
         dict[bucket] = {}
     dict[bucket][numberRun] = int(value)
 
 
 def analyze_log_file(path):
+    '''
+    Analyzes the log files of SPL Conqueror.
+    :param path: the path to the log file
+    :return: the error rate
+    '''
     error_rate = sys.float_info.max
     python_learner = False
 
@@ -119,12 +143,25 @@ def analyze_log_file(path):
 
 
 def add_to_sum_dict(dict, file, value):
+    '''
+    Adds the given value to the dictionary.
+    :param dict: the dictionary to add up to
+    :param file: the file (key)
+    :param value: the value to add
+    :return:
+    '''
     if file not in dict:
         dict[file] = 0
     dict[file] += value
 
 
 def copy_file_content(openedFile, target, run):
+    '''
+    Copies the file content
+    :param openedFile: the file stream
+    :param target: the targeted file to read from
+    :param run: the run to write
+    '''
     targetFile = open(target, 'r')
     # Skip the header
     next(targetFile)
@@ -134,12 +171,23 @@ def copy_file_content(openedFile, target, run):
 
 
 def get_header_of(file):
+    '''
+    Returns the header of the file
+    :param file: the file to read the header from
+    :return: the header of the file
+    '''
     f = open(file, 'r')
     result = next(f)
     return result
 
 
 def add_values_from_file_to_dict(dictionary, run, filePath):
+    ''''
+    Reads in the current content of the file into the dictionary
+    :param dictionary: the dictionary to save the content of the file into
+    :param run: the random seed run
+    :param filePath: the path to the file
+    '''
     valueFile = open(filePath, 'r')
 
     # Skip the header
@@ -153,6 +201,11 @@ def add_values_from_file_to_dict(dictionary, run, filePath):
 
 
 def convert_dict_to_list(dictionary):
+    '''
+    Converts the given dictionary to a list.
+    :param dictionary: the dictionary to convert
+    :return: the dictionary as list
+    '''
     result = []
     for key in dictionary.keys():
         result.append(dictionary[key])
@@ -163,6 +216,10 @@ def convert_dict_to_list(dictionary):
 #   MAIN   #
 ############
 def main():
+    '''
+    This is the main method, which (1) gathers and (2) processes the information of all the runs.
+    The accumulated information is stored in another directory.
+    '''
     if len(sys.argv) != 3:
         print_usage()
         exit(0)

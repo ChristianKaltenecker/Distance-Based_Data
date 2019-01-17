@@ -1,5 +1,7 @@
 # Distance-Based Sampling of Software Configuration Spaces (Supplementary Website)
 
+For the reproduction of our results, please refer to the [base directory of this repository](https://github.com/se-passau/Distance-Based_Data).
+
 In the first part, we briefly describe the location of the raw data.
 In part 2, we show the results of the Kruskal-Wallis test for different sample sizes.
 In part 3, we show the results of the Levene's test for different variances.

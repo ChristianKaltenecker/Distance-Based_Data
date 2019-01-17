@@ -13,13 +13,13 @@ The picture above contains the sketch of our approach.
 The input are the variability model and the raw performance measurements from the given case study.
 Generally, our approach consists of 3 stages:
 
-I. Sampling: SPL Conqueror provides different sampling strategies to select a few configurations from the set of all valid configurations.
+*I. Sampling*: SPL Conqueror provides different sampling strategies to select a few configurations from the set of all valid configurations.
 The sample set is used afterwards as input for the machine-learning technique.
 
-II. Machine Learning: Uses a set of configurations to derive a performance model for performance predictions.
+*II. Machine Learning*: Uses a set of configurations to derive a performance model for performance predictions.
 The error between the predictions and the real values is given by the error rate.
 
-III. Scripts: Because of the high amount of data, we provide scripts to process the whole data and to generate the table in the paper, we further provide scripts.
+*III. Scripts*: Because of the high amount of data, we provide scripts to process the whole data and to generate the table in the paper, we further provide scripts.
 
 ## Data 
 
@@ -30,13 +30,13 @@ For this process, we distinguish between the following data:
 
 The data is published in the [Distance-Based Data](https://github.com/se-passau/Distance-Based_Data) repository.
 
-### Raw Measurements
+### Measured Performance Values
 
-We have acquired the raw performance measurements for all used case studies in previous studies and selected a subset of it by using different sampling strategies.
+We have acquired the performance measurements for all used case studies in previous studies and selected a subset of it by using different sampling strategies.
 To replicate the raw performance measurements, we also provide detailed description files describing the environment and the used workload.
 However, we do not advise the replication of the raw data, since this process needs multiple months of CPU time per case study and has to be performed on a hardware with the same characteristics.
 
-### Predictions
+### Predicted Performance Values
 
 For comparing the different sampling strategies, we applied a machine-learning technique to learn performance models that can be used for performance prediction.
 For answering our research questions and, thus, for comparing the sampling strategies, we used the prediction error of these performance models.
@@ -143,11 +143,6 @@ sudo apt install -y python3 r-recommend
 
 
 <!-- Python and R packages? -->
-
-The data processing scripts are provided by this repository. You can clone it by using:
-```
-git clone https://github.com/se-passau/Distance-Based_Sampling.git
-```
 
 ## Usage
 

@@ -13,13 +13,13 @@ The picture above contains the sketch of our approach.
 The input are the variability model and the raw performance measurements from the given case study.
 Generally, our approach consists of 3 stages:
 
-*I. Sampling*: SPL Conqueror provides different sampling strategies to select a few configurations from the set of all valid configurations.
+**I. Sampling**: SPL Conqueror provides different sampling strategies to select a few configurations from the set of all valid configurations.
 The sample set is used afterwards as input for the machine-learning technique.
 
-*II. Machine Learning*: Uses a set of configurations to derive a performance model for performance predictions.
+**II. Machine Learning**: Uses a set of configurations to derive a performance model for performance predictions.
 The error between the predictions and the real values is given by the error rate.
 
-*III. Scripts*: Because of the high amount of data, we provide scripts to process the whole data and to generate the table in the paper, we further provide scripts.
+**III. Aggregation (Python scripts)**: Because of the high amount of data, we provide scripts to process the whole data and to generate the table in the paper, we further provide scripts.
 
 ## Data 
 
@@ -73,6 +73,7 @@ By invoking this script, all dependencies as described in Section [Manual Setup]
 
 After setting up the docker container, all needed ressources (i.e., packages, programs, and scripts) are installed and can now be used inside the container.
 To begin an interactive session, the command ```sudo docker run -i -t distance-based /bin/bash``` can be used.
+After starting the interactive session, you can continue [here](#usage).
 
 
 ### Manual setup
@@ -152,4 +153,7 @@ Which scripts are available?
 How to configure the script?
 How to execute specific runs of given sampling strategies and use cases?
  -->
-TODO
+
+For a better demonstration of the usage, we show it exemplarily on the case study x264.
+Note that the complexity of the case studies differs, which is why some case studies need more time than others. 
+We advise you to take a look on the performance values on the [supplementary website](https://github.com/ChristianKaltenecker/Distance-Based_Data/tree/master/SupplementaryWebsite) to simplify the decision on which results to replicate.

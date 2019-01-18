@@ -31,10 +31,11 @@ RUN cd SPLConqueror/SPLConqueror/ \
 && wget https://dist.nuget.org/win-x86-commandline/latest/nuget.exe \
 && cd ../../
 
-# Download z3 (the library is needed for calling SPL Conqueror)
+# Download z3 (the library is needed for the constraint solver that is usedd inside SPL Conqueror)
 RUN wget https://github.com/Z3Prover/z3/releases/download/z3-4.7.1/z3-4.7.1-x64-debian-8.10.zip \
-&& unzip -d z3 z3-4.7.1-x64-debian-8.10.zip \
+&& unzip z3-4.7.1-x64-debian-8.10.zip \
 && rm z3-4.7.1-x64-debian-8.10.zip \
+&& mv z3-4.7.1-x64-debian-8.10 z3 \
 && cp z3/bin/libz3.so /usr/lib/libz3.so
 
 # Next, restore NuGet packages and build the whole project

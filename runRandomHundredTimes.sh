@@ -28,8 +28,13 @@ createAFiles () {
         > $scriptFile;
         for twCounter in $TW_COUNTER
         do
-          file="${tmp}learn_${FILE_NAME}_$((${twCounter}-1)).a";
-          csvFile="${path}measurements.xml";
+          file="${tmp}learn_${FILE_NAME}_t$((${twCounter})).a";
+          # VP9 has a csv file
+          if [[ $FILE_NAME == *"VP9"* ]]; then
+            csvFile="${path}measurements.csv";
+          else
+            csvFile="${path}measurements.xml";
+          fi
           allConfigFile="${path}allConfigurations.csv";
           sampleFile="${scriptPath}${SAMPLED_CONFIGURATION_FILE_PREFIX}${FILE_NAME}_t$((${twCounter})).csv";
                 
@@ -83,6 +88,8 @@ TYPE=$3;
 LOCATION=$4;
 LOCATION=$(echo $LOCATION | sed 's:/*$::')
 LOCATION="${LOCATION}/"
+CURRENT_SOURCE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
 
 if [ "${TYPE}" = "distanceBased" ]; then
   SAMPLING_STRATEGY="hybrid distribution-aware distance-metric:manhattan distribution:uniform onlyBinary:true selection:SolverSelection";
@@ -122,8 +129,8 @@ MONO_PATH="/usr/bin/mono"
 SPL_CONQUEROR_PATH="../SPLConqueror/SPLConqueror/CommandLine/bin/Release/CommandLine.exe"
 
 
-caseStudyPath="./SupplementaryWebsite/MeasuredPerformanceValues/${CASE_STUDY}/"
-twisePath="./SupplementaryWebsite/PredictedPerformanceValues/Summary/${CASE_STUDY}/"
+caseStudyPath="${CURRENT_SOURCE_DIR}/SupplementaryWebsite/MeasuredPerformanceValues/${CASE_STUDY}/"
+twisePath="${CURRENT_SOURCE_DIR}/SupplementaryWebsite/PredictedPerformanceValues/Summary/${CASE_STUDY}/"
 
 
 for i in `seq ${BEGIN_AT} ${REPETITIONS}`; do

@@ -58,7 +58,7 @@ createAFiles () {
 
           # Write in a-file
           > ${file};
-          echo "log ${scriptPath}${OUT_PREFIX}${FILE_NAME}_$((${twCounter}-1))${LOG_SUFIX}" >> ${file};
+          echo "log ${scriptPath}${OUT_PREFIX}${FILE_NAME}_t$((${twCounter}))${LOG_SUFIX}" >> ${file};
           echo "mlsettings bagging:False stopOnLongRound:False parallelization:True lossFunction:RELATIVE useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False learn_logFunction:True numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False" >> ${file};
           echo "solver z3" >> ${file}
           echo "vm ${path}FeatureModel.xml" >> ${file};
@@ -92,11 +92,11 @@ CURRENT_SOURCE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && 
 
 
 if [ "${TYPE}" = "distanceBased" ]; then
-  SAMPLING_STRATEGY="hybrid distribution-aware distance-metric:manhattan distribution:uniform onlyBinary:true selection:SolverSelection";
+  SAMPLING_STRATEGY="hybrid distribution-aware distance-metric:manhattan distribution:uniform onlyBinary:true selection:SolverSelection number-weight-optimization:1";
   # number-weight-optimization:1-1";
   FILE_NAME="distBased";
 elif [ "${TYPE}" = "diversified" ]; then
-  SAMPLING_STRATEGY="hybrid distribution-aware distance-metric:manhattan distribution:uniform onlyBinary:true selection:SolverSelection optimization:local";
+  SAMPLING_STRATEGY="hybrid distribution-aware distance-metric:manhattan distribution:uniform onlyBinary:true selection:SolverSelection optimization:local number-weight-optimization:1";
   FILE_NAME="divDistBased";
 elif [ "${TYPE}" = "solverBased" ]; then
   SAMPLING_STRATEGY="binary satoutput";
@@ -126,7 +126,7 @@ fi
 MONO_PATH="/usr/bin/mono"
 
 # SPL Conqueror variables
-SPL_CONQUEROR_PATH="../SPLConqueror/SPLConqueror/CommandLine/bin/Release/CommandLine.exe"
+SPL_CONQUEROR_PATH="${CURRENT_SOURCE_DIR}/../SPLConqueror/SPLConqueror/CommandLine/bin/Release/CommandLine.exe"
 
 
 caseStudyPath="${CURRENT_SOURCE_DIR}/SupplementaryWebsite/MeasuredPerformanceValues/${CASE_STUDY}/"

@@ -1,6 +1,6 @@
-Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 considerEpsilonTube:False baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
 command: mlsettings bagging:False stopOnLongRound:False parallelization:True lossFunction:RELATIVE useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False learn_logFunction:True numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False
-Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 considerEpsilonTube:False baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
 command: solver z3
 command: vm /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/Polly_disc/FeatureModel.xml
 Warning: Variability model contains outdated notation. Children nodes will no longer have effect on the model. Instead use the parent node to describe the parent of an configuration option. You can also use the converter providedby the Variability Model GUI in export>convert legacy model.
@@ -8,21 +8,29 @@ command: all /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintDat
 Configs with too large deviation: 0
 60000 configurations loaded.
 command: nfp Performance
-command: hybrid distribution-aware distance-metric:manhattan distribution:uniform onlyBinary:true selection:SolverSelection number-weight-optimization:1-1 numConfigs:28 seed:62
+command: hybrid distribution-aware distance-metric:manhattan distribution:uniform onlyBinary:true selection:SolverSelection optimization:local numConfigs:28 seed:62
 command: learn-splconqueror
 Learning: NumberOfConfigurationsLearning:28 NumberOfConfigurationsValidation:28
 Learning progress:
-1;14.8891666666667 * polly_vectorizer + 14.4281666666667 * max;5.96449660892979;5.96449660892979;5.96449660892979;5.96449660892979;0.122386;2;14.4281666666667 * max;1;1.79769313486232E+308;
-Elapsed=00:00:00.1248606
+1;20.3003921568627 * polly_vectorizer + -1.66008912655971 * parallel_force;45.0677257283033;45.0677257283033;45.0677257283033;45.0677257283033;0.153539;2;-1.66008912655971 * parallel_force;1;1.79769313486232E+308;
+2;29.2761660206718 * polly_vectorizer + 0.713669250645997 * parallel_force + -13.8716505167958 * value_based;20.9354612403428;20.9354612403428;20.9354612403428;20.9354612403428;0.190529;3;-13.8716505167958 * value_based;1;24.1322644879605;
+3;40.5332598571872 * polly_vectorizer + -1.91572493014593 * parallel_force + -13.6486215461037 * value_based + -12.1139946186485 * min;15.0170151916832;15.0170151916832;15.0170151916832;15.0170151916832;0.261791;4;-12.1139946186485 * min;1;5.91844604865961;
+4;39.8462553713935 * polly_vectorizer + -3.45880141190913 * parallel_force + -14.0708430529977 * value_based + -12.5344270513608 * min + 2.88130396971555 * polly_parallel;12.8684517690476;12.8684517690476;12.8684517690476;12.8684517690476;0.340176;5;2.88130396971555 * polly_parallel;1;2.14856342263559;
+5;27.3790781563126 * polly_vectorizer + -2.80777388109551 * parallel_force + 0.913640614562457 * value_based + 0.963543754175009 * min + 3.86869572478289 * polly_parallel + -17.6753974615898 * min * value_based;7.83314029477882;7.83314029477882;7.83314029477882;7.83314029477882;0.465412;7;-17.6753974615898 * min * value_based;2;2.51765573713439;
+Elapsed=00:00:00.4679025
 average model: 
 command: analyze-learning
 Round, Model, LearningError, LearningErrorRel, ValidationError, ValidationErrorRel, ElapsedSeconds, ModelComplexity, BestCandidate, BestCandidateSize, BestCandidateScore, TestError
 Models:
 Termination reason: abortError
-1;14.8891666666667 * polly_vectorizer + 14.4281666666667 * max;5.96449660892979;5.96449660892979;5.96449660892979;5.96449660892979;0.122386;2;14.4281666666667 * max;1;1.79769313486232E+308;28.0868446104453
+1;20.3003921568627 * polly_vectorizer + -1.66008912655971 * parallel_force;45.0677257283033;45.0677257283033;45.0677257283033;45.0677257283033;0.153539;2;-1.66008912655971 * parallel_force;1;1.79769313486232E+308;43.1091791642829
+2;29.2761660206718 * polly_vectorizer + 0.713669250645997 * parallel_force + -13.8716505167958 * value_based;20.9354612403428;20.9354612403428;20.9354612403428;20.9354612403428;0.190529;3;-13.8716505167958 * value_based;1;24.1322644879605;28.3291471256464
+3;40.5332598571872 * polly_vectorizer + -1.91572493014593 * parallel_force + -13.6486215461037 * value_based + -12.1139946186485 * min;15.0170151916832;15.0170151916832;15.0170151916832;15.0170151916832;0.261791;4;-12.1139946186485 * min;1;5.91844604865961;26.8729366096952
+4;39.8462553713935 * polly_vectorizer + -3.45880141190913 * parallel_force + -14.0708430529977 * value_based + -12.5344270513608 * min + 2.88130396971555 * polly_parallel;12.8684517690476;12.8684517690476;12.8684517690476;12.8684517690476;0.340176;5;2.88130396971555 * polly_parallel;1;2.14856342263559;26.7712780782012
+5;27.3790781563126 * polly_vectorizer + -2.80777388109551 * parallel_force + 0.913640614562457 * value_based + 0.963543754175009 * min + 3.86869572478289 * polly_parallel + -17.6753974615898 * min * value_based;7.83314029477882;7.83314029477882;7.83314029477882;7.83314029477882;0.465412;7;-17.6753974615898 * min * value_based;2;2.51765573713439;15.2774239095813
 Analyze finished
-command: measurementstocsv /scratch/kaltenec/Distribution-Aware-Sampling/Results_opt/Polly_disc/Polly_disc_62/sampledConfigurations_solv_0.csv
+command: printconfigs /scratch/kaltenec/Distribution-Aware-Sampling/Results_newTry/Polly_disc/Polly_disc_62/sampledConfigurations_local_0.csv
 command: clean-sampling
 command: clean-global
-command: script /scratch/kaltenec/Distribution-Aware-Sampling/Results_opt/Polly_disc/Polly_disc_62/learn_solv_1.a
-command: log /scratch/kaltenec/Distribution-Aware-Sampling/Results_opt/Polly_disc/Polly_disc_62/out_solv_1.log
+command: script /scratch/kaltenec/Distribution-Aware-Sampling/Results_newTry/Polly_disc/Polly_disc_62/learn_local_1.a
+command: log /scratch/kaltenec/Distribution-Aware-Sampling/Results_newTry/Polly_disc/Polly_disc_62/out_local_1.log

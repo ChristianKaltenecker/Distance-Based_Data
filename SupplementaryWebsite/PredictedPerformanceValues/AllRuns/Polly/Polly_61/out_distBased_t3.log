@@ -1,6 +1,6 @@
-Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 considerEpsilonTube:False baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
 command: mlsettings bagging:False stopOnLongRound:False parallelization:True lossFunction:RELATIVE useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False learn_logFunction:True numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False
-Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 considerEpsilonTube:False baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
 command: solver z3
 command: vm /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/Polly_disc/FeatureModel.xml
 Warning: Variability model contains outdated notation. Children nodes will no longer have effect on the model. Instead use the parent node to describe the parent of an configuration option. You can also use the converter providedby the Variability Model GUI in export>convert legacy model.
@@ -8,23 +8,25 @@ command: all /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintDat
 Configs with too large deviation: 0
 60000 configurations loaded.
 command: nfp Performance
-command: hybrid distribution-aware distance-metric:manhattan distribution:uniform onlyBinary:true selection:SolverSelection  numConfigs:2172 seed:61
+command: hybrid distribution-aware distance-metric:manhattan distribution:uniform onlyBinary:true selection:SolverSelection optimization:None numConfigs:2172 seed:61
 command: learn-splconqueror
 Learning: NumberOfConfigurationsLearning:2172 NumberOfConfigurationsValidation:2172
 Learning progress:
-1;25.197752453308 * polly_vectorizer + 4.09630176176498 * max;17.1502530419935;17.1502530419935;17.1502530419935;17.1502530419935;0.595447;2;4.09630176176498 * max;1;1.79769313486232E+308;
-2;21.752063493112 * polly_vectorizer + 4.29514511681629 * max + 4.90975707048224 * polly_no_tiling;16.4106357791537;16.4106357791537;16.4106357791537;16.4106357791537;2.278079;3;4.90975707048224 * polly_no_tiling;1;0.739617262839776;
-3;17.8344373673036 * polly_vectorizer + 11.4585089827403 * max + 0.00167527157762681 * polly_no_tiling + 10.4903014341905 * polly_no_tiling * min;9.95867102509539;9.95867102509539;9.95867102509539;9.95867102509539;5.828722;5;10.4903014341905 * polly_no_tiling * min;2;3.22598237702916;
-Elapsed=00:00:05.8530314
+1;26.8393669162696 * polly_vectorizer + 1.33715750288642 * parallel_force;19.1861331955691;19.1861331955691;19.1861331955691;19.1861331955691;0.398229;2;1.33715750288642 * parallel_force;1;1.79769313486232E+308;
+2;24.1866123553982 * polly_vectorizer + -0.459623495849563 * parallel_force + 4.77560839450991 * polly_no_tiling;16.8672723579007;16.8672723579007;16.8672723579007;16.8672723579007;1.872475;3;4.77560839450991 * polly_no_tiling;1;2.31886083766834;
+3;26.1202054535683 * polly_vectorizer + -0.388916696931172 * parallel_force + 4.96988070654176 * polly_no_tiling + -4.32752448460305 * min;16.4220263728092;16.4220263728092;16.4220263728092;16.4220263728092;5.037113;4;-4.32752448460305 * min;1;0.445245985091525;
+4;29.3071064704711 * polly_vectorizer + -0.379591836346389 * parallel_force + 10.5754977877513 * polly_no_tiling + -11.4436557144021 * min + -10.4703684984177 * polly_no_tiling * max;9.89755942346477;9.89755942346477;9.89755942346477;9.89755942346477;9.604729;6;-10.4703684984177 * polly_no_tiling * max;2;3.26223347467222;
+Elapsed=00:00:09.6310283
 average model: 
 command: analyze-learning
 Round, Model, LearningError, LearningErrorRel, ValidationError, ValidationErrorRel, ElapsedSeconds, ModelComplexity, BestCandidate, BestCandidateSize, BestCandidateScore, TestError
 Models:
 Termination reason: abortError
-1;25.197752453308 * polly_vectorizer + 4.09630176176498 * max;17.1502530419935;17.1502530419935;17.1502530419935;17.1502530419935;0.595447;2;4.09630176176498 * max;1;1.79769313486232E+308;28.5462861151262
-2;21.752063493112 * polly_vectorizer + 4.29514511681629 * max + 4.90975707048224 * polly_no_tiling;16.4106357791537;16.4106357791537;16.4106357791537;16.4106357791537;2.278079;3;4.90975707048224 * polly_no_tiling;1;0.739617262839776;27.1781628349729
-3;17.8344373673036 * polly_vectorizer + 11.4585089827403 * max + 0.00167527157762681 * polly_no_tiling + 10.4903014341905 * polly_no_tiling * min;9.95867102509539;9.95867102509539;9.95867102509539;9.95867102509539;5.828722;5;10.4903014341905 * polly_no_tiling * min;2;3.22598237702916;19.8554820871229
+1;26.8393669162696 * polly_vectorizer + 1.33715750288642 * parallel_force;19.1861331955691;19.1861331955691;19.1861331955691;19.1861331955691;0.398229;2;1.33715750288642 * parallel_force;1;1.79769313486232E+308;31.8910724364132
+2;24.1866123553982 * polly_vectorizer + -0.459623495849563 * parallel_force + 4.77560839450991 * polly_no_tiling;16.8672723579007;16.8672723579007;16.8672723579007;16.8672723579007;1.872475;3;4.77560839450991 * polly_no_tiling;1;2.31886083766834;29.5844190685494
+3;26.1202054535683 * polly_vectorizer + -0.388916696931172 * parallel_force + 4.96988070654176 * polly_no_tiling + -4.32752448460305 * min;16.4220263728092;16.4220263728092;16.4220263728092;16.4220263728092;5.037113;4;-4.32752448460305 * min;1;0.445245985091525;27.1288006514332
+4;29.3071064704711 * polly_vectorizer + -0.379591836346389 * parallel_force + 10.5754977877513 * polly_no_tiling + -11.4436557144021 * min + -10.4703684984177 * polly_no_tiling * max;9.89755942346477;9.89755942346477;9.89755942346477;9.89755942346477;9.604729;6;-10.4703684984177 * polly_no_tiling * max;2;3.26223347467222;19.6879175060461
 Analyze finished
-command: measurementstocsv /scratch/kaltenec/Distribution-Aware-Sampling/Results_test/Polly_disc/Polly_disc_61/sampledConfigurations_solv_2.csv
+command: printconfigs /scratch/kaltenec/Distribution-Aware-Sampling/Results_newTry/Polly_disc/Polly_disc_61/sampledConfigurations_solv_2.csv
 command: clean-sampling
 command: clean-global

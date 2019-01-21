@@ -1,0 +1,32 @@
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: mlsettings bagging:False stopOnLongRound:False parallelization:True lossFunction:RELATIVE useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False learn_logFunction:True numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: solver z3
+command: vm /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/Polly_disc/FeatureModel.xml
+Warning: Variability model contains outdated notation. Children nodes will no longer have effect on the model. Instead use the parent node to describe the parent of an configuration option. You can also use the converter providedby the Variability Model GUI in export>convert legacy model.
+command: all /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/Polly_disc/measurements.xml
+Configs with too large deviation: 0
+60000 configurations loaded.
+command: nfp Performance
+command: binary satoutput numConfigs:2172 seed:28
+command: learn-splconqueror
+Learning: NumberOfConfigurationsLearning:2172 NumberOfConfigurationsValidation:2172
+Learning progress:
+1;24.8394884169884 * polly_vectorizer + 4.9081494938097 * max;19.4569482331858;19.4569482331858;19.4569482331858;19.4569482331858;0.524487;2;4.9081494938097 * max;1;1.79769313486232E+308;
+2;24.1089630618036 * polly_vectorizer + 4.92765635765228 * max + 1.64170123204223 * parallel;18.3373123038189;18.3373123038189;18.3373123038189;18.3373123038189;1.962489;3;1.64170123204223 * parallel;1;1.11963592936688;
+3;15.084768786967 * polly_vectorizer + 4.88243985819258 * max + 1.71187671505038 * parallel + 9.06295172282485 * pollydefaulttilesize_4;18.0536517563705;18.0536517563705;18.0536517563705;18.0536517563705;4.198289;4;9.06295172282485 * pollydefaulttilesize_4;1;0.283660547448427;
+4;11.6059502864343 * polly_vectorizer + 17.6069959635472 * max + 1.72224729169397 * parallel + 12.5641921223571 * pollydefaulttilesize_4 + -12.7759625908706 * pollydefaulttilesize_4 * max;17.9328878925305;17.9328878925305;17.9328878925305;17.9328878925305;9.209926;6;-12.7759625908706 * pollydefaulttilesize_4 * max;2;0.0603819319200305;
+Elapsed=00:00:09.2419612
+average model: 
+command: analyze-learning
+Round, Model, LearningError, LearningErrorRel, ValidationError, ValidationErrorRel, ElapsedSeconds, ModelComplexity, BestCandidate, BestCandidateSize, BestCandidateScore, TestError
+Models:
+Termination reason: minImprovementPerRound
+1;24.8394884169884 * polly_vectorizer + 4.9081494938097 * max;19.4569482331858;19.4569482331858;19.4569482331858;19.4569482331858;0.524487;2;4.9081494938097 * max;1;1.79769313486232E+308;28.586737824644
+2;24.1089630618036 * polly_vectorizer + 4.92765635765228 * max + 1.64170123204223 * parallel;18.3373123038189;18.3373123038189;18.3373123038189;18.3373123038189;1.962489;3;1.64170123204223 * parallel;1;1.11963592936688;27.3954510356038
+3;15.084768786967 * polly_vectorizer + 4.88243985819258 * max + 1.71187671505038 * parallel + 9.06295172282485 * pollydefaulttilesize_4;18.0536517563705;18.0536517563705;18.0536517563705;18.0536517563705;4.198289;4;9.06295172282485 * pollydefaulttilesize_4;1;0.283660547448427;37.8440877658487
+4;11.6059502864343 * polly_vectorizer + 17.6069959635472 * max + 1.72224729169397 * parallel + 12.5641921223571 * pollydefaulttilesize_4 + -12.7759625908706 * pollydefaulttilesize_4 * max;17.9328878925305;17.9328878925305;17.9328878925305;17.9328878925305;9.209926;6;-12.7759625908706 * pollydefaulttilesize_4 * max;2;0.0603819319200305;26.4079701239852
+Analyze finished
+command: measurementstocsv /scratch/kaltenec/Distribution-Aware-Sampling/Results_Henard/Polly_disc/Polly_disc_28/sampledConfigurations_henard_2.csv
+command: clean-sampling
+command: clean-global

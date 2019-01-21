@@ -1,0 +1,35 @@
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: mlsettings bagging:False stopOnLongRound:False parallelization:True lossFunction:RELATIVE useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False learn_logFunction:True numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: solver z3
+command: vm /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/BerkeleyDBC/FeatureModel.xml
+Warning: Variability model contains outdated notation. Children nodes will no longer have effect on the model. Instead use the parent node to describe the parent of an configuration option. You can also use the converter providedby the Variability Model GUI in export>convert legacy model.
+Warning: Default value nodes in models are no longer used and should be removed. You can also use the converter provided by the Variability Model GUI in export>convert legacy model to update your model.
+command: all /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/BerkeleyDBC/measurements.xml
+Configs with too large deviation: 0
+2560 configurations loaded.
+command: nfp Performance
+command: binary satoutput numConfigs:97 seed:45
+command: learn-splconqueror
+Learning: NumberOfConfigurationsLearning:97 NumberOfConfigurationsValidation:97
+Learning progress:
+1;1.40839060972416 * PAGESIZE + -0.90398310972416 * CS16MB;44.0639907488459;44.0639907488459;44.0639907488459;44.0639907488459;0.008895;2;-0.90398310972416 * CS16MB;1;1.79769313486232E+308;
+2;0.478609679033246 * PAGESIZE + 0.0257978209667531 * CS16MB + 2.17704803283726 * HAVE_CRYPTO;24.0044524982957;24.0044524982957;24.0044524982957;24.0044524982957;0.03525;3;2.17704803283726 * HAVE_CRYPTO;1;20.0595382505502;
+3;0.707841258218 * PAGESIZE + -0.203433758218001 * CS16MB + 2.25532223060767 * HAVE_CRYPTO + -0.630386842758072 * HAVE_HASH;11.4237202846278;11.4237202846278;11.4237202846278;11.4237202846278;0.069226;4;-0.630386842758072 * HAVE_HASH;1;12.5807322136679;
+4;0.540317320358591 * PAGESIZE + -0.0359098203585881 * CS16MB + 2.70205273156609 * HAVE_CRYPTO + -0.169696013644689 * HAVE_HASH + -1.03306428346638 * HAVE_HASH * HAVE_CRYPTO;0.634386958457262;0.634386958457262;0.634386958457262;0.634386958457262;0.123717;6;-1.03306428346638 * HAVE_HASH * HAVE_CRYPTO;2;5.39466666308526;
+Elapsed=00:00:00.1243784
+average model: 
+command: analyze-learning
+Round, Model, LearningError, LearningErrorRel, ValidationError, ValidationErrorRel, ElapsedSeconds, ModelComplexity, BestCandidate, BestCandidateSize, BestCandidateScore, TestError
+Models:
+Termination reason: abortError
+1;1.40839060972416 * PAGESIZE + -0.90398310972416 * CS16MB;44.0639907488459;44.0639907488459;44.0639907488459;44.0639907488459;0.008895;2;-0.90398310972416 * CS16MB;1;1.79769313486232E+308;74.7974424303855
+2;0.478609679033246 * PAGESIZE + 0.0257978209667531 * CS16MB + 2.17704803283726 * HAVE_CRYPTO;24.0044524982957;24.0044524982957;24.0044524982957;24.0044524982957;0.03525;3;2.17704803283726 * HAVE_CRYPTO;1;20.0595382505502;67.693668436803
+3;0.707841258218 * PAGESIZE + -0.203433758218001 * CS16MB + 2.25532223060767 * HAVE_CRYPTO + -0.630386842758072 * HAVE_HASH;11.4237202846278;11.4237202846278;11.4237202846278;11.4237202846278;0.069226;4;-0.630386842758072 * HAVE_HASH;1;12.5807322136679;70.6462638665048
+4;0.540317320358591 * PAGESIZE + -0.0359098203585881 * CS16MB + 2.70205273156609 * HAVE_CRYPTO + -0.169696013644689 * HAVE_HASH + -1.03306428346638 * HAVE_HASH * HAVE_CRYPTO;0.634386958457262;0.634386958457262;0.634386958457262;0.634386958457262;0.123717;6;-1.03306428346638 * HAVE_HASH * HAVE_CRYPTO;2;5.39466666308526;65.4213746996627
+Analyze finished
+command: measurementstocsv /scratch/kaltenec/Distribution-Aware-Sampling/Results_Henard/BerkeleyDBC/BerkeleyDBC_45/sampledConfigurations_henard_1.csv
+command: clean-sampling
+command: clean-global
+command: script /scratch/kaltenec/Distribution-Aware-Sampling/Results_Henard/BerkeleyDBC/BerkeleyDBC_45/learn_henard_2.a
+command: log /scratch/kaltenec/Distribution-Aware-Sampling/Results_Henard/BerkeleyDBC/BerkeleyDBC_45/out_henard_2.log

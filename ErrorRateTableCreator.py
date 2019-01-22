@@ -636,7 +636,5 @@ def main() -> None:
                                kruskal=False, toExclude=TO_IGNORE_RQ2)
 
 
-
-
 if __name__ == "__main__":
     main()

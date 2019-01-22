@@ -25,8 +25,8 @@ The error between the predictions and the real values is given by the error rate
 
 In our paper, we use the sampling strategies to predict the performance of all valid configurations (i.e., the whole population) by only using a few configurations (i.e., a sample set).
 For this process, we distinguish between the following data:
-* <i>Raw Performance Measurements</i>: Contains the performance values for the whole population of all case studies.
-* <i>Predictions</i>: Contains the prediction error that are a result by applying the machine-learning technique on the sample set.
+* *Raw Performance Measurements*: Contains the performance values for the whole population of all case studies.
+* *Predictions*: Contains the prediction error that are a result by applying the machine-learning technique on the sample set.
 
 The data is published in the [Distance-Based Data](https://github.com/se-passau/Distance-Based_Data) repository.
 
@@ -50,7 +50,7 @@ So, to perform sampling and to learn performance models, we depend only on SPL C
 
 ### Scripts
 
-To process the prediction data and automatically generate tables as presented in Section V (Results), we additionally provide python scripts for data processing, which further invoke an R script for the significance tests.
+To process the prediction data and automatically generate tables as presented in Section V (Results), we additionally provide Python scripts for data processing, which further invoke an R script for the significance tests.
 The output of the scrips are tex files that can be embedded in LaTeX.
 
 ## Installation
@@ -83,17 +83,24 @@ Requirements:
   * Mono (for running SPL Conqueror)
   * git (for cloning the needed repositories)
   * wget
-  * unzip
+  * unzip, tar
   * Python (for the analysis):
     * scipy
   * R (for the analysis)
 
 #### Data
 
-To clone the repository containing the data (variability models, raw performance measurements and predictions), use the following command:
+To clone the repository containing the data (variability models, measured performance values, and predicted performance values), use the following command:
 
 ```
 git clone https://github.com/ChristianKaltenecker/Distance-Based_Data.git
+```
+
+Since the measured performance values of JavaGC and VP9 are compressed because of size restrictions, they have to be uncompressed by using tar with the following commands:
+
+```
+tar -xzf Distance-Based_Data/SupplementaryWebsite/MeasuredPerformanceValues/JavaGC/measurements.tar.gz -C Distance-Based_Data/SupplementaryWebsite/MeasuredPerformanceValues/JavaGC/
+tar -xzf Distance-Based_Data/SupplementaryWebsite/MeasuredPerformanceValues/VP9/measurements.tar.gz -C Distance-Based_Data/SupplementaryWebsite/MeasuredPerformanceValues/VP9/
 ```
 
 #### SPL Conqueror
@@ -119,8 +126,8 @@ wget https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
 After cloning the repository with the given version, SPL Conqueror has to be built. This can be done by using the following commands:
 ```
 mono nuget.exe restore ./
-xbuild /p:Configuration=Release SPLConqueror.sln
-cd ~
+xbuild /p:Configuration=Release /p:TargetFrameworkVersion="v4.5" /p:TargetFrameworkProfile="" ./SPLConqueror.sln
+cd ../../
 ```
 
 #### z3 Constraint solver
@@ -131,19 +138,22 @@ This can be done as follows:
 wget https://github.com/Z3Prover/z3/releases/download/z3-4.7.1/z3-4.7.1-x64-debian-8.10.zip
 unzip z3-4.7.1-x64-debian-8.10.zip -d z3
 rm z3-4.7.1-x64-debian-8.10.zip
+mv z3-4.7.1-x64-debian-8.10/bin/libz3.so /usr/lib/libz3.so
 ```
 
 #### Scripts
 
 To execute the scripts, [python3](https://www.python.org/download/releases/3.0/) and [R](https://www.r-project.org/) are needed.
-These can be installed using apt as follows:
+These can be installed on Debian using apt as follows:
 ```
-sudo apt install -y python3 r-recommend
+sudo apt install -y python3 python3-numpy python3-scipy r-recommend
 ```
+For the installation of the dependencies for R, we provide an installation file, which can be invoked as follows:
+```
+Rscript InstallPackages.R
+```
+Please be aware that this installation process might take a while.
 
-
-
-<!-- Python and R packages? -->
 
 ## Usage
 

@@ -1,6 +1,6 @@
-Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 considerEpsilonTube:False baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
 command: mlsettings bagging:False stopOnLongRound:False parallelization:True lossFunction:RELATIVE useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False learn_logFunction:True numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False
-Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 considerEpsilonTube:False baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
 command: solver z3
 command: vm /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/Dune_disc/FeatureModel.xml
 Warning: Variability model contains outdated notation. Children nodes will no longer have effect on the model. Instead use the parent node to describe the parent of an configuration option. You can also use the converter providedby the Variability Model GUI in export>convert legacy model.
@@ -9,25 +9,31 @@ command: all /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintDat
 Configs with too large deviation: 0
 2304 configurations loaded.
 command: nfp Performance
-command: hybrid distribution-aware distance-metric:manhattan distribution:uniform onlyBinary:true selection:SolverSelection number-weight-optimization:1-1 numConfigs:25 seed:72
+command: hybrid distribution-aware distance-metric:manhattan distribution:uniform onlyBinary:true selection:SolverSelection optimization:local numConfigs:25 seed:72
 command: learn-splconqueror
 Learning: NumberOfConfigurationsLearning:25 NumberOfConfigurationsValidation:25
 Learning progress:
-1;12507.2321626984 * Precon + -3077.24547902495 * BiCGSTABSolver;22.3121669216435;22.3121669216435;22.3121669216435;22.3121669216435;0.121786;2;-3077.24547902495 * BiCGSTABSolver;1;1.79769313486232E+308;
-2;9833.41334415584 * Precon + -403.426660482375 * BiCGSTABSolver + 6875.53410482375 * post_0;11.7028098550652;11.7028098550652;11.7028098550652;11.7028098550652;0.138784;3;6875.53410482375 * post_0;1;10.6093570665783;
-3;9833.41334415585 * Precon + -403.42666048237 * BiCGSTABSolver + 4916.12237012989 * post_0 + 13715.8821428571 * post_0 * pre_1;8.20666292199731;8.20666292199731;8.20666292199731;8.20666292199731;0.167218;5;13715.8821428571 * post_0 * pre_1;2;1.74807346653392;
-Elapsed=00:00:00.1693017
+1;12394.3845031056 * Precon + -1936.74253881987 * cells_53;30.3974728138697;30.3974728138697;30.3974728138697;30.3974728138697;0.084544;2;-1936.74253881987 * cells_53;1;1.79769313486232E+308;
+2;10642.7149579832 * Precon + -185.07299369748 * cells_53 + 6714.73325630251 * post_0;20.5340570588621;20.5340570588621;20.5340570588621;20.5340570588621;0.098372;3;6714.73325630251 * post_0;1;9.86341575500763;
+3;11345.3018622449 * Precon + -887.659897959182 * cells_53 + 6012.14635204081 * post_0 + -3981.32579081632 * GradientSolver;17.4809997534898;17.4809997534898;17.4809997534898;17.4809997534898;0.120351;4;-3981.32579081632 * GradientSolver;1;3.05305730537235;
+4;11345.3018622449 * Precon + -887.659897959181 * cells_53 + 3790.55242346938 * post_0 + -3981.32579081633 * GradientSolver + 13329.5635714286 * post_0 * pre_1;14.4011678948586;14.4011678948586;14.4011678948586;14.4011678948586;0.154922;6;13329.5635714286 * post_0 * pre_1;2;1.53991592931561;
+5;10186.5090178571 * Precon + 271.132946428575 * cells_53 + 4949.34526785713 * post_0 + -2822.53294642857 * GradientSolver + 13329.5635714286 * post_0 * pre_1 + 8111.54991071429 * post_1;13.0948291283869;13.0948291283869;13.0948291283869;13.0948291283869;0.205069;7;8111.54991071429 * post_1;1;1.30633876647167;
+6;10186.5090178571 * Precon + 271.132946428571 * cells_53 + 4949.34526785713 * post_0 + -2822.53294642857 * GradientSolver + 13329.5635714286 * post_0 * pre_1 + 1391.64098214286 * post_1 + 13439.8178571429 * post_1 * pre_0;9.69883293889425;9.69883293889425;9.69883293889425;9.69883293889425;0.270096;9;13439.8178571429 * post_1 * pre_0;2;1.69799809474632;
+Elapsed=00:00:00.2722831
 average model: 
 command: analyze-learning
 Round, Model, LearningError, LearningErrorRel, ValidationError, ValidationErrorRel, ElapsedSeconds, ModelComplexity, BestCandidate, BestCandidateSize, BestCandidateScore, TestError
 Models:
 Termination reason: abortError
-1;12507.2321626984 * Precon + -3077.24547902495 * BiCGSTABSolver;22.3121669216435;22.3121669216435;22.3121669216435;22.3121669216435;0.121786;2;-3077.24547902495 * BiCGSTABSolver;1;1.79769313486232E+308;27.9685674492002
-2;9833.41334415584 * Precon + -403.426660482375 * BiCGSTABSolver + 6875.53410482375 * post_0;11.7028098550652;11.7028098550652;11.7028098550652;11.7028098550652;0.138784;3;6875.53410482375 * post_0;1;10.6093570665783;17.4031025880406
-3;9833.41334415585 * Precon + -403.42666048237 * BiCGSTABSolver + 4916.12237012989 * post_0 + 13715.8821428571 * post_0 * pre_1;8.20666292199731;8.20666292199731;8.20666292199731;8.20666292199731;0.167218;5;13715.8821428571 * post_0 * pre_1;2;1.74807346653392;16.7299216011629
+1;12394.3845031056 * Precon + -1936.74253881987 * cells_53;30.3974728138697;30.3974728138697;30.3974728138697;30.3974728138697;0.084544;2;-1936.74253881987 * cells_53;1;1.79769313486232E+308;28.1977691534717
+2;10642.7149579832 * Precon + -185.07299369748 * cells_53 + 6714.73325630251 * post_0;20.5340570588621;20.5340570588621;20.5340570588621;20.5340570588621;0.098372;3;6714.73325630251 * post_0;1;9.86341575500763;19.4002228378949
+3;11345.3018622449 * Precon + -887.659897959182 * cells_53 + 6012.14635204081 * post_0 + -3981.32579081632 * GradientSolver;17.4809997534898;17.4809997534898;17.4809997534898;17.4809997534898;0.120351;4;-3981.32579081632 * GradientSolver;1;3.05305730537235;20.8530813195775
+4;11345.3018622449 * Precon + -887.659897959181 * cells_53 + 3790.55242346938 * post_0 + -3981.32579081633 * GradientSolver + 13329.5635714286 * post_0 * pre_1;14.4011678948586;14.4011678948586;14.4011678948586;14.4011678948586;0.154922;6;13329.5635714286 * post_0 * pre_1;2;1.53991592931561;20.4159975926106
+5;10186.5090178571 * Precon + 271.132946428575 * cells_53 + 4949.34526785713 * post_0 + -2822.53294642857 * GradientSolver + 13329.5635714286 * post_0 * pre_1 + 8111.54991071429 * post_1;13.0948291283869;13.0948291283869;13.0948291283869;13.0948291283869;0.205069;7;8111.54991071429 * post_1;1;1.30633876647167;21.5766794300018
+6;10186.5090178571 * Precon + 271.132946428571 * cells_53 + 4949.34526785713 * post_0 + -2822.53294642857 * GradientSolver + 13329.5635714286 * post_0 * pre_1 + 1391.64098214286 * post_1 + 13439.8178571429 * post_1 * pre_0;9.69883293889425;9.69883293889425;9.69883293889425;9.69883293889425;0.270096;9;13439.8178571429 * post_1 * pre_0;2;1.69799809474632;16.0060144323097
 Analyze finished
-command: measurementstocsv /scratch/kaltenec/Distribution-Aware-Sampling/Results_opt/Dune_disc/Dune_disc_72/sampledConfigurations_solv_0.csv
+command: printconfigs /scratch/kaltenec/Distribution-Aware-Sampling/Results_newTry/Dune_disc/Dune_disc_72/sampledConfigurations_local_0.csv
 command: clean-sampling
 command: clean-global
-command: script /scratch/kaltenec/Distribution-Aware-Sampling/Results_opt/Dune_disc/Dune_disc_72/learn_solv_1.a
-command: log /scratch/kaltenec/Distribution-Aware-Sampling/Results_opt/Dune_disc/Dune_disc_72/out_solv_1.log
+command: script /scratch/kaltenec/Distribution-Aware-Sampling/Results_newTry/Dune_disc/Dune_disc_72/learn_local_1.a
+command: log /scratch/kaltenec/Distribution-Aware-Sampling/Results_newTry/Dune_disc/Dune_disc_72/out_local_1.log

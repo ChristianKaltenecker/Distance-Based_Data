@@ -1,0 +1,36 @@
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: mlsettings bagging:False stopOnLongRound:False parallelization:True lossFunction:RELATIVE useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False learn_logFunction:True numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: solver z3
+command: vm /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/Polly_disc/FeatureModel.xml
+Warning: Variability model contains outdated notation. Children nodes will no longer have effect on the model. Instead use the parent node to describe the parent of an configuration option. You can also use the converter providedby the Variability Model GUI in export>convert legacy model.
+command: all /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/Polly_disc/measurements.xml
+Configs with too large deviation: 0
+60000 configurations loaded.
+command: nfp Performance
+command: binary satoutput numConfigs:28 seed:65
+command: learn-splconqueror
+Learning: NumberOfConfigurationsLearning:28 NumberOfConfigurationsValidation:28
+Learning progress:
+1;23.4501449275362 * polly_vectorizer + 6.04585507246376 * max;33.8760440088486;33.8760440088486;33.8760440088486;33.8760440088486;0.137149;2;6.04585507246376 * max;1;1.79769313486232E+308;
+2;28.7225042301184 * polly_vectorizer + 4.50470389170896 * max + -9.32802030456853 * value_based;22.0599178345743;22.0599178345743;22.0599178345743;22.0599178345743;0.156439;3;-9.32802030456853 * value_based;1;11.8161261742743;
+3;28.3562765957447 * polly_vectorizer + 6.09169030732859 * max + -12.3799172576832 * value_based + 12.0244739952719 * value_based * polly_no_tiling;15.5540666697887;15.5540666697887;15.5540666697887;15.5540666697887;0.191349;5;12.0244739952719 * value_based * polly_no_tiling;2;3.25292558239282;
+4;29.7143333333333 * polly_vectorizer + 0.206777777777755 * max + -15.2469259259259 * value_based + 13.5334259259259 * value_based * polly_no_tiling + 14.1841481481481 * value_based * max;10.8816476651803;10.8816476651803;10.8816476651803;10.8816476651803;0.241624;7;14.1841481481481 * value_based * max;2;2.33620950230418;
+5;28.7617844522968 * polly_vectorizer + 0.365535924617201 * max + -15.6173616018846 * value_based + 13.6657243816254 * value_based * polly_no_tiling + 15.3483745583038 * value_based * max + 2.3813722025913 * parallel;8.98235523566792;8.98235523566792;8.98235523566792;8.98235523566792;0.31329;8;2.3813722025913 * parallel;1;1.89929242951242;
+Elapsed=00:00:00.3154216
+average model: 
+command: analyze-learning
+Round, Model, LearningError, LearningErrorRel, ValidationError, ValidationErrorRel, ElapsedSeconds, ModelComplexity, BestCandidate, BestCandidateSize, BestCandidateScore, TestError
+Models:
+Termination reason: abortError
+1;23.4501449275362 * polly_vectorizer + 6.04585507246376 * max;33.8760440088486;33.8760440088486;33.8760440088486;33.8760440088486;0.137149;2;6.04585507246376 * max;1;1.79769313486232E+308;28.2326294856159
+2;28.7225042301184 * polly_vectorizer + 4.50470389170896 * max + -9.32802030456853 * value_based;22.0599178345743;22.0599178345743;22.0599178345743;22.0599178345743;0.156439;3;-9.32802030456853 * value_based;1;11.8161261742743;26.6182437701071
+3;28.3562765957447 * polly_vectorizer + 6.09169030732859 * max + -12.3799172576832 * value_based + 12.0244739952719 * value_based * polly_no_tiling;15.5540666697887;15.5540666697887;15.5540666697887;15.5540666697887;0.191349;5;12.0244739952719 * value_based * polly_no_tiling;2;3.25292558239282;21.00690453568
+4;29.7143333333333 * polly_vectorizer + 0.206777777777755 * max + -15.2469259259259 * value_based + 13.5334259259259 * value_based * polly_no_tiling + 14.1841481481481 * value_based * max;10.8816476651803;10.8816476651803;10.8816476651803;10.8816476651803;0.241624;7;14.1841481481481 * value_based * max;2;2.33620950230418;16.3521845646605
+5;28.7617844522968 * polly_vectorizer + 0.365535924617201 * max + -15.6173616018846 * value_based + 13.6657243816254 * value_based * polly_no_tiling + 15.3483745583038 * value_based * max + 2.3813722025913 * parallel;8.98235523566792;8.98235523566792;8.98235523566792;8.98235523566792;0.31329;8;2.3813722025913 * parallel;1;1.89929242951242;14.852991431264
+Analyze finished
+command: measurementstocsv /scratch/kaltenec/Distribution-Aware-Sampling/Results_Henard/Polly_disc/Polly_disc_65/sampledConfigurations_henard_0.csv
+command: clean-sampling
+command: clean-global
+command: script /scratch/kaltenec/Distribution-Aware-Sampling/Results_Henard/Polly_disc/Polly_disc_65/learn_henard_1.a
+command: log /scratch/kaltenec/Distribution-Aware-Sampling/Results_Henard/Polly_disc/Polly_disc_65/out_henard_1.log

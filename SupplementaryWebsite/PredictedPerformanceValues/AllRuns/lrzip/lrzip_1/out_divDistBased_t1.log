@@ -1,6 +1,6 @@
-Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 considerEpsilonTube:False baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
 command: mlsettings bagging:False stopOnLongRound:False parallelization:True lossFunction:RELATIVE useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False learn_logFunction:True numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False
-Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 considerEpsilonTube:False baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
 command: solver z3
 command: vm /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/lrzip/FeatureModel.xml
 Warning: Variability model contains outdated notation. Children nodes will no longer have effect on the model. Instead use the parent node to describe the parent of an configuration option. You can also use the converter providedby the Variability Model GUI in export>convert legacy model.
@@ -9,25 +9,29 @@ command: all /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintDat
 Configs with too large deviation: 0
 432 configurations loaded.
 command: nfp Performance
-command: hybrid distribution-aware distance-metric:manhattan distribution:uniform onlyBinary:true selection:SolverSelection number-weight-optimization:1-1 numConfigs:18 seed:1
+command: hybrid distribution-aware distance-metric:manhattan distribution:uniform onlyBinary:true selection:SolverSelection optimization:local numConfigs:18 seed:1
 command: learn-splconqueror
 Learning: NumberOfConfigurationsLearning:18 NumberOfConfigurationsValidation:18
 Learning progress:
-1;48147.4999999999 * level + 241365.5 * compression;59.3027536298642;59.3027536298642;59.3027536298642;59.3027536298642;0.109472;2;241365.5 * compression;1;1.79769313486232E+308;
-2;48147.5000000001 * level + 297926.25 * compression + -282803.75 * compressionLzo;29.2391013386898;29.2391013386898;29.2391013386898;29.2391013386898;0.124154;3;-282803.75 * compressionLzo;1;30.0636522911744;
-3;48147.5000000002 * level + 178602.5 * compression + -163480 * compressionLzo + 954590 * level8;6.70496441968012;6.70496441968012;6.70496441968012;6.70496441968012;0.139521;4;954590 * level8;1;22.5341369190096;
-Elapsed=00:00:00.1411134
+1;114163.125 * level + 111471.875 * level6;103.8111544485;103.8111544485;103.8111544485;103.8111544485;0.05742;2;111471.875 * level6;1;1.79769313486232E+308;
+2;78463.4042553191 * level + 51972.3404255319 * level6 + 190398.510638298 * compressionLrzip;47.9645939988264;47.9645939988264;47.9645939988264;47.9645939988264;0.064259;3;190398.510638298 * compressionLrzip;1;55.8465604496735;
+3;48663.25 * level + 69000.9999999998 * level6 + 215941.5 * compressionLrzip + 200086.75 * compressionBzip2;19.1485995896307;19.1485995896307;19.1485995896307;19.1485995896307;0.075251;4;200086.75 * compressionBzip2;1;28.8159944091957;
+4;54217.2727272729 * level + 2352.72727272735 * level6 + 190022.727272727 * compressionLrzip + 194532.727272727 * compressionBzip2 + 148107.272727273 * level6 * compressionLrzip;10.6934703880244;10.6934703880244;10.6934703880244;10.6934703880244;0.090307;6;148107.272727273 * level6 * compressionLrzip;2;4.22756460080315;
+5;46282.5 * level + -2181.42857142867 * level6 + 185488.571428571 * compressionLrzip + 189998.571428572 * compressionBzip2 + 152641.428571428 * level6 * compressionLrzip + 12468.9285714287 * encryption;8.13221792349271;8.13221792349271;8.13221792349271;8.13221792349271;0.113227;7;12468.9285714287 * encryption;1;2.56125246453169;
+Elapsed=00:00:00.1155965
 average model: 
 command: analyze-learning
 Round, Model, LearningError, LearningErrorRel, ValidationError, ValidationErrorRel, ElapsedSeconds, ModelComplexity, BestCandidate, BestCandidateSize, BestCandidateScore, TestError
 Models:
 Termination reason: abortError
-1;48147.4999999999 * level + 241365.5 * compression;59.3027536298642;59.3027536298642;59.3027536298642;59.3027536298642;0.109472;2;241365.5 * compression;1;1.79769313486232E+308;119.446801491147
-2;48147.5000000001 * level + 297926.25 * compression + -282803.75 * compressionLzo;29.2391013386898;29.2391013386898;29.2391013386898;29.2391013386898;0.124154;3;-282803.75 * compressionLzo;1;30.0636522911744;63.456867677219
-3;48147.5000000002 * level + 178602.5 * compression + -163480 * compressionLzo + 954590 * level8;6.70496441968012;6.70496441968012;6.70496441968012;6.70496441968012;0.139521;4;954590 * level8;1;22.5341369190096;120.659125479119
+1;114163.125 * level + 111471.875 * level6;103.8111544485;103.8111544485;103.8111544485;103.8111544485;0.05742;2;111471.875 * level6;1;1.79769313486232E+308;87.1016528812472
+2;78463.4042553191 * level + 51972.3404255319 * level6 + 190398.510638298 * compressionLrzip;47.9645939988264;47.9645939988264;47.9645939988264;47.9645939988264;0.064259;3;190398.510638298 * compressionLrzip;1;55.8465604496735;58.1000550298454
+3;48663.25 * level + 69000.9999999998 * level6 + 215941.5 * compressionLrzip + 200086.75 * compressionBzip2;19.1485995896307;19.1485995896307;19.1485995896307;19.1485995896307;0.075251;4;200086.75 * compressionBzip2;1;28.8159944091957;41.0667478563108
+4;54217.2727272729 * level + 2352.72727272735 * level6 + 190022.727272727 * compressionLrzip + 194532.727272727 * compressionBzip2 + 148107.272727273 * level6 * compressionLrzip;10.6934703880244;10.6934703880244;10.6934703880244;10.6934703880244;0.090307;6;148107.272727273 * level6 * compressionLrzip;2;4.22756460080315;36.4268546450852
+5;46282.5 * level + -2181.42857142867 * level6 + 185488.571428571 * compressionLrzip + 189998.571428572 * compressionBzip2 + 152641.428571428 * level6 * compressionLrzip + 12468.9285714287 * encryption;8.13221792349271;8.13221792349271;8.13221792349271;8.13221792349271;0.113227;7;12468.9285714287 * encryption;1;2.56125246453169;34.8839293039625
 Analyze finished
-command: measurementstocsv /scratch/kaltenec/Distribution-Aware-Sampling/Results_opt/lrzip/lrzip_1/sampledConfigurations_solv_0.csv
+command: printconfigs /scratch/kaltenec/Distribution-Aware-Sampling/Results_newTry/lrzip/lrzip_1/sampledConfigurations_local_0.csv
 command: clean-sampling
 command: clean-global
-command: script /scratch/kaltenec/Distribution-Aware-Sampling/Results_opt/lrzip/lrzip_1/learn_solv_1.a
-command: log /scratch/kaltenec/Distribution-Aware-Sampling/Results_opt/lrzip/lrzip_1/out_solv_1.log
+command: script /scratch/kaltenec/Distribution-Aware-Sampling/Results_newTry/lrzip/lrzip_1/learn_local_1.a
+command: log /scratch/kaltenec/Distribution-Aware-Sampling/Results_newTry/lrzip/lrzip_1/out_local_1.log

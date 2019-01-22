@@ -8,7 +8,8 @@ from typing import List
 RUNS_FROM = 1
 RUNS_TO = 100
 CASE_STUDIES = [("BerkeleyDBC", 1000),
-                ("LLVM", 1000), ("lrzip", 1),
+                ("LLVM", 1000),
+                ("lrzip", 1),
                 ("x264", 1000),
                 ("Dune", 1),
                 ("7z", 1),
@@ -89,7 +90,7 @@ def main() -> None:
         run_task = SCRIPT_LOCATION + " " + case_study + " " + str(multiplication_factor) + " " + sampling_strategy \
                    + " " + save_location + "/" + case_study + " " + str(run) + " " + str(run)
         print(run_task)
-        #execute_command(run_task)
+        execute_command(run_task)
 
 
 if __name__ == "__main__":

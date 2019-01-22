@@ -33,9 +33,9 @@ BEST_FORMAT_SUFIX = "} "
 SECOND_FORMAT_PREFIX = "{\\color{Blue}\\underline{"
 SECOND_FORMAT_SUFIX = "}} "
 
-CASE_STUDY_MAPPING = {"7z_disc" : "7z", "BerkeleyDBC" : "BDB-C", "Dune_disc" : "Dune",
-                      "Hipacc_disc" : "Hipacc", "JavaGC_disc" : "JavaGC", "Polly_disc" : "Polly",
-                      "VP9_disc" : "VP9"}
+CASE_STUDY_MAPPING = {"7z" : "7z", "BerkeleyDBC" : "BDB-C", "Dune" : "Dune",
+                      "Hipacc" : "Hipacc", "JavaGC" : "JavaGC", "Polly" : "Polly",
+                      "VP9" : "VP9"}
 
 EXCLUDED_DIRECTORIES = ["SinglePlots"]#, "VP9_disc", "JavaGC_disc", "Hipacc_disc", "Polly_disc"]
 FIRST_COLUMN_FORMAT = "e"
@@ -46,13 +46,13 @@ TO_IGNORE_RQ2 = ["twise"]
 
 
 def printUsage():
-    print("Usage: <inputDirectory> <typesToAdd> <labelsOfTypes> <outputFile>")
+    print("Usage: <inputDirectory> <typesToAdd> <labelsOfTypes> <outputDir>")
     print("inputDirectory\t The directory containing all information for the subject systems.")
-    print("outputFile\t\t The .tex-file where the table should be written to.")
-    print("typesToAdd\t\t A comma-separated list containing the types (e.g., uni, rand, semi)" +
+    print("typesToAdd\t A comma-separated list containing the types (e.g., uni, rand, semi)" +
           " that should be displayed in the table.")
     print("labelsOfTypes\t A comma-separated list containing the labels " +
           "(e.g., distribution-aware, random sampling, semi-random sampling) that should be shown on the header.")
+    print("outputDir\t The .tex-file where the table should be written to.")
 
 
 def roundError(numberAsFloat):
@@ -599,7 +599,7 @@ def main() -> None:
         exit(-1)
 
     inputDir = sys.argv[1]
-    outputFile = sys.argv[4]
+    output_directory = sys.argv[4]
     typesToAdd = sys.argv[2].split(SEPARATION_SIGN)
     labelsToAdd = sys.argv[3].split(SEPARATION_SIGN)
 
@@ -608,8 +608,8 @@ def main() -> None:
         print("<typesToAdd> and <labelsOfTypes> have to be of the same length.")
         exit(-1)
 
-    if (not os.path.exists(os.path.dirname(outputFile))):
-        print("The directory '" + outputFile + "' does not exist. Please create it.")
+    if (not os.path.exists(output_directory)):
+        print("The directory '" + output_directory + "' does not exist. Please create it.")
         exit(-1)
 
     if (not os.path.exists(inputDir)):
@@ -625,14 +625,14 @@ def main() -> None:
 
     means, meanRanking = computeMeanValue(typesToAdd, allInformation, TO_IGNORE_RQ1)
 
-    writeTableToFile(outputFile, labelsToAdd, typesToAdd, avgInformation, ranking, means, meanRanking, TO_IGNORE_RQ1)
+    writeTableToFile(output_directory + os.path.sep + "table.tex", labelsToAdd, typesToAdd, avgInformation, ranking, means, meanRanking, TO_IGNORE_RQ1)
 
     kruskalResult = performRTest(allInformation, kruskal=True, toExclude=TO_IGNORE_RQ1)
-    writeTestResultsToFiles(os.path.dirname(outputFile) + os.path.sep, kruskalResult, typesToAdd, labelsToAdd,
+    writeTestResultsToFiles(output_directory + os.path.sep, kruskalResult, typesToAdd, labelsToAdd,
                                kruskal=True, toExclude=TO_IGNORE_RQ1)
 
     leveneResult = performRTest(allInformation, kruskal=False, toExclude=TO_IGNORE_RQ2)
-    writeTestResultsToFiles(os.path.dirname(outputFile) + os.path.sep, leveneResult, typesToAdd, labelsToAdd,
+    writeTestResultsToFiles(output_directory + os.path.sep, leveneResult, typesToAdd, labelsToAdd,
                                kruskal=False, toExclude=TO_IGNORE_RQ2)
 
 

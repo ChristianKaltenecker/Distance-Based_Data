@@ -32,7 +32,7 @@ def print_usage():
     Prints the usage of this script.
     '''
     print("Usage: <RunDirectory> <SummaryDirectory>")
-    print("RunDirectory\t The directory containing the data of all runs.")
+    print("RunDirectory\t\t The directory containing the data of all runs.")
     print("SummaryDirectory\t The directory where the average run should be copied to.")
 
 

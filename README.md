@@ -157,13 +157,23 @@ Please be aware that this installation process might take a while.
 
 ## Usage
 
-<!-- 
-Show it by using a case study as example (e.g., x264)
-Which scripts are available?
-How to configure the script?
-How to execute specific runs of given sampling strategies and use cases?
- -->
-
-For a better demonstration of the usage, we show it exemplarily on the case study x264.
+Since acquiring the **real** performance data has taken multiple months of CPU time and should be performed on the same hardware, we do not advise to replicate these results.
 Note that the complexity of the case studies differs, which is why some case studies need more time than others. 
 We advise you to take a look on the performance values on the [supplementary website](https://github.com/ChristianKaltenecker/Distance-Based_Data/tree/master/SupplementaryWebsite) to simplify the decision on which results to replicate.
+For a better demonstration of the usage, we show it exemplarily on the case study x264.
+
+The location of the measured performance values is ```Distance-Based_Data/SupplementaryWebsite/MeasuredPerformanceValues```.
+The predicted performance values of all random seeds are stored in ```Distance-Based_Data/SupplementaryWebsite/PredictedPerformanceValues/AllRuns```, whereas the summarized data is stored in ```Distance-Based_Data/SupplementaryWebsite/PredictedPerformanceValues/Summary```.
+
+### Replication of a random seed
+
+```
+cd Distance-Based_Data/
+./
+```
+
+### Aggregation
+
+```
+TODO
+```

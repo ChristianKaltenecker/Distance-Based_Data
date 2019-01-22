@@ -35,7 +35,7 @@ createAFiles () {
           else
             csvFile="${path}measurements.xml";
           fi
-          allConfigFile="${path}allConfigurations.csv";
+          allConfigFile="${4}allConfigurations.csv";
           sampleFile="${scriptPath}${SAMPLED_CONFIGURATION_FILE_PREFIX}${FILE_NAME}_t$((${twCounter})).csv";
                 
           # Write in the super-script

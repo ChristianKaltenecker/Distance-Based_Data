@@ -2,41 +2,52 @@
 
 # Distance-Based Sampling
 
-Distance-based sampling is a novel black-box sampling approach as described in the paper "Distance-Based Sampling of Software Configuration Spaces" by Christian Kaltenecker, Alexander Grebhahn, Norbert Siegmund, Jianmei Guo, and Sven Apel submitted to ICSE 2019.
-In this repository, we describe how to reproduce our results in the paper. 
+Distance-based sampling is a novel black-box sampling strategy presented in the paper "Distance-Based Sampling of Software Configuration Spaces" by Christian Kaltenecker, Alexander Grebhahn, Norbert Siegmund, Jianmei Guo, and Sven Apel published at the ICSE 2019.
+In this repository, we describe how to reproduce our results of the paper. 
 
 ## Overview
 
 ![Sketch](https://github.com/ChristianKaltenecker/Distance-Based_Data/raw/master/Sketch.png)
 
-The picture above contains the sketch of our approach.
-The input are the variability model and the raw performance measurements from the given case study.
-Generally, our approach consists of 3 stages:
+In the Figure above, we give a sketch of the whole workflow.
+As input for the workflow, we need a variability model (containing a description of the configuration space of the configurable software system being considered) and the performance measurements for the subject system being considered.
+Overall, our approach consists of 3 stages:
 
-**I. Sampling**: SPL Conqueror provides different sampling strategies to select a few configurations from the set of all valid configurations.
-The sample set is used afterwards as input for the machine-learning technique.
+**I. Sampling**: 
+SPL Conqueror provides different sampling strategies to select a set of configurations from the set of all valid configurations, for which the measured performance values are stored in the raw measurement files.
+This sample set is used afterwards as input for the machine-learning technique.
+At this point, the distance-based sampling strategy can be used.
 
-**II. Machine Learning**: Uses a set of configurations to derive a performance model for performance predictions.
-The difference between the performance predictions and the real performance values is given by the error rate.
+**II. Machine Learning**: 
+Based on the set of selected configurations, which is done in step I, a performance model is derived.
+This model describes the influence of the configuration options of the system on the performance of the configurations of the system.
+Overall, using the performance model, the performance of all configurations is predicted.
+The difference between the performance predictions and the measured performance values is given by the error rate (located in the log files of SPL Conqueror).
 
-**III. Aggregation (Python scripts)**: Because of the high amount of data, we provide scripts to process the whole data and to generate the table in the paper, we further provide scripts.
+**III. Aggregation (Python scripts)**: To aggregate the prediction errors for the different subject systems when using the different sampling strategies, we provide a set of scripts.
 
 ## Data 
 
-In our paper, we use the sampling strategies to predict the performance of all valid configurations (i.e., the whole population) by only using a few configurations (i.e., a sample set).
-For this process, we distinguish between the following data:
-* *Raw Performance Measurements*: Contains the performance values for the whole population of all case studies.
-* *Predictions*: Contains the prediction error that is a result by applying the machine-learning technique on the sample set.
+In our paper, we use a machine-learning technique to predict the performance of all valid configurations of a configurable software system (i.e., the whole population) from a small set of configurations (i.e., a sample set).
+In this process, we distinguish between the following data:
+* *Variability Model*: 
+  One file containing the description of a configurable system.
+  This includes the configuration options of the configurable system and constraints among these configuration options.
+* *Measured Performance Values*: 
+  One file containing the measured values for all valid configurations of a subject system.
+  Here, we have one file per subject system.
+* *Prediction Log File*: 
+  A file containing the error rate of applying a sampling strategy with a certain sample size on a configurable system.
 
 The data is published in the [Distance-Based Data](https://github.com/ChristianKaltenecker/Distance-Based_Data/tree/master/SupplementaryWebsite) repository.
 
 ### Measured Performance Values
 
 We have acquired the performance measurements for all used case studies in previous studies and selected a subset of them by using different sampling strategies.
-To replicate the raw performance measurements, we also provide detailed description files describing the environment and the used workload.
-However, the replication of the raw data required multiple months of CPU time per case study and has to be performed on a hardware with the same characteristics and, thus, can be avoided.
+To replicate the measured performance values, we also provide detailed description files describing the environment and the used workload.
+However, the acquisition of the measured data required multiple months of CPU time per case study and has to be performed on a hardware with the same characteristics for a meaningfull replication and, thus, should be avoided.
 
-### Predicted Performance Values
+### Prediction Log File
 
 For comparing the different sampling strategies, we applied a machine-learning technique to learn performance models that can be used for performance prediction.
 For answering our research questions and, thus, for comparing the sampling strategies, we used the prediction error of these performance models.
@@ -50,8 +61,8 @@ To perform sampling and to learn performance models, we depend only on SPL Conqu
 
 ### Scripts
 
-To process the prediction data and automatically generate tables as presented in Section V (Results), we additionally provide Python scripts for data processing, which further invoke an R script for the significance tests.
-The output of the scripts are tex files that can be embedded in LaTeX.
+To process the prediction data and automatically generate tables as presented in Section V (Results), we additionally provide Python scripts for data aggregation, which further invoke an R script for the significance tests.
+The output of the scripts are tex files that compiled in LaTeX.
 
 ## Installation
 <!-- TODO: Put the following text also in INSTALL -->
@@ -68,7 +79,8 @@ Please refer to the [documentation](https://docs.docker.com/install/linux/docker
 
 After docker is installed, make sure that the docker daemon is running. On systemd, you can use ```systemctl status docker``` to check the status of the daemon and ```sudo systemctl start docker``` to start the daemon.
 
-Next, the container can be set up by invoking ```sudo docker build -t distance-based ./```.
+Next, download the [Dockerfile](./Dockerfile).
+The container is set up by invoking ```sudo docker build -t distance-based ./``` in the directory where the Dockerfile is located.
 By invoking this script, all dependencies as described in Section [Manual Setup](#manual-setup) are installed, which might take a while.
 
 After setting up the docker container, all required ressources (i.e., packages, programs, and scripts) are installed and can now be used inside the container.
@@ -84,7 +96,7 @@ Requirements:
   * git (for cloning the required repositories)
   * wget
   * unzip, tar
-  * texlive (for generating the table)
+  * texlive (for generating the summarized table from the paper)
   * Python (for the aggregation of the results):
     * numpy
     * scipy
@@ -115,17 +127,17 @@ git reset --hard 8d5e442f0e085f8df6d7807ca69c65deeae7e0b3
 ```
 
 SPL Conqueror is written in C# and, thus, depends on [Mono](https://www.mono-project.com/) and [NuGet](https://www.nuget.org/).
-The Mono packages can be downloaded by using a package manager, such as `apt`:
+The Mono packages are downloaded by using a package manager, such as `apt`:
 ```
 sudo apt install -y mono-complete
 ```
-The current version of NuGet can be downloaded by using the command:
+The current version of NuGet is downloaded by using the command:
 ```
 cd SPLConqueror
 wget https://dist.nuget.org/win-x86-commandline/latest/nuget.exe 
 ``` 
 
-After cloning the repository with the given version, SPL Conqueror has to be built. This can be done by using the following commands:
+After cloning the repository with the given version, SPL Conqueror has to be built. This is done by using the following commands:
 ```
 mono nuget.exe restore ./
 xbuild /p:Configuration=Release /p:TargetFrameworkVersion="v4.5" /p:TargetFrameworkProfile="" ./SPLConqueror.sln
@@ -135,7 +147,7 @@ cd ../../
 #### z3 Constraint solver
 
 Since we used the [z3](https://github.com/Z3Prover/z3) constraint solver to find solutions (i.e., valid configurations), the library for the z3 solver has to be additionally downloaded.
-This can be done as follows:
+This is done as follows:
 ```
 wget https://github.com/Z3Prover/z3/releases/download/z3-4.7.1/z3-4.7.1-x64-debian-8.10.zip
 unzip z3-4.7.1-x64-debian-8.10.zip -d z3
@@ -146,11 +158,11 @@ mv z3-4.7.1-x64-debian-8.10/bin/libz3.so /usr/lib/libz3.so
 #### Scripts
 
 To execute the scripts, [python3](https://www.python.org/download/releases/3.0/) and [R](https://www.r-project.org/) are required.
-These can be installed on Debian using `apt` as follows:
+These is installed on Debian using `apt` as follows:
 ```
 sudo apt install -y python3 python3-numpy python3-scipy r-recommend
 ```
-For the installation of the dependencies for R, we provide an installation file, which can be invoked as follows:
+For the installation of the dependencies for R, we provide an installation file, which is be invoked as follows:
 ```
 Rscript InstallPackages.R
 ```
@@ -196,7 +208,7 @@ The structure is as follows:
         * SPL Conqueror sample set files for a sampling strategy and  (e.g., sampledConfigurations_diversified_t1.csv)
 
 To compare the results, one has to compare the results of (1) the same case study using (2) the same sampling strategy, (3) the same random seed, and (4) the same sample size.
-The results can be compared by comparing (I.) error rates or/and (II.) sample sets.
+The results are compared by comparing (I.) error rates or/and (II.) sample sets.
 
 **I. Error Rates**: 
 For comparing the error rates, the SPL Conqueror log files are required, since they contain the error rate.
@@ -225,8 +237,9 @@ diff /application/Distance-Based_Data/SupplementaryWebsite/PredictedPerformanceV
 ### Aggregation
 
 For the aggregation of our results, we provide two scripts:
+
 **I. analyzeRuns.py**: 
-  Gathers all information about the runs of all case studies and stores it in a given summary directory.
+  A script that gathers all information about the runs of all case studies and stores it in a given summary directory.
   Usage: `./analyzeRuns.py <runDirectory> <summaryDirectory>`
   `runDirectory` is the directory where all runs of all case studies are stored. 
   `summaryDirectory` is the directory where the accumulated results should be written to.
@@ -236,7 +249,7 @@ For the aggregation of our results, we provide two scripts:
   ./analyzeRuns.py /application/Distance-Based_Data/SupplementaryWebsite/PredictedPerformanceValues/AllRuns/ /application/Distance-Based_Data/SupplementaryWebsite/PredictedPerformanceValues/Summary/
   ```
 **II. ErrorRateTableCreator.py**:
-  Reads in the information gathered by `analyzeRuns.py` and uses `PerformKruskalWallis.R` to perform the significance tests (e.g., Kruskal Wallis, Mann Whitney U) on them.
+  A script that reads in the information gathered by `analyzeRuns.py` and uses `PerformKruskalWallis.R` to perform the significance tests (e.g., Kruskal Wallis, Mann Whitney U) on them.
   The results are written in multiple different table files.
   Usage: `./ErrorRateTableCreator.py <inputDirectory> <typesToAdd> <labelsOfTypes> <outputDirectory>`
 

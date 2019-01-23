@@ -102,8 +102,7 @@ Requirements:
   * Python (for the aggregation of the results):
     * numpy
     * scipy
-  * R (for the significance tests)
-    Dependencies (installed via a script):
+  * R (for the significance tests -- the dependencies are installed via the provided `InstallPackages.R` script)
     * FSA
     * car
     * effsize

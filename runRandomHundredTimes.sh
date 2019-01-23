@@ -66,6 +66,8 @@ createAFiles () {
           echo "nfp Performance" >> ${file};
           if [ "${SAMPLING_STRATEGY}" = "select-all-measurements true" ]; then
             echo "${SAMPLING_STRATEGY}" >> ${file};
+          elif [ "${SAMPLING_STRATEGY}" = "binary twise" ]; then
+            echo "${SAMPLING_STRATEGY} t:${twCounter}" >> ${file};
           else
             echo "${SAMPLING_STRATEGY} numConfigs:${numConfigs} seed:${seed} ${fromFile}" >> ${file};
           fi
@@ -90,8 +92,12 @@ LOCATION=$(echo $LOCATION | sed 's:/*$::')
 LOCATION="${LOCATION}/"
 CURRENT_SOURCE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-
-if [ "${TYPE}" = "distanceBased" ]; then
+if [ "${TYPE}" = "t-wise" ]; then
+  SAMPLING_STRATEGY="binary twise";
+  FILE_NAME="twise";
+  BEGIN_AT=1;
+  REPETITIONS=1;
+elif [ "${TYPE}" = "distanceBased" ]; then
   SAMPLING_STRATEGY="hybrid distribution-aware distance-metric:manhattan distribution:uniform onlyBinary:true selection:SolverSelection number-weight-optimization:1";
   # number-weight-optimization:1-1";
   FILE_NAME="distBased";
@@ -105,7 +111,7 @@ elif [ "${TYPE}" = "random" ]; then
   SAMPLING_STRATEGY="binary random";
   FILE_NAME="random";
 elif [ "${TYPE}" = "henard" ]; then
-  SAMPLING_STRATEGY="hybrid distribution-aware distance-metric:manhattan distribution:normal use-whole-population:true onlyBinary:true optimization:local selection:SolverSelection";
+  SAMPLING_STRATEGY="binary satoutput henard:true";
   FILE_NAME="henard";
 elif [ "${TYPE}" = "all" ]; then
   SAMPLING_STRATEGY="select-all-measurements true";
@@ -113,7 +119,7 @@ elif [ "${TYPE}" = "all" ]; then
   BEGIN_AT=1;
   REPETITIONS=1;
 else
-  echo "Only distanceBased, diversified, solverBased, random, or henard as type."
+  echo "Only t-wise, distanceBased, diversified, solverBased, random, or henard as type."
   exit;
 fi
 
@@ -131,7 +137,6 @@ SPL_CONQUEROR_PATH="${CURRENT_SOURCE_DIR}/../SPLConqueror/SPLConqueror/CommandLi
 
 caseStudyPath="${CURRENT_SOURCE_DIR}/SupplementaryWebsite/MeasuredPerformanceValues/${CASE_STUDY}/"
 twisePath="${CURRENT_SOURCE_DIR}/SupplementaryWebsite/PredictedPerformanceValues/Summary/${CASE_STUDY}/"
-
 
 for i in `seq ${BEGIN_AT} ${REPETITIONS}`; do
         echo "Run $i out of ${REPETITIONS}.";

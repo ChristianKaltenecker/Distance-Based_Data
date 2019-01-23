@@ -40,48 +40,50 @@ In this process, we distinguish between the following data:
   A file containing the error rate of applying a sampling strategy with a certain sample size on a configurable system.
 
 The data is published in the [Distance-Based Data](https://github.com/ChristianKaltenecker/Distance-Based_Data/tree/master/SupplementaryWebsite) repository.
+Overall, in this repository, we provide two directories:
 
-### Measured Performance Values
+### Measured Performance Values (`MeasuredPerformanceValues`)
 
-We have acquired the performance measurements for all used case studies in previous studies and selected a subset of them by using different sampling strategies.
-To replicate the measured performance values, we also provide detailed description files describing the environment and the used workload.
-However, the acquisition of the measured data required multiple months of CPU time per case study and has to be performed on a hardware with the same characteristics for a meaningfull replication and, thus, should be avoided.
+In this directory, we provide the (I) variability models of the subject systems, (II) measured performance values, and (III) a file constaining a description of the infrastructre we used to measure all configurations of the systems and the used workload.
+The last mentioned file can help a user in replicating the measurements.
+However, gathering the measured performance values of the configuration took several months of CPU time, in the first place. 
+Additionally, some of the identified perfomance characteristrics might be affected by hardware-speficic characteristics, which overall requires to perform the measurements on the same hardware using the same operating system and so on.
 
-### Prediction Log File
+### Prediction Log File (`PerformancePredictions`)
 
-For comparing the different sampling strategies, we applied a machine-learning technique to learn performance models that can be used for performance prediction.
-For answering our research questions and, thus, for comparing the sampling strategies, we used the prediction error of these performance models.
-Since using a random seed in all sampling strategies (except for t-wise) leads to different sample sets, we have performed the case studies with 100 different seeds from 1 to 100.
+In this directory, we provide files containing the predicted performance values of all configurations of the different subject systems, when using a specific sampling strategy.
+Since using a random seed in all sampling strategies (except for t-wise) leads to different sample sets and in this vein also to slightly different predicion errors, we have performed the experiments using these sampling strategies 100 times using different seeds.
+To examine the influence of these random seeds on the prediction accuracy, we provide one file for each random seed.
 
 ## Programs & Scripts
 
+Next, we describe the tools and scripts used in this study and how they interplay.
+
 ### SPL Conqueror
-The distance-based sampling strategy was implemented in [SPL Conqueror](https://github.com/se-passau/SPLConqueror), which is a library that currently contains the implementations of all sampling strategies considered in the paper, as well as the machine-learning technique (i.e., multiple linear regression).
-To perform sampling and to learn performance models, we depend only on SPL Conqueror.
+The distance-based sampling strategy was implemented in [SPL Conqueror](https://github.com/se-passau/SPLConqueror), which is a library that provides implementations of all sampling strategies considered in the paper, as well as the used implementation of the applied machine-learning technique (multiple linear regression in combination with forward feature selection).
+In the sampling and the learning provess, we depend only on SPL Conqueror.
 
 ### Scripts
 
-To process the prediction data and automatically generate tables as presented in Section V (Results), we additionally provide Python scripts for data aggregation, which further invoke an R script for the significance tests.
-The output of the scripts are tex files that compiled in LaTeX.
+To process the predicted performance values when using a specific sampling strategy and to automatically generate the tables shown in the paper (see for example Table II, we provide Python scripts for data aggregation, which further invokes an R script to perform the significance tests from which the results are shown in Table 3.
+Overall, these scripts create stand alone tex files that can be compiled using LaTeX.
 
 ## Installation
 <!-- TODO: Put the following text also in INSTALL -->
-For the reproduction of our results, one can use the provided Dockerfile to automatically deploy a docker container with a fully initialized environment.
-Alternatively, it is also possible to [manually setup](#manual-setup) the tooling on a Linux-based operating system.
+For reproduction of our results, we provide a docker container containing scripts for the installation, alternatively, we also provide a description for a [manual setup](#manual-setup) showing the steps to perform on a Linux-based operating system to repoduce the results of this work. 
 
 ### Setup via Dockerfile
 
-To ease the installation of our tool, we also provide a [Dockerfile](./Dockerfile) for setting up a docker container.
-Please note that the container will use up to 5 GB of space after the setup.
+To ease the installation of our tool, we provide a [Dockerfile](./Dockerfile) for setting up a docker container.
+Please note that the container will use up to 5 GB of disc storage after the setup is performed.
 
-For setting up a docker container, docker is needed. 
-Please refer to the [documentation](https://docs.docker.com/install/linux/docker-ce/ubuntu/) on how to install docker on your Linux operating system.
+To apply this file, we rely on docker and refer to the [documentation](https://docs.docker.com/install/linux/docker-ce/ubuntu/) on how to install docker on your Linux operating system.
 
-After docker is installed, make sure that the docker daemon is running. On systemd, you can use ```systemctl status docker``` to check the status of the daemon and ```sudo systemctl start docker``` to start the daemon.
+After docker is installed, make sure that the docker daemon is running. On systemd, you can use ```systemctl status docker``` to check the status of the daemon and ```sudo systemctl start docker``` to start the daemon, if necessary.
 
 Next, download the [Dockerfile](./Dockerfile).
 The container is set up by invoking ```sudo docker build -t distance-based ./``` in the directory where the Dockerfile is located.
-By invoking this script, all dependencies as described in Section [Manual Setup](#manual-setup) are installed, which might take a while.
+By invoking this script, all dependencies as described in Section [Manual Setup](#manual-setup) are installed, which might take several minutes.
 
 After setting up the docker container, all required ressources (i.e., packages, programs, and scripts) are installed and can now be used inside the container.
 To begin an interactive session, the command ```sudo docker run -i -t distance-based /bin/bash``` can be used.
@@ -101,6 +103,10 @@ Requirements:
     * numpy
     * scipy
   * R (for the significance tests)
+    Dependencies (installed via a script):
+    * FSA
+    * car
+    * effsize
 
 #### Data
 
@@ -119,15 +125,15 @@ tar -xzf Distance-Based_Data/SupplementaryWebsite/MeasuredPerformanceValues/VP9/
 
 #### SPL Conqueror
 
-Since we executed SPL Conqueror in our paper with a specific version, additional steps are required to reset the repository to the version from the paper.
+Since we used a specific version of SPL Conqueror in our paper, and we can not make sure to achieve the same results in all version of SPL Conqueror in the future, additional steps are required to reset the repository to the version used in the paper.
 ```
 git clone https://github.com/se-passau/SPLConqueror.git
 cd SPLConqueror
 git reset --hard 8d5e442f0e085f8df6d7807ca69c65deeae7e0b3
 ```
 
-SPL Conqueror is written in C# and, thus, depends on [Mono](https://www.mono-project.com/) and [NuGet](https://www.nuget.org/).
-The Mono packages are downloaded by using a package manager, such as `apt`:
+SPL Conqueror is written in C# and, thus, depends on [Mono](https://www.mono-project.com/) and [NuGet](https://www.nuget.org/) to install further packages needed to perform the experiments.
+The Mono packages are downloaded by the use of a package manager, such as `apt`:
 ```
 sudo apt install -y mono-complete
 ```
@@ -146,7 +152,8 @@ cd ../../
 
 #### z3 Constraint solver
 
-Since we used the [z3](https://github.com/Z3Prover/z3) constraint solver to find solutions (i.e., valid configurations), the library for the z3 solver has to be additionally downloaded.
+In our experiments, we rely on a satisfiability solver to navigate through the highly constained configuration space of the subject systems in an efficient way. 
+Here, we use the [z3](https://github.com/Z3Prover/z3) constraint solver, which has to be downloaded.
 This is done as follows:
 ```
 wget https://github.com/Z3Prover/z3/releases/download/z3-4.7.1/z3-4.7.1-x64-debian-8.10.zip
@@ -157,8 +164,8 @@ mv z3-4.7.1-x64-debian-8.10/bin/libz3.so /usr/lib/libz3.so
 
 #### Scripts
 
-To execute the scripts, [python3](https://www.python.org/download/releases/3.0/) and [R](https://www.r-project.org/) are required.
-These is installed on Debian using `apt` as follows:
+To execute the scripts, we rely on [python3](https://www.python.org/download/releases/3.0/) and [R](https://www.r-project.org/).
+They can be installed on Debian using `apt` as follows:
 ```
 sudo apt install -y python3 python3-numpy python3-scipy r-recommend
 ```
@@ -171,12 +178,12 @@ Please be aware that this installation process might take a while.
 
 ## Usage
 
-Note that the complexity of the case studies differs, which is why some case studies need more time than others. 
+Please note that we consider subject systems from different size. 
+As a consequence, the replication of the results for different systems will take different amounts of time. 
 We advise you to take a look on the performance values on the [supplementary website](https://github.com/ChristianKaltenecker/Distance-Based_Data/tree/master/SupplementaryWebsite) to simplify the decision on which results to replicate.
-For a better demonstration of the usage, we show it exemplarily on the case study x264.
+For a better demonstration of the usage, we show it exemplarily for the subject system x264.
 
-The location of the measured performance values is ```Distance-Based_Data/SupplementaryWebsite/MeasuredPerformanceValues```.
-The predicted performance values of all random seeds are stored in ```Distance-Based_Data/SupplementaryWebsite/PredictedPerformanceValues/AllRuns```, whereas the summarized data is stored in ```Distance-Based_Data/SupplementaryWebsite/PredictedPerformanceValues/Summary```.
+The location of the measured performance values is ```Distance-Based_Data/SupplementaryWebsite/MeasuredPerformanceValues```
 
 ### Replication of a random seed
 

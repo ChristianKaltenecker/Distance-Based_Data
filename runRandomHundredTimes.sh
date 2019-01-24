@@ -136,7 +136,7 @@ SPL_CONQUEROR_PATH="${CURRENT_SOURCE_DIR}/../SPLConqueror/SPLConqueror/CommandLi
 
 
 caseStudyPath="${CURRENT_SOURCE_DIR}/SupplementaryWebsite/MeasuredPerformanceValues/${CASE_STUDY}/"
-twisePath="${CURRENT_SOURCE_DIR}/SupplementaryWebsite/PredictedPerformanceValues/Summary/${CASE_STUDY}/"
+twisePath="${CURRENT_SOURCE_DIR}/SupplementaryWebsite/PerformancePredictions/Summary/${CASE_STUDY}/"
 
 for i in `seq ${BEGIN_AT} ${REPETITIONS}`; do
         echo "Run $i out of ${REPETITIONS}.";

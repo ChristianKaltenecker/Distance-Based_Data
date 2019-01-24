@@ -178,7 +178,7 @@ Please be aware that this installation process might take a while.
 ## Usage
 
 Please note that we consider subject systems from different size. 
-As a consequence, the replication of the results for different systems will take different amounts of time. 
+As a consequence, the replication of the results for different systems will take different amount of time.
 We advise you to take a look on the performance values on the [supplementary website](https://github.com/ChristianKaltenecker/Distance-Based_Data/tree/master/SupplementaryWebsite) to simplify the decision on which results to replicate.
 For a better demonstration of the usage, we show it exemplarily for the subject system x264.
 
@@ -186,39 +186,41 @@ The location of the measured performance values is ```Distance-Based_Data/Supple
 
 ### Replication of a random seed
 
-The following commands have to be executed inside the repository "Distance-Based_Data"
+The following commands have to be executed inside the repository "Distance-Based_Data" to reproduce the sampling and the subsequent learning process when using a specific random seed.
 ```
 cd Distance-Based_Data/
 ```
 To execute the sampling and machine-learning process, we provide the script SPLConquerorExecuter.py.
 ```
-./SPLConquerorExecuter.py <caseStudy> <strategy> <saveLocation> [run_start] [run_end]
+./SPLConquerorExecuter.py <subjectSystem> <strategy> <saveLocation> [run_start] [run_end]
 ```
-For the arguments, the *case study* (7z, BerkeleyDBC, Dune, Hipacc, JavaGC, lrzip, LLVM, Polly, VP9, x264), the *sampling strategy* (t-wise, solverBased, henard, distanceBased, diversified, random), the *location* for the results have to be known.
-Additionally, if not all 100 runs should be reproduced, the interval of the random seed can be specified.
+Here, valid arguments for the *subject system* are 7z, BerkeleyDBC, Dune, Hipacc, JavaGC, lrzip, LLVM, Polly, VP9, x264. 
+For the samplingStrategy, we provide the following arguments t-wise (coverage-based), solverBased (solver-based), henard (randomized solver-based), distanceBased (distance-based), diversified (diversified distance-based), random (random).
+The third argument specified the directory, where the results of the SPL Conqueror execution are stored.
+The last two arguments can be used to specific a specific set of random seeds, for which the experiments have to be performened.
+Additionally, if not all 100 random seeds should be used in the experiments, the interval of the random seed can be specified.
 
-In our example, we firstly create a new directory for storing the new results.
+In our example, we first create a new directory for storing the new results.
 ```
 mkdir -p /application/Distance-Based_Data/SupplementaryWebsite/PredictedPerformanceValues/NewRuns
 ```
-Afterwards, we can use the script to perform diversified distance-based sampling for the case study x264 by using the random seeds 42-43.
+Afterwards, we can use the script to perform the diversified distance-based sampling for the subject system x264 by using the random seeds 42-43.
 ```
 ./SPLConquerorExecuter.py x264 diversified /application/Distance-Based_Data/SupplementaryWebsite/PredictedPerformanceValues/NewRuns 42 43
 ```
-By executing this script, new directories are created for the case study and the random seed.
-The structure is as follows:
+By executing this script, new directories inside of the *saveLocation* are created for the subject system and the specified random seed.
+The structure of the directories looks as follows:
   * run directory (e.g., NewRuns)
     * case study (e.g., x264)
       * case study with random seed (e.g., x264_42)
         * SPL Conqueror log files for a sampling strategy and different sample sizes (e.g., out_diversified_t1.log)
-        * SPL Conqueror sample set files for a sampling strategy and  (e.g., sampledConfigurations_diversified_t1.csv)
+        * A file constaining the set of selected configurations. (e.g., sampledConfigurations_diversified_t1.csv)
 
-To compare the results, one has to compare the results of (1) the same case study using (2) the same sampling strategy, (3) the same random seed, and (4) the same sample size.
-The results are compared by comparing (I.) error rates or/and (II.) sample sets.
+To compare the results, one have to compare the results of (1) the same case study using (2) the same sampling strategy, (3) the same random seed, and (4) the same sample size.
+The results are compared by comparing error rates. 
 
-**I. Error Rates**: 
-For comparing the error rates, the SPL Conqueror log files are required, since they contain the error rate.
-The error rate is the last number in the last line before `Analyze finished`.
+For comparing the error rates, we have to consider the log files of SPL Conqueror.
+In these file, the error rate is the last number in the last line before `Analyze finished`.
 In this example, the error rate is 10.481%.
 ```
 [...]
@@ -226,26 +228,13 @@ In this example, the error rate is 10.481%.
 Analyze finished
 [...]
 ```
-These error rates should be the same for our provided predictions and the replicated predictions.
-
-**II. Sample Sets**:
-Comparing the sample sets can be done by using the `diff` tool.
-The usage is as follows:
-```
-diff <file1> <file2>
-```
-
-In our example, we would compare the new sample set with the provided sample set.
-```
-diff /application/Distance-Based_Data/SupplementaryWebsite/PredictedPerformanceValues/NewRuns/x264/x264_42/sampledConfigurations_divDistBased_t1.log /application/Distance-Based_Data/SupplementaryWebsite/PredictedPerformanceValues/AllRuns/x264/x264_42/sampledConfigurations_divDistBased_t1.log
-```
 
 ### Aggregation
 
 For the aggregation of our results, we provide two scripts:
 
 **I. analyzeRuns.py**: 
-  A script that gathers all information about the runs of all case studies and stores it in a given summary directory.
+  A script that collects all relevant information about the runs of all case studies and stores it in a given directory.
   Usage: `./analyzeRuns.py <runDirectory> <summaryDirectory>`
   `runDirectory` is the directory where all runs of all case studies are stored. 
   `summaryDirectory` is the directory where the accumulated results should be written to.
@@ -255,7 +244,7 @@ For the aggregation of our results, we provide two scripts:
   ./analyzeRuns.py /application/Distance-Based_Data/SupplementaryWebsite/PredictedPerformanceValues/AllRuns/ /application/Distance-Based_Data/SupplementaryWebsite/PredictedPerformanceValues/Summary/
   ```
 **II. ErrorRateTableCreator.py**:
-  A script that reads in the information gathered by `analyzeRuns.py` and uses `PerformKruskalWallis.R` to perform the significance tests (e.g., Kruskal Wallis, Mann Whitney U) on them.
+  A script that reads the information gathered by `analyzeRuns.py` and uses `PerformKruskalWallis.R` to perform the significance tests (e.g., Kruskal Wallis, Mann Whitney U) on the collected error rates.
   The results are written in multiple different table files.
   Usage: `./ErrorRateTableCreator.py <inputDirectory> <typesToAdd> <labelsOfTypes> <outputDirectory>`
 
@@ -275,8 +264,4 @@ For the aggregation of our results, we provide two scripts:
   Afterwards, `pdflatex` and the file `TableStandalone.tex` should be used to create the table.
   ```
   pdflatex TableStandalone.tex
-  ```
-  To view the pdf file in a docker container, the pdf file can be copied to the host system.
-  ```
-  sudo docker cp <containerId>:/application/Distance-Based_Data ~
   ```

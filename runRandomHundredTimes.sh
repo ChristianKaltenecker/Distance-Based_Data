@@ -92,22 +92,22 @@ LOCATION=$(echo $LOCATION | sed 's:/*$::')
 LOCATION="${LOCATION}/"
 CURRENT_SOURCE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-if [ "${TYPE}" = "t-wise" ]; then
+if [ "${TYPE}" = "twise" ]; then
   SAMPLING_STRATEGY="binary twise";
   FILE_NAME="twise";
   BEGIN_AT=1;
   REPETITIONS=1;
-elif [ "${TYPE}" = "distanceBased" ]; then
+elif [ "${TYPE}" = "distBased" ]; then
   SAMPLING_STRATEGY="hybrid distribution-aware distance-metric:manhattan distribution:uniform onlyBinary:true selection:SolverSelection number-weight-optimization:1";
   # number-weight-optimization:1-1";
   FILE_NAME="distBased";
-elif [ "${TYPE}" = "diversified" ]; then
+elif [ "${TYPE}" = "divDistBased" ]; then
   SAMPLING_STRATEGY="hybrid distribution-aware distance-metric:manhattan distribution:uniform onlyBinary:true selection:SolverSelection optimization:local number-weight-optimization:1";
   FILE_NAME="divDistBased";
-elif [ "${TYPE}" = "solverBased" ]; then
+elif [ "${TYPE}" = "solvBased" ]; then
   SAMPLING_STRATEGY="binary satoutput";
   FILE_NAME="solverBased";
-elif [ "${TYPE}" = "random" ]; then
+elif [ "${TYPE}" = "rand" ]; then
   SAMPLING_STRATEGY="binary random";
   FILE_NAME="random";
 elif [ "${TYPE}" = "henard" ]; then

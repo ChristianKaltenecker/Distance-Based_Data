@@ -23,7 +23,7 @@ SCRIPT_LOCATION = "./runRandomHundredTimes.sh"
 
 # The following sampling strategies can be used
 # TODO: Add t-wise
-ALLOWED_TYPES = ["solverBased", "distanceBased", "random", "diversified", "henard", "t-wise"]
+ALLOWED_TYPES = ["solvBased", "distBased", "rand", "divDistBased", "henard", "twise"]
 
 
 def print_usage() -> None:

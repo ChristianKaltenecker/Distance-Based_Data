@@ -195,7 +195,7 @@ To execute the sampling and machine-learning process, we provide the script SPLC
 ./SPLConquerorExecuter.py <subjectSystem> <strategy> <saveLocation> [run_start] [run_end]
 ```
 Here, valid arguments for the *subject system* are 7z, BerkeleyDBC, Dune, Hipacc, JavaGC, lrzip, LLVM, Polly, VP9, x264. 
-For the samplingStrategy, we provide the following arguments t-wise (coverage-based), solverBased (solver-based), henard (randomized solver-based), distanceBased (distance-based), diversified (diversified distance-based), random (random).
+For the samplingStrategy, we provide the following arguments twise (coverage-based), solvBased (solver-based), henard (randomized solver-based), distBased (distance-based), divDistBased (diversified distance-based), rand (random).
 The third argument specified the directory, where the results of the SPL Conqueror execution are stored.
 The last two arguments can be used to specific a specific set of random seeds, for which the experiments have to be performened.
 Additionally, if not all 100 random seeds should be used in the experiments, the interval of the random seed can be specified.

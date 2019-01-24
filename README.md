@@ -211,12 +211,12 @@ Afterwards, we can use the script to perform the diversified distance-based samp
 By executing this script, new directories inside of the *saveLocation* are created for the subject system and the specified random seed.
 The structure of the directories looks as follows:
   * run directory (e.g., NewRuns)
-    * case study (e.g., x264)
-      * case study with random seed (e.g., x264_42)
+    * subject system (e.g., x264)
+      * subject system with random seed (e.g., x264_42)
         * SPL Conqueror log files for a sampling strategy and different sample sizes (e.g., out_diversified_t1.log)
         * A file constaining the set of selected configurations. (e.g., sampledConfigurations_diversified_t1.csv)
 
-To compare the results, one have to compare the results of (1) the same case study using (2) the same sampling strategy, (3) the same random seed, and (4) the same sample size.
+To compare the results, one have to compare the results of (1) the same subject system using (2) the same sampling strategy, (3) the same random seed, and (4) the same sample size.
 The results are compared by comparing error rates. 
 
 For comparing the error rates, we have to consider the log files of SPL Conqueror.

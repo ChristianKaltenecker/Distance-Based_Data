@@ -289,7 +289,7 @@ def main():
 
             # Save the error rates in the following file (needed for box-plots)
             mid_file_name = file[len(SPL_CONQUEROR_PREFIX):len(file) - len(suffix)]
-            error_rate_file = open(original_directory + ALL_RESULTS_PREFIX + ERROR_PREFIX + mid_file_name +
+            error_rate_file = open(original_directory + case_study + os.path.sep + ALL_RESULTS_PREFIX + ERROR_PREFIX + mid_file_name +
                                    OTHER_FILE_SUFFIX, 'w')
             error_rate_file.write("Run;Error\n")
 
@@ -327,7 +327,7 @@ def main():
             standard_deviation[file] = math.sqrt(standard_deviation[file])
             standard_deviation[file] /= average_values[file]
 
-            standard_deviation_file = open(original_directory + ALL_RESULTS_PREFIX + STANDARD_DEVIATION_PREFIX +
+            standard_deviation_file = open(original_directory + case_study + os.path.sep + ALL_RESULTS_PREFIX + STANDARD_DEVIATION_PREFIX +
                                            mid_file_name + OTHER_FILE_SUFFIX, 'w')
             standard_deviation_file.write(str(standard_deviation[file]) + "\n")
             standard_deviation_file.close()

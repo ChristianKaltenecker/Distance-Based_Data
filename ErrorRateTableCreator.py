@@ -22,7 +22,7 @@ ERROR_FILE_SUFIX = ".txt"
 LOG_FILE_PREFIX = "out_"
 LOG_FILE_SUFIX = ".log"
 FILE_NAME_SEPARATOR = "_"
-T_PARAMETER = [0,1,2]
+T_PARAMETER = [1,2,3]
 CSV_SEPARATOR = ";"
 PERCENT = "\\percent "
 NEW_LINE = "\\\\"
@@ -41,7 +41,7 @@ EXCLUDED_DIRECTORIES = ["SinglePlots"]#, "VP9_disc", "JavaGC_disc", "Hipacc_disc
 FIRST_COLUMN_FORMAT = "e"
 OTHER_COLUMN_FORMAT = "abd"
 
-TO_IGNORE_RQ1 = []#["rand"]
+TO_IGNORE_RQ1 = ["rand"]
 TO_IGNORE_RQ2 = ["twise"]
 
 
@@ -82,30 +82,30 @@ def computeMeanError(filePath):
     return avgError, allValues
 
 
-def readTWiseLogFile(filePath):
+def readTWiseLogFile(filePaths):
     result = {}
-    with open(filePath, 'r') as file:
+    for filePath in filePaths:
         accuracy = -1
         currentTParameter = -1
-        currentAccuracy = -1
-        analyzeLearning = False
-        for line in file:
-            if ("command:" in line):
-                if "clean-sampling" in line:
-                    result[currentTParameter] = accuracy
-                    analyzeLearning = False
-                    currentTParameter = -1
-                elif "analyze-learning" in line:
-                    analyzeLearning = True
-                elif " twise " in line:
-                    tmp = line.split(" ")
-                    tmp = tmp[len(tmp) - 1].replace("\n", "")
-                    currentTParameter = int(tmp.split(":")[1])
-            elif analyzeLearning and CSV_SEPARATOR in line:
-                tmp = line.split(CSV_SEPARATOR)
-                currentAccuracy = float(tmp[len(tmp) - 1])
-                if accuracy == -1 or currentAccuracy < accuracy:
-                    accuracy = currentAccuracy
+        with open(filePath, 'r') as file:
+            analyzeLearning = False
+            for line in file:
+                if ("command:" in line):
+                    if "clean-sampling" in line:
+                        result[currentTParameter] = accuracy
+                        analyzeLearning = False
+                        currentTParameter = -1
+                    elif "analyze-learning" in line:
+                        analyzeLearning = True
+                    elif " twise " in line:
+                        tmp = line.split(" ")
+                        tmp = tmp[len(tmp) - 1].replace("\n", "")
+                        currentTParameter = int(tmp.split(":")[1])
+                elif analyzeLearning and CSV_SEPARATOR in line:
+                    tmp = line.split(CSV_SEPARATOR)
+                    currentAccuracy = float(tmp[len(tmp) - 1])
+                    if accuracy == -1 or currentAccuracy < accuracy:
+                        accuracy = currentAccuracy
     return result
 
 
@@ -125,21 +125,23 @@ def gatherInformation(inputDirectories, typesToAdd):
         allResults[caseStudy] = {}
         for type in typesToAdd:
             if (type == "twise"):
-                filePath = os.path.join(inputDirectory, LOG_FILE_PREFIX + type + LOG_FILE_SUFIX)
-                result[caseStudy][type] = readTWiseLogFile(filePath)
+                filePaths = [os.path.join(inputDirectory, LOG_FILE_PREFIX + type + "_t1" + LOG_FILE_SUFIX),
+                             os.path.join(inputDirectory, LOG_FILE_PREFIX + type + "_t2" + LOG_FILE_SUFIX),
+                             os.path.join(inputDirectory, LOG_FILE_PREFIX + type + "_t3" + LOG_FILE_SUFIX)]
+                result[caseStudy][type] = readTWiseLogFile(filePaths)
                 allResults[caseStudy][type] = dict(result[caseStudy][type])
                 for t in T_PARAMETER:
-                    allResults[caseStudy][type][t+1] = [allResults[caseStudy][type][t+1]] * 100
+                    allResults[caseStudy][type][t] = [allResults[caseStudy][type][t]] * 100
             else:
                 result[caseStudy][type] = {}
                 allResults[caseStudy][type] = {}
                 for t in T_PARAMETER:
                     # The t-wise error rate has to be read from the .log-file
-                    filePath = os.path.join(inputDirectory, ERROR_FILE_PREFIX + type + FILE_NAME_SEPARATOR + str(t) +
+                    filePath = os.path.join(inputDirectory, ERROR_FILE_PREFIX + type + FILE_NAME_SEPARATOR + "t" + str(t) +
                                             ERROR_FILE_SUFIX)
                     avgValue, allValues = computeMeanError(filePath)
-                    result[caseStudy][type][t + 1] = avgValue
-                    allResults[caseStudy][type][t + 1] = allValues
+                    result[caseStudy][type][t] = avgValue
+                    allResults[caseStudy][type][t] = allValues
     return result, allResults
 
 
@@ -154,10 +156,10 @@ def createRanking(typeInformation, allInformation, typesToAdd, toExclude = None)
                 if (toExclude is not None and type in toExclude):
                     errorList.append(math.nan)
                 else:
-                    errorList.append(typeInformation[caseStudy][type][t + 1])
-                allRunsList.append(allInformation[caseStudy][type][t+1])
+                    errorList.append(typeInformation[caseStudy][type][t])
+                allRunsList.append(allInformation[caseStudy][type][t])
 
-            result[caseStudy][t + 1] = rankList(errorList, allRunsList)
+            result[caseStudy][t] = rankList(errorList, allRunsList)
     return result
 
 
@@ -213,21 +215,21 @@ def computeMeanValue(typesToAdd, allInformation, toExclude):
     typeResults = {}
     meanRanking = {}
     for t in T_PARAMETER:
-        typeResults[t + 1] = []
-        means[t + 1] = []
-        count[t + 1] = []
+        typeResults[t] = []
+        means[t] = []
+        count[t] = []
         for i in range(0, len(typesToAdd)):
             type = typesToAdd[i]
-            typeResults[t + 1].append([])
-            means[t + 1].append(0)
-            count[t + 1].append(0)
+            typeResults[t].append([])
+            means[t].append(0)
+            count[t].append(0)
             for caseStudy in sorted(allInformation):
-                for result in allInformation[caseStudy][type][t + 1]:
-                #result = allInformation[caseStudy][type][t + 1]
-                    typeResults[t + 1][i].append(result)
-                    means[t + 1][i] += result
-                    count[t + 1][i] += 1
-            means[t + 1][i] /= count[t + 1][i]
+                for result in allInformation[caseStudy][type][t]:
+                #result = allInformation[caseStudy][type][t]
+                    typeResults[t][i].append(result)
+                    means[t][i] += result
+                    count[t][i] += 1
+            means[t][i] /= count[t][i]
 
     # Remove the comparison to the random sampling strategy
     meansCopy = copy.deepcopy(means)
@@ -235,9 +237,9 @@ def computeMeanValue(typesToAdd, allInformation, toExclude):
         for i in range(0, len(typesToAdd)):
             type = typesToAdd[i]
             if (toExclude is not None and type in toExclude):
-                meansCopy[t + 1][i] = math.nan
+                meansCopy[t][i] = math.nan
 
-        meanRanking[t + 1] = rankList(meansCopy[t + 1], typeResults[t + 1])
+        meanRanking[t] = rankList(meansCopy[t], typeResults[t])
     return means, meanRanking
 
 
@@ -297,14 +299,14 @@ def writeTableToFile(outputFile, labelsOfTypes, typesToAdd, typeInformation, ran
 
         for type in typesToAdd:
             for t in T_PARAMETER:
-                if math.isnan(typeInformation[caseStudyDirectory][type][t + 1]):
+                if math.isnan(typeInformation[caseStudyDirectory][type][t]):
                     resultToPrint = "--"
                 else:
-                    resultToPrint = str(roundError(typeInformation[caseStudyDirectory][type][t + 1])) + PERCENT
+                    resultToPrint = str(roundError(typeInformation[caseStudyDirectory][type][t])) + PERCENT
 
-                if (ranking is None or ranking[caseStudyDirectory][t + 1][typesToAdd.index(type)] > 1):
+                if (ranking is None or ranking[caseStudyDirectory][t][typesToAdd.index(type)] > 1):
                     caseStudyLine += "&" + resultToPrint
-                # elif (ranking[caseStudyDirectory][t + 1][typesToAdd.index(type)] == 2):
+                # elif (ranking[caseStudyDirectory][t][typesToAdd.index(type)] == 2):
                 #     caseStudyLine += "&" + SECOND_FORMAT_PREFIX + \
                 #                      resultToPrint + \
                 #                      SECOND_FORMAT_SUFIX
@@ -326,8 +328,8 @@ def writeTableToFile(outputFile, labelsOfTypes, typesToAdd, typeInformation, ran
 
         for type in typesToAdd:
             for t in T_PARAMETER:
-                resultToPrint = str(roundError(means[t + 1][typesToAdd.index(type)])) + PERCENT
-                if (meanRanking[t + 1][typesToAdd.index(type)] > 1):
+                resultToPrint = str(roundError(means[t][typesToAdd.index(type)])) + PERCENT
+                if (meanRanking[t][typesToAdd.index(type)] > 1):
                     meanLine += " & " + resultToPrint
                 else:
                     meanLine += " & " + BEST_FORMAT_PREFIX + resultToPrint + BEST_FORMAT_SUFIX
@@ -352,8 +354,8 @@ def exportForR(outputFile: str, data: List[List[List[List[float]]]], toExclude:L
                 if (toExclude is not None and type in toExclude):
                     continue
                 for t in T_PARAMETER:
-                    for result in data[caseStudy][type][t + 1]:
-                        file.write(caseStudy + ";" + type + ";" + str(t + 1) + ";" +
+                    for result in data[caseStudy][type][t]:
+                        file.write(caseStudy + ";" + type + ";" + str(t) + ";" +
                                str(result) + "\n")
 
 
@@ -390,10 +392,10 @@ def computeStandardDeviation(typesToAdd, allInformation):
         for type in typesToAdd:
             result[caseStudy][type] = {}
             for t in T_PARAMETER:
-                if (len(allInformation[caseStudy][type][t + 1]) > 1):
-                    result[caseStudy][type][t + 1] = stdev(allInformation[caseStudy][type][t + 1])
+                if (len(allInformation[caseStudy][type][t]) > 1):
+                    result[caseStudy][type][t] = stdev(allInformation[caseStudy][type][t])
                 else:
-                    result[caseStudy][type][t + 1] = 0
+                    result[caseStudy][type][t] = 0
 
     return result
 
@@ -561,11 +563,11 @@ def writeTestResultsToFiles(outputFile : str, kruskalResult : List[Tuple[str, Li
                 else:
                     # Search for the right comparison
                     for t in T_PARAMETER:
-                        if (len(kruskalResult[t + 1][1]) == 0):
+                        if (len(kruskalResult[t][1]) == 0):
                             continue
                         compStrats = [remainingTypes[i], remainingTypes[j]]
                         compString = compStrats[0] + " - " + compStrats[1]
-                        tResult = searchForTuple(compString, kruskalResult[t + 1][1])
+                        tResult = searchForTuple(compString, kruskalResult[t][1])
 
 
                         if (len(tResult) == 3):
@@ -627,9 +629,9 @@ def main() -> None:
 
     writeTableToFile(output_directory + os.path.sep + "table.tex", labelsToAdd, typesToAdd, avgInformation, ranking, means, meanRanking, TO_IGNORE_RQ1)
 
-    kruskalResult = performRTest(allInformation, kruskal=True, toExclude=TO_IGNORE_RQ1)
+    kruskalResult = performRTest(allInformation, kruskal=True, toExclude=[])
     writeTestResultsToFiles(output_directory + os.path.sep, kruskalResult, typesToAdd, labelsToAdd,
-                               kruskal=True, toExclude=TO_IGNORE_RQ1)
+                               kruskal=True, toExclude=[])
 
     leveneResult = performRTest(allInformation, kruskal=False, toExclude=TO_IGNORE_RQ2)
     writeTestResultsToFiles(output_directory + os.path.sep, leveneResult, typesToAdd, labelsToAdd,

@@ -1,0 +1,105 @@
+## Installation
+
+For reproduction of our results, we provide a docker container containing scripts for the installation, alternatively, we also provide a description for a [manual setup](#manual-setup) showing the steps to perform on a Linux-based operating system to repoduce the results of this work. 
+
+### Setup via Dockerfile
+
+To ease the installation of our tool, we provide a [Dockerfile](./Dockerfile) for setting up a docker container.
+Please note that the container will use up to 5 GB of disc storage after the setup is performed.
+
+To apply this file, we rely on docker and refer to the [documentation](https://docs.docker.com/install/linux/docker-ce/ubuntu/) on how to install docker on your Linux operating system.
+
+After docker is installed, make sure that the docker daemon is running. On systemd, you can use ```systemctl status docker``` to check the status of the daemon and ```sudo systemctl start docker``` to start the daemon, if necessary.
+
+Next, download the [Dockerfile](./Dockerfile).
+The container is set up by invoking ```sudo docker build -t distance-based ./``` in the directory where the Dockerfile is located.
+By invoking this script, all dependencies as described in Section [Manual Setup](#manual-setup) are installed, which might take several minutes.
+
+After setting up the docker container, all required ressources (i.e., packages, programs, and scripts) are installed and can now be used inside the container.
+To begin an interactive session, the command ```sudo docker run -i -t distance-based /bin/bash``` can be used.
+After starting the interactive session, you can continue [here](#usage).
+
+
+### Manual Setup
+
+Requirements:
+  * Operating system: Ubuntu/Debian
+  * Mono (for running SPL Conqueror)
+  * git (for cloning the required repositories)
+  * wget
+  * unzip, tar
+  * texlive (for generating the summarized table from the paper)
+  * Python (for the aggregation of the results):
+    * numpy
+    * scipy
+  * R (for the significance tests -- the dependencies are installed via the provided `InstallPackages.R` script)
+    * FSA
+    * car
+    * effsize
+
+#### Data
+
+To clone the repository containing the data (variability models, measured performance values, and predicted performance values), use the following command:
+
+```
+git clone https://github.com/ChristianKaltenecker/Distance-Based_Data.git
+```
+
+Since the measured performance values of JavaGC and VP9 are compressed because of size restrictions, they have to be uncompressed by using `tar` with the following commands:
+
+```
+tar -xzf Distance-Based_Data/SupplementaryWebsite/MeasuredPerformanceValues/JavaGC/measurements.tar.gz -C Distance-Based_Data/SupplementaryWebsite/MeasuredPerformanceValues/JavaGC/
+tar -xzf Distance-Based_Data/SupplementaryWebsite/MeasuredPerformanceValues/VP9/measurements.tar.gz -C Distance-Based_Data/SupplementaryWebsite/MeasuredPerformanceValues/VP9/
+```
+
+#### SPL Conqueror
+
+Since we used a specific version of SPL Conqueror in our paper, and we can not make sure to achieve the same results in all version of SPL Conqueror in the future, additional steps are required to reset the repository to the version used in the paper.
+```
+git clone https://github.com/se-passau/SPLConqueror.git
+cd SPLConqueror
+git reset --hard 8d5e442f0e085f8df6d7807ca69c65deeae7e0b3
+```
+
+SPL Conqueror is written in C# and, thus, depends on [Mono](https://www.mono-project.com/) and [NuGet](https://www.nuget.org/) to install further packages needed to perform the experiments.
+The Mono packages are downloaded by the use of a package manager, such as `apt`:
+```
+sudo apt install -y mono-complete
+```
+The current version of NuGet is downloaded by using the command:
+```
+cd SPLConqueror
+wget https://dist.nuget.org/win-x86-commandline/latest/nuget.exe 
+``` 
+
+After cloning the repository with the given version, SPL Conqueror has to be built. This is done by using the following commands:
+```
+mono nuget.exe restore ./
+xbuild /p:Configuration=Release /p:TargetFrameworkVersion="v4.5" /p:TargetFrameworkProfile="" ./SPLConqueror.sln
+cd ../../
+```
+
+#### z3 Constraint solver
+
+In our experiments, we rely on a satisfiability solver to navigate through the highly constained configuration space of the subject systems in an efficient way. 
+Here, we use the [z3](https://github.com/Z3Prover/z3) constraint solver, which has to be downloaded.
+This is done as follows:
+```
+wget https://github.com/Z3Prover/z3/releases/download/z3-4.7.1/z3-4.7.1-x64-debian-8.10.zip
+unzip z3-4.7.1-x64-debian-8.10.zip -d z3
+rm z3-4.7.1-x64-debian-8.10.zip
+mv z3-4.7.1-x64-debian-8.10/bin/libz3.so /usr/lib/libz3.so
+```
+
+#### Scripts
+
+To execute the scripts, we rely on [python3](https://www.python.org/download/releases/3.0/) and [R](https://www.r-project.org/).
+They can be installed on Debian using `apt` as follows:
+```
+sudo apt install -y python3 python3-numpy python3-scipy r-recommend
+```
+For the installation of the dependencies for R, we provide an installation file, which is be invoked as follows:
+```
+Rscript InstallPackages.R
+```
+Please be aware that this installation process might take a while.

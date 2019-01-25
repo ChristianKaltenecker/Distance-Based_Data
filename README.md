@@ -69,7 +69,7 @@ To process the predicted performance values when using a specific sampling strat
 Overall, these scripts create stand alone tex files that can be compiled using LaTeX.
 
 ## Installation
-<!-- TODO: Put the following text also in INSTALL -->
+
 For reproduction of our results, we provide a docker container containing scripts for the installation, alternatively, we also provide a description for a [manual setup](#manual-setup) showing the steps to perform on a Linux-based operating system to repoduce the results of this work. 
 
 ### Setup via Dockerfile
@@ -202,11 +202,11 @@ Additionally, if not all 100 random seeds should be used in the experiments, the
 
 In our example, we first create a new directory for storing the new results.
 ```
-mkdir -p /application/Distance-Based_Data/SupplementaryWebsite/PredictedPerformanceValues/NewRuns
+mkdir -p /application/Distance-Based_Data/SupplementaryWebsite/PerformancePredictions/NewRuns
 ```
 Afterwards, we can use the script to perform the diversified distance-based sampling for the subject system x264 by using the random seeds 42-43.
 ```
-./SPLConquerorExecuter.py x264 diversified /application/Distance-Based_Data/SupplementaryWebsite/PredictedPerformanceValues/NewRuns 42 43
+./SPLConquerorExecuter.py x264 diversified /application/Distance-Based_Data/SupplementaryWebsite/PerformancePredictions/NewRuns 42 43
 ```
 By executing this script, new directories inside of the *saveLocation* are created for the subject system and the specified random seed.
 The structure of the directories looks as follows:
@@ -241,7 +241,7 @@ For the aggregation of our results, we provide two scripts:
 
   In our example, we aggregate the results of `AllRuns` and write them into `Summary`:
   ```
-  ./analyzeRuns.py /application/Distance-Based_Data/SupplementaryWebsite/PredictedPerformanceValues/AllRuns/ /application/Distance-Based_Data/SupplementaryWebsite/PredictedPerformanceValues/Summary/
+  ./analyzeRuns.py /application/Distance-Based_Data/SupplementaryWebsite/PerformancePredictions/AllRuns/ /application/Distance-Based_Data/SupplementaryWebsite/PerformancePredictions/Summary/
   ```
 **II. ErrorRateTableCreator.py**:
   A script that reads the information gathered by `analyzeRuns.py` and uses `PerformKruskalWallis.R` to perform the significance tests (e.g., Kruskal Wallis, Mann Whitney U) on the collected error rates.
@@ -258,7 +258,7 @@ For the aggregation of our results, we provide two scripts:
 
   In our example, we use the aggregated results of all sampling strategies.
   ```
-  ./ErrorRateTableCreator.py /application/Distance-Based_Data/SupplementaryWebsite/PredictedPerformanceValues/Summary/ "twise,solvBased,henard,distBased,divDistBased,rand" "Coverage-based,Solver-based,Randomized solver-based,Distance-based,Diversified distance-based,Random" /application/Distance-Based_Data
+  ./ErrorRateTableCreator.py /application/Distance-Based_Data/SupplementaryWebsite/PerformancePredictions/Summary/ "twise,solvBased,henard,distBased,divDistBased,rand" "Coverage-based,Solver-based,Randomized solver-based,Distance-based,Diversified distance-based,Random" /application/Distance-Based_Data
   ```
 
   Afterwards, `pdflatex` and the file `TableStandalone.tex` should be used to create the table.

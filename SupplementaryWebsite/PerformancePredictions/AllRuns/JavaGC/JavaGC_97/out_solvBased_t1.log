@@ -1,6 +1,6 @@
-Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 considerEpsilonTube:False baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
 command: mlsettings bagging:False stopOnLongRound:False parallelization:True lossFunction:RELATIVE useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False learn_logFunction:True numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False
-Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 considerEpsilonTube:False baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
 command: solver z3
 command: vm /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/JavaGC_disc/FeatureModel.xml
 command: all /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/JavaGC_disc/measurements.xml
@@ -11,21 +11,20 @@ command: binary satoutput numConfigs:32 seed:97
 command: learn-splconqueror
 Learning: NumberOfConfigurationsLearning:32 NumberOfConfigurationsValidation:32
 Learning progress:
-1;46.7722259259259 * MaxTenuringThreshold + 6.16920216931215 * DisableExplicitGC;35.706692678786;35.706692678786;35.706692678786;35.706692678786;0.065248;2;6.16920216931215 * DisableExplicitGC;1;1.79769313486232E+308;
-2;33.4670944086021 * MaxTenuringThreshold + 2.36773602150539 * DisableExplicitGC + 29.9365459139785 * UseAdaptiveSizePolicy;10.3997438285291;10.3997438285291;10.3997438285291;10.3997438285291;0.074422;3;29.9365459139785 * UseAdaptiveSizePolicy;1;25.3069488502569;
-3;35.7230396666666 * MaxTenuringThreshold + 2.17974058333333 * DisableExplicitGC + 30.6885276666667 * UseAdaptiveSizePolicy + -5.82785858333332 * UseAdaptiveGCBoundary;7.87276880271056;7.87276880271056;7.87276880271056;7.87276880271056;0.091774;4;-5.82785858333332 * UseAdaptiveGCBoundary;1;2.52697502581857;
-Elapsed=00:00:00.0936433
+1;50.508772 * MaxTenuringThreshold + -16.6003220000001 * NewRatio_1;34.3838572772262;34.3838572772262;34.3838572772262;34.3838572772262;0.03905;2;-16.6003220000001 * NewRatio_1;1;1.79769313486232E+308;
+2;34.4187876190476 * MaxTenuringThreshold + -0.510337619047704 * NewRatio_1 + 30.1687207142857 * UseAdaptiveSizePolicy;10.9633237449549;10.9633237449549;10.9633237449549;10.9633237449549;0.046329;3;30.1687207142857 * UseAdaptiveSizePolicy;1;23.4205335322712;
+3;37.0780333333333 * MaxTenuringThreshold + -3.16958333333336 * NewRatio_1 + 30.6119283333334 * UseAdaptiveSizePolicy + -6.20490666666667 * UseAdaptiveGCBoundary;7.87605200289733;7.87605200289733;7.87605200289733;7.87605200289733;0.056197;4;-6.20490666666667 * UseAdaptiveGCBoundary;1;3.08727174205758;
+Elapsed=00:00:00.0576794
 average model: 
 command: analyze-learning
 Round, Model, LearningError, LearningErrorRel, ValidationError, ValidationErrorRel, ElapsedSeconds, ModelComplexity, BestCandidate, BestCandidateSize, BestCandidateScore, TestError
 Models:
 Termination reason: abortError
-1;46.7722259259259 * MaxTenuringThreshold + 6.16920216931215 * DisableExplicitGC;35.706692678786;35.706692678786;35.706692678786;35.706692678786;0.065248;2;6.16920216931215 * DisableExplicitGC;1;1.79769313486232E+308;59.4336465035407
-2;33.4670944086021 * MaxTenuringThreshold + 2.36773602150539 * DisableExplicitGC + 29.9365459139785 * UseAdaptiveSizePolicy;10.3997438285291;10.3997438285291;10.3997438285291;10.3997438285291;0.074422;3;29.9365459139785 * UseAdaptiveSizePolicy;1;25.3069488502569;49.6260519426447
-3;35.7230396666666 * MaxTenuringThreshold + 2.17974058333333 * DisableExplicitGC + 30.6885276666667 * UseAdaptiveSizePolicy + -5.82785858333332 * UseAdaptiveGCBoundary;7.87276880271056;7.87276880271056;7.87276880271056;7.87276880271056;0.091774;4;-5.82785858333332 * UseAdaptiveGCBoundary;1;2.52697502581857;47.9858818505042
+1;50.508772 * MaxTenuringThreshold + -16.6003220000001 * NewRatio_1;34.3838572772262;34.3838572772262;34.3838572772262;34.3838572772262;0.03905;2;-16.6003220000001 * NewRatio_1;1;1.79769313486232E+308;49.9045196598662
+2;34.4187876190476 * MaxTenuringThreshold + -0.510337619047704 * NewRatio_1 + 30.1687207142857 * UseAdaptiveSizePolicy;10.9633237449549;10.9633237449549;10.9633237449549;10.9633237449549;0.046329;3;30.1687207142857 * UseAdaptiveSizePolicy;1;23.4205335322712;49.4635421250527
+3;37.0780333333333 * MaxTenuringThreshold + -3.16958333333336 * NewRatio_1 + 30.6119283333334 * UseAdaptiveSizePolicy + -6.20490666666667 * UseAdaptiveGCBoundary;7.87605200289733;7.87605200289733;7.87605200289733;7.87605200289733;0.056197;4;-6.20490666666667 * UseAdaptiveGCBoundary;1;3.08727174205758;46.2303102900103
 Analyze finished
-command: measurementstocsv /scratch/kaltenec/Distribution-Aware-Sampling/Results_test/JavaGC_disc/JavaGC_disc_97/sampledConfigurations_semi_0.csv
 command: clean-sampling
 command: clean-global
-command: script /scratch/kaltenec/Distribution-Aware-Sampling/Results_test/JavaGC_disc/JavaGC_disc_97/learn_semi_1.a
-command: log /scratch/kaltenec/Distribution-Aware-Sampling/Results_test/JavaGC_disc/JavaGC_disc_97/out_semi_1.log
+command: script /scratch/kaltenec/Distribution-Aware-Sampling/Results_newTry/JavaGC_disc/JavaGC_disc_97/learn_semi_1.a
+command: log /scratch/kaltenec/Distribution-Aware-Sampling/Results_newTry/JavaGC_disc/JavaGC_disc_97/out_semi_1.log

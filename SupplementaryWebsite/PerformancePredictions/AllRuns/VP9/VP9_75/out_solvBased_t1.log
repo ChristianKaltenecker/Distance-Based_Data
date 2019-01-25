@@ -1,6 +1,6 @@
-Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 considerEpsilonTube:False baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
 command: mlsettings bagging:False stopOnLongRound:False parallelization:True lossFunction:RELATIVE useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False learn_logFunction:True numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False
-Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 considerEpsilonTube:False baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
 command: solver z3
 command: vm /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/VP9_disc/FeatureModel.xml
 command: all /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/VP9_disc/measurements.xml
@@ -11,21 +11,20 @@ command: binary satoutput numConfigs:31 seed:75
 command: learn-splconqueror
 Learning: NumberOfConfigurationsLearning:31 NumberOfConfigurationsValidation:31
 Learning progress:
-1;45.2755 * Quality + 10.6308636363636 * AutoAltRef;36.9131553017359;36.9131553017359;36.9131553017359;36.9131553017359;0.09485;2;10.6308636363636 * AutoAltRef;1;1.79769313486232E+308;
-2;35.6632911392405 * Quality + 2.76632911392407 * AutoAltRef + 48.0610443037974 * lossless;12.625138637085;12.625138637085;12.625138637085;12.625138637085;0.111851;3;48.0610443037974 * lossless;1;24.2880166646509;
-3;41.67366638442 * Quality + 0.574309906858562 * AutoAltRef + 48.7327921253175 * lossless + -11.1722269263336 * good;4.72783911629241;4.72783911629241;4.72783911629241;4.72783911629241;0.1357;4;-11.1722269263336 * good;1;7.89729952079258;
-Elapsed=00:00:00.1374317
+1;49.5371428571428 * Quality + -5.05714285714284 * constrainedQuality;38.8427357347696;38.8427357347696;38.8427357347696;38.8427357347696;0.039922;2;-5.05714285714284 * constrainedQuality;1;1.79769313486232E+308;
+2;35.309 * Quality + 9.17099999999998 * constrainedQuality + 49.7985 * lossless;10.780921630546;10.780921630546;10.780921630546;10.780921630546;0.054104;3;49.7985 * lossless;1;28.0618141042236;
+3;30.5125179856115 * Quality + 3.30863309352514 * constrainedQuality + 49.2655575539568 * lossless + 10.6588489208633 * realtime;4.47511544823013;4.47511544823013;4.47511544823013;4.47511544823013;0.072144;4;10.6588489208633 * realtime;1;6.30580618231588;
+Elapsed=00:00:00.0736120
 average model: 
 command: analyze-learning
 Round, Model, LearningError, LearningErrorRel, ValidationError, ValidationErrorRel, ElapsedSeconds, ModelComplexity, BestCandidate, BestCandidateSize, BestCandidateScore, TestError
 Models:
 Termination reason: abortError
-1;45.2755 * Quality + 10.6308636363636 * AutoAltRef;36.9131553017359;36.9131553017359;36.9131553017359;36.9131553017359;0.09485;2;10.6308636363636 * AutoAltRef;1;1.79769313486232E+308;822.035027129707
-2;35.6632911392405 * Quality + 2.76632911392407 * AutoAltRef + 48.0610443037974 * lossless;12.625138637085;12.625138637085;12.625138637085;12.625138637085;0.111851;3;48.0610443037974 * lossless;1;24.2880166646509;1043.8881565607
-3;41.67366638442 * Quality + 0.574309906858562 * AutoAltRef + 48.7327921253175 * lossless + -11.1722269263336 * good;4.72783911629241;4.72783911629241;4.72783911629241;4.72783911629241;0.1357;4;-11.1722269263336 * good;1;7.89729952079258;1043.19033479526
+1;49.5371428571428 * Quality + -5.05714285714284 * constrainedQuality;38.8427357347696;38.8427357347696;38.8427357347696;38.8427357347696;0.039922;2;-5.05714285714284 * constrainedQuality;1;1.79769313486232E+308;2001.09909013245
+2;35.309 * Quality + 9.17099999999998 * constrainedQuality + 49.7985 * lossless;10.780921630546;10.780921630546;10.780921630546;10.780921630546;0.054104;3;49.7985 * lossless;1;28.0618141042236;2023.22982007385
+3;30.5125179856115 * Quality + 3.30863309352514 * constrainedQuality + 49.2655575539568 * lossless + 10.6588489208633 * realtime;4.47511544823013;4.47511544823013;4.47511544823013;4.47511544823013;0.072144;4;10.6588489208633 * realtime;1;6.30580618231588;2106.22895444776
 Analyze finished
-command: measurementstocsv /scratch/kaltenec/Distribution-Aware-Sampling/Results_test/VP9_disc/VP9_disc_75/sampledConfigurations_semi_0.csv
 command: clean-sampling
 command: clean-global
-command: script /scratch/kaltenec/Distribution-Aware-Sampling/Results_test/VP9_disc/VP9_disc_75/learn_semi_1.a
-command: log /scratch/kaltenec/Distribution-Aware-Sampling/Results_test/VP9_disc/VP9_disc_75/out_semi_1.log
+command: script /scratch/kaltenec/Distribution-Aware-Sampling/Results_newTry/VP9_disc/VP9_disc_75/learn_semi_1.a
+command: log /scratch/kaltenec/Distribution-Aware-Sampling/Results_newTry/VP9_disc/VP9_disc_75/out_semi_1.log

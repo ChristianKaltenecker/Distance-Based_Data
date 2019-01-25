@@ -255,12 +255,7 @@ def writeTableToFile(outputFile, labelsOfTypes, typesToAdd, typeInformation, ran
     meanSeparator = "\\midrule\\multicolumn{" + str(len(labelsOfTypes) * len(T_PARAMETER) + 1) + "}{c}{\\cellcolor{white}} \\\\[-0.1cm]\\midrule"
 
     for i in range(0, len(labelsOfTypes)):
-        if (typesToAdd[i] == "rand"):
-            columns += "|@{\\hskip 0.1in}|" + OTHER_COLUMN_FORMAT[0:len(T_PARAMETER)]
-        #elif ("globOpt" in typesToAdd[i]):
-        #    columns += "|" + OTHER_COLUMN_FORMAT
-        else:
-            columns += OTHER_COLUMN_FORMAT[0:len(T_PARAMETER)]
+        columns += OTHER_COLUMN_FORMAT[0:len(T_PARAMETER)]
 
         if (len(T_PARAMETER) == 1):
             header += "&" + labelsOfTypes[i]
@@ -272,7 +267,7 @@ def writeTableToFile(outputFile, labelsOfTypes, typesToAdd, typeInformation, ran
             else:
                 midrules += "\\cmidrule(lr){" + str(i * 3 + 2) + "-" + str(i * 3 + 4) + "} "
         for j in T_PARAMETER:
-            tLabelLine += "& $t=" + str(j + 1) + "$"
+            tLabelLine += "& $t=" + str(j) + "$"
             spaceBetweenCaseStudies += "& "
     header += NEW_LINE
     tLabelLine += NEW_LINE + "[0.1cm] "#\\midrule"
@@ -316,14 +311,14 @@ def writeTableToFile(outputFile, labelsOfTypes, typesToAdd, typeInformation, ran
                                      BEST_FORMAT_SUFIX
         caseStudyLine += NEW_LINE
         caseStudyLines.append(caseStudyLine)
-        caseStudyLines.append(spaceBetweenCaseStudies + "[-0.2cm]")
+        caseStudyLines.append(spaceBetweenCaseStudies + "[-0.3cm]")
 
     # Remove the last space, as it is not needed
     caseStudyLines = caseStudyLines[0:len(caseStudyLines) - 1]
 
     if (means is not None and meanRanking is not None):
         # Add a line for the mean values and their ranking
-        caseStudyLines.append(meanSeparator)
+        #caseStudyLines.append(meanSeparator)
         meanLine = "Mean "
 
         for type in typesToAdd:
@@ -526,7 +521,7 @@ def writeTestResultsToFiles(outputFile : str, kruskalResult : List[Tuple[str, Li
             header += "& \\multicolumn{3}{c}{" + remainingLabels[i] + "}"
             midrules += "\\cmidrule(lr){" + str(i * 3 + 2) + "-" + str(i * 3 + 4) + "} "
             for j in T_PARAMETER:
-                tLabelLine += "& $t=" + str(j + 1) + "$"
+                tLabelLine += "& $t=" + str(j) + "$"
                 spaceBetweenCaseStudies += "& "
         header += NEW_LINE
         tLabelLine += NEW_LINE + "[0.1cm] "  # \\midrule"
@@ -629,9 +624,9 @@ def main() -> None:
 
     writeTableToFile(output_directory + os.path.sep + "table.tex", labelsToAdd, typesToAdd, avgInformation, ranking, means, meanRanking, TO_IGNORE_RQ1)
 
-    kruskalResult = performRTest(allInformation, kruskal=True, toExclude=[])
+    kruskalResult = performRTest(allInformation, kruskal=True, toExclude=TO_IGNORE_RQ1)
     writeTestResultsToFiles(output_directory + os.path.sep, kruskalResult, typesToAdd, labelsToAdd,
-                               kruskal=True, toExclude=[])
+                               kruskal=True, toExclude=TO_IGNORE_RQ1)
 
     leveneResult = performRTest(allInformation, kruskal=False, toExclude=TO_IGNORE_RQ2)
     writeTestResultsToFiles(output_directory + os.path.sep, leveneResult, typesToAdd, labelsToAdd,

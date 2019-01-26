@@ -194,7 +194,7 @@ To execute the sampling and machine-learning process, we provide the script SPLC
 ```
 ./SPLConquerorExecuter.py <subjectSystem> <strategy> <saveLocation> [run_start] [run_end]
 ```
-Here, valid arguments for the *subject system* are 7z, BerkeleyDBC, Dune, Hipacc, JavaGC, lrzip, LLVM, Polly, VP9, x264. 
+Here, valid arguments for the *subject system* are ```7z```, ```BerkeleyDBC```, ```Dune```, ```Hipacc```, ```JavaGC```, ```lrzip```, ```LLVM```, ```Polly```, ```VP9```, ```x264```. 
 For the samplingStrategy, we provide the following arguments twise (coverage-based), solvBased (solver-based), henard (randomized solver-based), distBased (distance-based), divDistBased (diversified distance-based), rand (random).
 The third argument specified the directory, where the results of the SPL Conqueror execution are stored.
 The last two arguments can be used to specific a specific set of random seeds, for which the experiments have to be performened.
@@ -206,7 +206,7 @@ mkdir -p /application/Distance-Based_Data/SupplementaryWebsite/PerformancePredic
 ```
 Afterwards, we can use the script to perform the diversified distance-based sampling for the subject system x264 by using the random seeds 42-43.
 ```
-./SPLConquerorExecuter.py x264 diversified /application/Distance-Based_Data/SupplementaryWebsite/PerformancePredictions/NewRuns 42 43
+./SPLConquerorExecuter.py x264 divDistBased /application/Distance-Based_Data/SupplementaryWebsite/PerformancePredictions/NewRuns 42 43
 ```
 By executing this script, new directories inside of the *saveLocation* are created for the subject system and the specified random seed.
 The structure of the directories looks as follows:
@@ -219,15 +219,23 @@ The structure of the directories looks as follows:
 To compare the results, one have to compare the results of (1) the same subject system using (2) the same sampling strategy, (3) the same random seed, and (4) the same sample size.
 The results are compared by comparing error rates. 
 
-For comparing the error rates, we have to consider the log files of SPL Conqueror.
-In these file, the error rate is the last number in the last line before `Analyze finished`.
-In this example, the error rate is 10.481%.
-```
+In our example, we compare the error rates of (1) x264 using (2) diversified samplig, (3) random seed 42, and (4) sample sizes t1, t2, and t3.
+Therefore, we compare the following SPL Conqueror log files:
+| Provided Execution File| Replicated Execution File | 
+| ---------------------- | --------------------------|
+| /application/Distance-Based_Data/SupplementaryWebsite/PerformancePredictions/AllRuns/x264/x264_42/out_divDistBased_t1.log |  /application/Distance-Based_Data/SupplementaryWebsite/PerformancePredictions/NewRuns/x264/x264_42/out_divDistBased_t1.log |
+| /application/Distance-Based_Data/SupplementaryWebsite/PerformancePredictions/AllRuns/x264/x264_42/out_divDistBased_t2.log |  /application/Distance-Based_Data/SupplementaryWebsite/PerformancePredictions/NewRuns/x264/x264_42/out_divDistBased_t2.log |
+| /application/Distance-Based_Data/SupplementaryWebsite/PerformancePredictions/AllRuns/x264/x264_42/out_divDistBased_t3.log |  /application/Distance-Based_Data/SupplementaryWebsite/PerformancePredictions/NewRuns/x264/x264_42/out_divDistBased_t3.log |
+
+In these log files, the error rate is the last number in the last line before `Analyze finished`.
+In the following example, the error rate is 10.481%.
+``` 
 [...]
 3;472.586666666666 * no_asm + -29.8533333333331 * no_mixed_refs + -212.187499999999 * ref_1 + 214.236666666666 * ref_9;5.75863710582891;5.75863710582891;5.75863710582891;5.75863710582891;0.05085;4;214.236666666666 * ref_9;1;7.31333436817488;10.4810287299971
 Analyze finished
 [...]
 ```
+In the replication process, the error rates of the replication must be the same as the provided ones.
 
 ### Aggregation
 

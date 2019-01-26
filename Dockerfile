@@ -55,5 +55,5 @@ RUN apt install -y -qq python3 python3-numpy python3-scipy r-recommended
 
 # Install the dependencies for Python and R
 # As the packages for R will be compiled, this process may take a while
-RUN apt install -y -qq python3-numpy python3-scipy \
+RUN apt install -y -qq python3-numpy python3-scipy libcurl4-openssl-dev \
     && Rscript /application/Distance-Based_Data/InstallPackages.R

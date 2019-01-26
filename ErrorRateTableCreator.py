@@ -411,7 +411,7 @@ def performRTest(allInformation, kruskal = True, toExclude=None) -> List[Tuple[s
 
     # Execute R script
     command = "Rscript"
-    scriptPath = "./PerformKruskalWallis.R"
+    scriptPath = os.getcwd() + "/PerformKruskalWallis.R"
 
     arguments = [file, rOutputFile, approach]
 

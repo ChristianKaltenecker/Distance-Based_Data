@@ -1,6 +1,6 @@
-Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 considerEpsilonTube:False baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
 command: mlsettings bagging:False stopOnLongRound:False parallelization:True lossFunction:RELATIVE useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False learn_logFunction:True numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False
-Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 considerEpsilonTube:False baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
 command: solver z3
 command: vm /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/BerkeleyDBC/FeatureModel.xml
 Warning: Variability model contains outdated notation. Children nodes will no longer have effect on the model. Instead use the parent node to describe the parent of an configuration option. You can also use the converter providedby the Variability Model GUI in export>convert legacy model.
@@ -9,27 +9,24 @@ command: all /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintDat
 Configs with too large deviation: 0
 2560 configurations loaded.
 command: nfp Performance
-command: binary satoutput numConfigs:97 seed:7
+command: binary satoutput henard:true numConfigs:97 seed:7
 command: learn-splconqueror
 Learning: NumberOfConfigurationsLearning:97 NumberOfConfigurationsValidation:97
 Learning progress:
-1;1.62957814489244 * PAGESIZE + -1.09369715771295 * CS16MB;37.636585660399;37.636585660399;37.636585660399;37.636585660399;0.008528;2;-1.09369715771295 * CS16MB;1;1.79769313486232E+308;
-2;0.475627264331983 * PAGESIZE + 0.0602537228475028 * CS16MB + 2.46525869937915 * HAVE_CRYPTO;27.6348183634509;27.6348183634509;27.6348183634509;27.6348183634509;0.032986;3;2.46525869937915 * HAVE_CRYPTO;1;10.0017672969481;
-3;0.827027385972351 * PAGESIZE + -0.291146398792867 * CS16MB + 2.51317689778465 * HAVE_CRYPTO + -0.878500304100919 * HAVE_HASH;13.6009340599249;13.6009340599249;13.6009340599249;13.6009340599249;0.066158;4;-0.878500304100919 * HAVE_HASH;1;14.0338843035261;
-4;0.545631236077374 * PAGESIZE + -0.00975024889789084 * CS16MB + 3.14631823504836 * HAVE_CRYPTO + -0.175009929363479 * HAVE_HASH + -1.47732978694863 * HAVE_CRYPTO * HAVE_HASH;9.71891597239725;9.71891597239725;9.71891597239725;9.71891597239725;0.121242;6;-1.47732978694863 * HAVE_CRYPTO * HAVE_HASH;2;1.94100904376382;
-Elapsed=00:00:00.1221559
+1;1.4530284012762 * PAGESIZE + -0.958028843583888 * CS16MB;138.579398579012;138.579398579012;138.579398579012;138.579398579012;0.009543;2;-0.958028843583888 * CS16MB;1;1.79769313486232E+308;
+2;0.479591250449844 * PAGESIZE + 0.0154083072424634 * CS16MB + 2.25552510557326 * HAVE_CRYPTO;21.3103664696745;21.3103664696745;21.3103664696745;21.3103664696745;0.025844;3;2.25552510557326 * HAVE_CRYPTO;1;117.269032109338;
+3;0.479591250449842 * PAGESIZE + 0.0154083072424682 * CS16MB + 2.91791234482039 * HAVE_CRYPTO + -1.35789384045661 * HAVE_CRYPTO * HAVE_HASH;12.0872575270484;12.0872575270484;12.0872575270484;12.0872575270484;0.056006;5;-1.35789384045661 * HAVE_CRYPTO * HAVE_HASH;2;4.61155447131303;
+4;0.54839600016358 * PAGESIZE + -0.0533964424712725 * CS16MB + 2.84910759510665 * HAVE_CRYPTO + -1.18096734119271 * HAVE_CRYPTO * HAVE_HASH + -0.176926499263896 * HAVE_HASH;4.69848226802536;4.69848226802536;4.69848226802536;4.69848226802536;0.103144;6;-0.176926499263896 * HAVE_HASH;1;7.38877525902308;
+Elapsed=00:00:00.1038018
 average model: 
 command: analyze-learning
 Round, Model, LearningError, LearningErrorRel, ValidationError, ValidationErrorRel, ElapsedSeconds, ModelComplexity, BestCandidate, BestCandidateSize, BestCandidateScore, TestError
 Models:
 Termination reason: abortError
-1;1.62957814489244 * PAGESIZE + -1.09369715771295 * CS16MB;37.636585660399;37.636585660399;37.636585660399;37.636585660399;0.008528;2;-1.09369715771295 * CS16MB;1;1.79769313486232E+308;73.0704851767407
-2;0.475627264331983 * PAGESIZE + 0.0602537228475028 * CS16MB + 2.46525869937915 * HAVE_CRYPTO;27.6348183634509;27.6348183634509;27.6348183634509;27.6348183634509;0.032986;3;2.46525869937915 * HAVE_CRYPTO;1;10.0017672969481;66.463230654895
-3;0.827027385972351 * PAGESIZE + -0.291146398792867 * CS16MB + 2.51317689778465 * HAVE_CRYPTO + -0.878500304100919 * HAVE_HASH;13.6009340599249;13.6009340599249;13.6009340599249;13.6009340599249;0.066158;4;-0.878500304100919 * HAVE_HASH;1;14.0338843035261;70.8052997470163
-4;0.545631236077374 * PAGESIZE + -0.00975024889789084 * CS16MB + 3.14631823504836 * HAVE_CRYPTO + -0.175009929363479 * HAVE_HASH + -1.47732978694863 * HAVE_CRYPTO * HAVE_HASH;9.71891597239725;9.71891597239725;9.71891597239725;9.71891597239725;0.121242;6;-1.47732978694863 * HAVE_CRYPTO * HAVE_HASH;2;1.94100904376382;65.104922841541
+1;1.4530284012762 * PAGESIZE + -0.958028843583888 * CS16MB;138.579398579012;138.579398579012;138.579398579012;138.579398579012;0.009543;2;-0.958028843583888 * CS16MB;1;1.79769313486232E+308;95.8009249017587
+2;0.479591250449844 * PAGESIZE + 0.0154083072424634 * CS16MB + 2.25552510557326 * HAVE_CRYPTO;21.3103664696745;21.3103664696745;21.3103664696745;21.3103664696745;0.025844;3;2.25552510557326 * HAVE_CRYPTO;1;117.269032109338;48.7434820151519
+3;0.479591250449842 * PAGESIZE + 0.0154083072424682 * CS16MB + 2.91791234482039 * HAVE_CRYPTO + -1.35789384045661 * HAVE_CRYPTO * HAVE_HASH;12.0872575270484;12.0872575270484;12.0872575270484;12.0872575270484;0.056006;5;-1.35789384045661 * HAVE_CRYPTO * HAVE_HASH;2;4.61155447131303;46.6564431686743
+4;0.54839600016358 * PAGESIZE + -0.0533964424712725 * CS16MB + 2.84910759510665 * HAVE_CRYPTO + -1.18096734119271 * HAVE_CRYPTO * HAVE_HASH + -0.176926499263896 * HAVE_HASH;4.69848226802536;4.69848226802536;4.69848226802536;4.69848226802536;0.103144;6;-0.176926499263896 * HAVE_HASH;1;7.38877525902308;48.1301065632226
 Analyze finished
-command: measurementstocsv /scratch/kaltenec/Distribution-Aware-Sampling/Results_Henard/BerkeleyDBC/BerkeleyDBC_7/sampledConfigurations_henard_1.csv
 command: clean-sampling
 command: clean-global
-command: script /scratch/kaltenec/Distribution-Aware-Sampling/Results_Henard/BerkeleyDBC/BerkeleyDBC_7/learn_henard_2.a
-command: log /scratch/kaltenec/Distribution-Aware-Sampling/Results_Henard/BerkeleyDBC/BerkeleyDBC_7/out_henard_2.log

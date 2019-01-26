@@ -1,6 +1,6 @@
-Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 considerEpsilonTube:False baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
 command: mlsettings bagging:False stopOnLongRound:False parallelization:True lossFunction:RELATIVE useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False learn_logFunction:True numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False
-Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 considerEpsilonTube:False baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
 command: solver z3
 command: vm /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/lrzip/FeatureModel.xml
 Warning: Variability model contains outdated notation. Children nodes will no longer have effect on the model. Instead use the parent node to describe the parent of an configuration option. You can also use the converter providedby the Variability Model GUI in export>convert legacy model.
@@ -9,27 +9,30 @@ command: all /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintDat
 Configs with too large deviation: 0
 432 configurations loaded.
 command: nfp Performance
-command: binary satoutput numConfigs:18 seed:45
+command: binary satoutput henard:true numConfigs:18 seed:45
 command: learn-splconqueror
 Learning: NumberOfConfigurationsLearning:18 NumberOfConfigurationsValidation:18
 Learning progress:
-1;228670.769230769 * level + -5472.76923076931 * compressionBzip2;137.904311648771;137.904311648771;137.904311648771;137.904311648771;0.053825;2;-5472.76923076931 * compressionBzip2;1;1.79769313486232E+308;
-2;93867.0000000001 * level + 129331 * compressionBzip2 + 584149.666666667 * compressionZpaq;32.8680065988974;32.8680065988974;32.8680065988974;32.8680065988974;0.064166;3;584149.666666667 * compressionZpaq;1;105.036305049873;
-3;63660.0000000001 * level + 159538 * compressionBzip2 + 614356.666666667 * compressionZpaq + 151035 * compressionLrzip;12.2509954366648;12.2509954366648;12.2509954366648;12.2509954366648;0.072517;4;151035 * compressionLrzip;1;20.6170111622326;
-4;81809.9999999999 * level + 141388 * compressionBzip2 + 596206.666666667 * compressionZpaq + 132885 * compressionLrzip + -29040 * compressionLzo;5.53869242037016;5.53869242037016;5.53869242037016;5.53869242037016;0.085584;5;-29040 * compressionLzo;1;6.71230301629465;
-Elapsed=00:00:00.0869145
+1;215750.769230769 * level + 38209.2307692307 * encryption;140.049156729518;140.049156729518;140.049156729518;140.049156729518;0.03953;2;38209.2307692307 * encryption;1;1.79769313486232E+308;
+2;132504.567901235 * level + 13235.3703703704 * encryption + 541100.308641975 * compressionZpaq;72.8192969127482;72.8192969127482;72.8192969127482;72.8192969127482;0.044976;3;541100.308641975 * compressionZpaq;1;67.22985981677;
+3;98414.6315789474 * level + 15559.6842105262 * encryption + 574415.473684211 * compressionZpaq + 125512.947368421 * compressionBzip2;43.1010748852068;43.1010748852068;43.1010748852068;43.1010748852068;0.053091;4;125512.947368421 * compressionBzip2;1;29.7182220275413;
+4;78161.2 * level + -1800.40000000014 * encryption + 600455.6 * compressionZpaq + 150106.4 * compressionBzip2 + 137434 * compressionLrzip;22.0591204726469;22.0591204726469;22.0591204726469;22.0591204726469;0.063504;5;137434 * compressionLrzip;1;21.0419544125599;
+5;63987.9678238781 * level + 11837.9932260797 * encryption + 610082.701100762 * compressionZpaq + 135799.458086368 * compressionBzip2 + 144788.035563082 * compressionLrzip + 100282.303132938 * level9;14.2000646386544;14.2000646386544;14.2000646386544;14.2000646386544;0.077721;6;100282.303132938 * level9;1;7.85905583399251;
+6;49456.2626262626 * level + 8778.68686868694 * encryption + 625634.175084175 * compressionZpaq + 154505.841750842 * compressionBzip2 + 160849.393939394 * compressionLrzip + 86642.8956228958 * level9 + 37635.8417508417 * compressionGzip;5.82838543897451;5.82838543897451;5.82838543897451;5.82838543897451;0.095375;7;37635.8417508417 * compressionGzip;1;8.37167919967988;
+Elapsed=00:00:00.0967983
 average model: 
 command: analyze-learning
 Round, Model, LearningError, LearningErrorRel, ValidationError, ValidationErrorRel, ElapsedSeconds, ModelComplexity, BestCandidate, BestCandidateSize, BestCandidateScore, TestError
 Models:
 Termination reason: abortError
-1;228670.769230769 * level + -5472.76923076931 * compressionBzip2;137.904311648771;137.904311648771;137.904311648771;137.904311648771;0.053825;2;-5472.76923076931 * compressionBzip2;1;1.79769313486232E+308;151.425111182443
-2;93867.0000000001 * level + 129331 * compressionBzip2 + 584149.666666667 * compressionZpaq;32.8680065988974;32.8680065988974;32.8680065988974;32.8680065988974;0.064166;3;584149.666666667 * compressionZpaq;1;105.036305049873;53.4033241243841
-3;63660.0000000001 * level + 159538 * compressionBzip2 + 614356.666666667 * compressionZpaq + 151035 * compressionLrzip;12.2509954366648;12.2509954366648;12.2509954366648;12.2509954366648;0.072517;4;151035 * compressionLrzip;1;20.6170111622326;32.28358273397
-4;81809.9999999999 * level + 141388 * compressionBzip2 + 596206.666666667 * compressionZpaq + 132885 * compressionLrzip + -29040 * compressionLzo;5.53869242037016;5.53869242037016;5.53869242037016;5.53869242037016;0.085584;5;-29040 * compressionLzo;1;6.71230301629465;35.2358367902251
+1;215750.769230769 * level + 38209.2307692307 * encryption;140.049156729518;140.049156729518;140.049156729518;140.049156729518;0.03953;2;38209.2307692307 * encryption;1;1.79769313486232E+308;154.437719659035
+2;132504.567901235 * level + 13235.3703703704 * encryption + 541100.308641975 * compressionZpaq;72.8192969127482;72.8192969127482;72.8192969127482;72.8192969127482;0.044976;3;541100.308641975 * compressionZpaq;1;67.22985981677;86.9141198552359
+3;98414.6315789474 * level + 15559.6842105262 * encryption + 574415.473684211 * compressionZpaq + 125512.947368421 * compressionBzip2;43.1010748852068;43.1010748852068;43.1010748852068;43.1010748852068;0.053091;4;125512.947368421 * compressionBzip2;1;29.7182220275413;59.7947637064444
+4;78161.2 * level + -1800.40000000014 * encryption + 600455.6 * compressionZpaq + 150106.4 * compressionBzip2 + 137434 * compressionLrzip;22.0591204726469;22.0591204726469;22.0591204726469;22.0591204726469;0.063504;5;137434 * compressionLrzip;1;21.0419544125599;38.9085088336554
+5;63987.9678238781 * level + 11837.9932260797 * encryption + 610082.701100762 * compressionZpaq + 135799.458086368 * compressionBzip2 + 144788.035563082 * compressionLrzip + 100282.303132938 * level9;14.2000646386544;14.2000646386544;14.2000646386544;14.2000646386544;0.077721;6;100282.303132938 * level9;1;7.85905583399251;41.1985179247913
+6;49456.2626262626 * level + 8778.68686868694 * encryption + 625634.175084175 * compressionZpaq + 154505.841750842 * compressionBzip2 + 160849.393939394 * compressionLrzip + 86642.8956228958 * level9 + 37635.8417508417 * compressionGzip;5.82838543897451;5.82838543897451;5.82838543897451;5.82838543897451;0.095375;7;37635.8417508417 * compressionGzip;1;8.37167919967988;28.9019129981167
 Analyze finished
-command: measurementstocsv /scratch/kaltenec/Distribution-Aware-Sampling/Results_Henard/lrzip/lrzip_45/sampledConfigurations_henard_0.csv
 command: clean-sampling
 command: clean-global
-command: script /scratch/kaltenec/Distribution-Aware-Sampling/Results_Henard/lrzip/lrzip_45/learn_henard_1.a
-command: log /scratch/kaltenec/Distribution-Aware-Sampling/Results_Henard/lrzip/lrzip_45/out_henard_1.log
+command: script /scratch/kaltenec/Distribution-Aware-Sampling/Results_newTry/lrzip/lrzip_45/learn_henard_1.a
+command: log /scratch/kaltenec/Distribution-Aware-Sampling/Results_newTry/lrzip/lrzip_45/out_henard_1.log

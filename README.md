@@ -221,8 +221,9 @@ The results are compared by comparing error rates.
 
 In our example, we compare the error rates of (1) x264 using (2) diversified samplig, (3) random seed 42, and (4) sample sizes t1, t2, and t3.
 Therefore, we compare the following SPL Conqueror log files:
+
 | Provided Execution File| Replicated Execution File | 
-| ---------------------- | --------------------------|
+| ---------------------- | -------------------------- |
 | /application/Distance-Based_Data/SupplementaryWebsite/PerformancePredictions/AllRuns/x264/x264_42/out_divDistBased_t1.log |  /application/Distance-Based_Data/SupplementaryWebsite/PerformancePredictions/NewRuns/x264/x264_42/out_divDistBased_t1.log |
 | /application/Distance-Based_Data/SupplementaryWebsite/PerformancePredictions/AllRuns/x264/x264_42/out_divDistBased_t2.log |  /application/Distance-Based_Data/SupplementaryWebsite/PerformancePredictions/NewRuns/x264/x264_42/out_divDistBased_t2.log |
 | /application/Distance-Based_Data/SupplementaryWebsite/PerformancePredictions/AllRuns/x264/x264_42/out_divDistBased_t3.log |  /application/Distance-Based_Data/SupplementaryWebsite/PerformancePredictions/NewRuns/x264/x264_42/out_divDistBased_t3.log |

@@ -21,21 +21,21 @@ In the directory *SummarizedPredictions*, we have summarized our results in diff
 
 In the following, we present the results for the Kruskal-Wallis test:
 
-[![](https://image.ibb.co/gZStuT/kruskal.png)](https://image.ibb.co/kdWKZT/kruskal.png)
+![](./kruskalTable.png)
 
 ## 3 Results of the Levene Test
 
 In the following, we present the results for the Levene's test:
 
-[![](https://image.ibb.co/jiJVr8/levene.png)](https://image.ibb.co/fAoryo/levene.png)
+![](./leveneTable.png)
 
 ## 4 Error Rates of the Distributions
 
 For a detailed view on the error rates by using the optimized distance-based sampling strategy with different distributions (binomial distribution, geometric distribution, uniform distribution), we provide the following tables.
 
-[![](https://preview.ibb.co/iXj8Jd/Results_binomial_geometric.png)](https://image.ibb.co/fwgAWy/Results_binomial_geometric.png)
+![](./Results_binomial_geometric.png)
 
-[![](https://preview.ibb.co/gLnTJd/Statistic_binomial_geometric.png)](https://image.ibb.co/iOFtjJ/Statistic_binomial_geometric.png)
+![](./Statistic_binomial_geometric.png)
 
 ## 5 Variance of the Sampling Strategies
 
@@ -79,7 +79,7 @@ The binary sampling strategies are:
 
 In the following table, we illustrate the results of the comparison as a heat map.
 
-[![](http://preview.ibb.co/kEBaRn/Machine_Learning_Techniques2.jpg)](http://image.ibb.co/cGntCS/Machine_Learning_Techniques2.jpg)
+![](./Machine_Learning_Techniques.png)
 
 In the table, we perform a pair-wise comparison of the machine-learning techniques with respect to their accuracy in predicting the performance of all configurations. On the diagonal, we show the prediction error of the respective machine-learning technique. 
 For the plots not on the diagonal, we show the difference between the machine-learning technique in the row to the machine-learning technique in the column. 

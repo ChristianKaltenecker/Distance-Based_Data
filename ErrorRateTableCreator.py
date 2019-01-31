@@ -411,7 +411,7 @@ def performRTest(allInformation, kruskal = True, toExclude=None) -> List[Tuple[s
 
     # Execute R script
     command = "Rscript"
-    scriptPath = "./PerformKruskalWallis.R"
+    scriptPath = os.getcwd() + "/PerformKruskalWallis.R"
 
     arguments = [file, rOutputFile, approach]
 
@@ -624,9 +624,9 @@ def main() -> None:
 
     writeTableToFile(output_directory + os.path.sep + "table.tex", labelsToAdd, typesToAdd, avgInformation, ranking, means, meanRanking, TO_IGNORE_RQ1)
 
-    kruskalResult = performRTest(allInformation, kruskal=True, toExclude=TO_IGNORE_RQ1)
+    kruskalResult = performRTest(allInformation, kruskal=True, toExclude=[])
     writeTestResultsToFiles(output_directory + os.path.sep, kruskalResult, typesToAdd, labelsToAdd,
-                               kruskal=True, toExclude=TO_IGNORE_RQ1)
+                               kruskal=True, toExclude=[])
 
     leveneResult = performRTest(allInformation, kruskal=False, toExclude=TO_IGNORE_RQ2)
     writeTestResultsToFiles(output_directory + os.path.sep, leveneResult, typesToAdd, labelsToAdd,

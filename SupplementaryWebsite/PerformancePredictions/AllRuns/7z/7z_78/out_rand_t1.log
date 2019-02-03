@@ -1,0 +1,42 @@
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: mlsettings bagging:False stopOnLongRound:False parallelization:True lossFunction:RELATIVE useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False learn_logFunction:True numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: solver z3
+command: vm ../FeatureModel.xml
+command: all ../measurements.xml
+Configs with too large deviation: 0
+68640 configurations loaded.
+command: nfp Performance
+command: binary random numConfigs:39 seed:78 fromFile:../allConfigurations.csv
+command: learn-splconqueror
+Learning: NumberOfConfigurationsLearning:39 NumberOfConfigurationsValidation:39
+Learning progress:
+1;13104.5714285714 * CompressionMethod + 5262.92857142857 * BlockSize_1;258.307137020026;258.307137020026;258.307137020026;258.307137020026;0.2187524;2;5262.92857142857 * BlockSize_1;1;1.79769313486232E+308;
+2;6912.35955056179 * CompressionMethod + 2424.83146067417 * BlockSize_1 + 36121.2359550562 * x_10;121.20432047807;121.20432047807;121.20432047807;121.20432047807;0.2500018;3;36121.2359550562 * x_10;1;137.102816541955;
+3;3854.14364640884 * CompressionMethod + 150.773480662975 * BlockSize_1 + 36513.3149171271 * x_10 + 10468.5082872928 * BZip2;68.7480865470757;68.7480865470757;68.7480865470757;68.7480865470757;0.3125036;4;10468.5082872928 * BZip2;1;52.4562339309947;
+4;2451.91873589165 * CompressionMethod + -805.711060948073 * BlockSize_1 + 38416.9977426637 * x_10 + 9191.64785553048 * BZip2 + 10084.8758465011 * x_8;38.7945071770494;38.7945071770494;38.7945071770494;38.7945071770494;0.359377;5;10084.8758465011 * x_8;1;29.9535793700263;
+5;2062.31605964315 * CompressionMethod + -576.307224918824 * BlockSize_1 + 38496.476237036 * x_10 + 9587.23399797462 * BZip2 + 9855.02042811746 * x_8 + 1150.29315221565 * LZMA;32.5595135537584;32.5595135537584;32.5595135537584;32.5595135537584;0.4531294;6;1150.29315221565 * LZMA;1;6.23499362329103;
+6;1851.97639766361 * CompressionMethod + -243.870544760998 * BlockSize_1 + 37414.1983549887 * x_10 + 9960.91548456313 * BZip2 + 9701.54726427466 * x_8 + 1514.99105972107 * LZMA + 7603.82524734774 * x_10 * BlockSize_1024;31.6105982384997;31.6105982384997;31.6105982384997;31.6105982384997;0.6406317;8;7603.82524734774 * x_10 * BlockSize_1024;2;0.474457657629326;
+7;1893.20285682648 * CompressionMethod + -156.066419370315 * BlockSize_1 + 37373.6051747684 * x_10 + 10100.4901635109 * BZip2 + 8946.8687483852 * x_8 + 1144.23790277933 * LZMA + 7603.19196840512 * x_10 * BlockSize_1024 + 4515.69049200901 * Files_80;30.3708717450253;30.3708717450253;30.3708717450253;30.3708717450253;0.8437573;9;4515.69049200901 * Files_80;1;1.2397264934744;
+8;1991.66451666599 * CompressionMethod + -391.978694186671 * BlockSize_1 + 37111.9718280554 * x_10 + 10714.7698805709 * BZip2 + 8529.74512088552 * x_8 + 1130.62086471639 * LZMA + 7766.36365527861 * x_10 * BlockSize_1024 + 4847.96949773207 * Files_80 + -6306.43439723688 * BZip2 * BlockSize_512;30.0523490888417;30.0523490888417;30.0523490888417;30.0523490888417;1.0468853;11;-6306.43439723688 * BZip2 * BlockSize_512;2;0.159261328091814;
+Elapsed=00:00:01.0443955
+average model: 
+
+command: analyze-learning
+Round, Model, LearningError, LearningErrorRel, ValidationError, ValidationErrorRel, ElapsedSeconds, ModelComplexity, BestCandidate, BestCandidateSize, BestCandidateScore, TestError
+Models:
+Termination reason: minImprovementPerRound
+1;13104.5714285714 * CompressionMethod + 5262.92857142857 * BlockSize_1;258.307137020026;258.307137020026;258.307137020026;258.307137020026;0.2187524;2;5262.92857142857 * BlockSize_1;1;1.79769313486232E+308;219.876946504644
+2;6912.35955056179 * CompressionMethod + 2424.83146067417 * BlockSize_1 + 36121.2359550562 * x_10;121.20432047807;121.20432047807;121.20432047807;121.20432047807;0.2500018;3;36121.2359550562 * x_10;1;137.102816541955;117.778563670975
+3;3854.14364640884 * CompressionMethod + 150.773480662975 * BlockSize_1 + 36513.3149171271 * x_10 + 10468.5082872928 * BZip2;68.7480865470757;68.7480865470757;68.7480865470757;68.7480865470757;0.3125036;4;10468.5082872928 * BZip2;1;52.4562339309947;78.2880373193376
+4;2451.91873589165 * CompressionMethod + -805.711060948073 * BlockSize_1 + 38416.9977426637 * x_10 + 9191.64785553048 * BZip2 + 10084.8758465011 * x_8;38.7945071770494;38.7945071770494;38.7945071770494;38.7945071770494;0.359377;5;10084.8758465011 * x_8;1;29.9535793700263;59.4270977515259
+5;2062.31605964315 * CompressionMethod + -576.307224918824 * BlockSize_1 + 38496.476237036 * x_10 + 9587.23399797462 * BZip2 + 9855.02042811746 * x_8 + 1150.29315221565 * LZMA;32.5595135537584;32.5595135537584;32.5595135537584;32.5595135537584;0.4531294;6;1150.29315221565 * LZMA;1;6.23499362329103;57.3125510809674
+6;1851.97639766361 * CompressionMethod + -243.870544760998 * BlockSize_1 + 37414.1983549887 * x_10 + 9960.91548456313 * BZip2 + 9701.54726427466 * x_8 + 1514.99105972107 * LZMA + 7603.82524734774 * x_10 * BlockSize_1024;31.6105982384997;31.6105982384997;31.6105982384997;31.6105982384997;0.6406317;8;7603.82524734774 * x_10 * BlockSize_1024;2;0.474457657629326;57.9465140620902
+7;1893.20285682648 * CompressionMethod + -156.066419370315 * BlockSize_1 + 37373.6051747684 * x_10 + 10100.4901635109 * BZip2 + 8946.8687483852 * x_8 + 1144.23790277933 * LZMA + 7603.19196840512 * x_10 * BlockSize_1024 + 4515.69049200901 * Files_80;30.3708717450253;30.3708717450253;30.3708717450253;30.3708717450253;0.8437573;9;4515.69049200901 * Files_80;1;1.2397264934744;64.1170229640179
+8;1991.66451666599 * CompressionMethod + -391.978694186671 * BlockSize_1 + 37111.9718280554 * x_10 + 10714.7698805709 * BZip2 + 8529.74512088552 * x_8 + 1130.62086471639 * LZMA + 7766.36365527861 * x_10 * BlockSize_1024 + 4847.96949773207 * Files_80 + -6306.43439723688 * BZip2 * BlockSize_512;30.0523490888417;30.0523490888417;30.0523490888417;30.0523490888417;1.0468853;11;-6306.43439723688 * BZip2 * BlockSize_512;2;0.159261328091814;65.0619118463192
+Analyze finished
+command: measurementstocsv ./sampledConfigurations_rand_0.csv
+command: clean-sampling
+command: clean-global
+command: script ./learn_rand_1.a
+command: log ./out_rand_1.log

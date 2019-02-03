@@ -1,0 +1,31 @@
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 considerEpsilonTube:False baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: mlsettings bagging:False stopOnLongRound:False parallelization:True lossFunction:RELATIVE useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False learn_logFunction:True numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 considerEpsilonTube:False baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: solver z3
+command: vm /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/x264/FeatureModel.xml
+Warning: Variability model contains outdated notation. Children nodes will no longer have effect on the model. Instead use the parent node to describe the parent of an configuration option. You can also use the converter providedby the Variability Model GUI in export>convert legacy model.
+Warning: Default value nodes in models are no longer used and should be removed. You can also use the converter provided by the Variability Model GUI in export>convert legacy model to update your model.
+command: all /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/x264/measurements.xml
+Configs with too large deviation: 0
+1152 configurations loaded.
+command: nfp Performance
+command: hybrid distribution-aware distance-metric:manhattan distribution:uniform onlyBinary:true selection:SolverSelection optimization:None numConfigs:212 seed:13
+command: learn-splconqueror
+Learning: NumberOfConfigurationsLearning:212 NumberOfConfigurationsValidation:212
+Learning progress:
+1;488.100904761905 * no_asm + -48.3703492063485 * no_mixed_refs;36.5619079961984;36.5619079961984;36.5619079961984;36.5619079961984;0.018257;2;-48.3703492063485 * no_mixed_refs;1;1.79769313486232E+308;
+2;583.870833038746 * no_asm + -36.5469012709374 * no_mixed_refs + -297.950887972392 * ref_1;14.7916652454653;14.7916652454653;14.7916652454653;14.7916652454653;0.056489;3;-297.950887972392 * ref_1;1;21.7702427507331;
+3;683.24772180907 * no_asm + -40.0353436851603 * no_mixed_refs + -396.050318957226 * ref_1 + -197.881042365161 * ref_5;8.2929995048408;8.2929995048408;8.2929995048408;8.2929995048408;0.117869;4;-197.881042365161 * ref_5;1;6.49866574062445;
+Elapsed=00:00:00.1193644
+average model: 
+command: analyze-learning
+Round, Model, LearningError, LearningErrorRel, ValidationError, ValidationErrorRel, ElapsedSeconds, ModelComplexity, BestCandidate, BestCandidateSize, BestCandidateScore, TestError
+Models:
+Termination reason: abortError
+1;488.100904761905 * no_asm + -48.3703492063485 * no_mixed_refs;36.5619079961984;36.5619079961984;36.5619079961984;36.5619079961984;0.018257;2;-48.3703492063485 * no_mixed_refs;1;1.79769313486232E+308;34.2703653193424
+2;583.870833038746 * no_asm + -36.5469012709374 * no_mixed_refs + -297.950887972392 * ref_1;14.7916652454653;14.7916652454653;14.7916652454653;14.7916652454653;0.056489;3;-297.950887972392 * ref_1;1;21.7702427507331;15.1630050512047
+3;683.24772180907 * no_asm + -40.0353436851603 * no_mixed_refs + -396.050318957226 * ref_1 + -197.881042365161 * ref_5;8.2929995048408;8.2929995048408;8.2929995048408;8.2929995048408;0.117869;4;-197.881042365161 * ref_5;1;6.49866574062445;9.03167931693545
+Analyze finished
+command: printconfigs /scratch/kaltenec/Distribution-Aware-Sampling/Results_newTry/x264/x264_13/sampledConfigurations_solv_2.csv
+command: clean-sampling
+command: clean-global

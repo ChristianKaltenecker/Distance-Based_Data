@@ -1,0 +1,42 @@
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: mlsettings bagging:False stopOnLongRound:False parallelization:True lossFunction:RELATIVE useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False learn_logFunction:True numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: solver z3
+command: vm ../FeatureModel.xml
+Warning: Variability model contains outdated notation. Children nodes will no longer have effect on the model. Instead use the parent node to describe the parent of an configuration option. You can also use the converter providedby the Variability Model GUI in export>convert legacy model.
+Warning: Default value nodes in models are no longer used and should be removed. You can also use the converter provided by the Variability Model GUI in export>convert legacy model to update your model.
+command: all ../measurements.xml
+Configs with too large deviation: 0
+2560 configurations loaded.
+command: nfp Performance
+command: binary random numConfigs:15 seed:87 fromFile:../allConfigurations.csv
+command: learn-splconqueror
+Learning: NumberOfConfigurationsLearning:15 NumberOfConfigurationsValidation:15
+Learning progress:
+1;6.44062158540582 * PAGESIZE + -5.49327299566224 * CS16MB;59.8482226823075;59.8482226823075;59.8482226823075;59.8482226823075;0.1894559;2;-5.49327299566224 * CS16MB;1;1.79769313486232E+308;
+2;7.90922864715987 * PAGESIZE + -6.96188005741627 * CS16MB + -6.85349962151883 * PS1K;35.9258023460795;35.9258023460795;35.9258023460795;35.9258023460795;0.205082;3;-6.85349962151883 * PS1K;1;23.922420336228;
+3;7.35312230431849 * PAGESIZE + -6.4057737145749 * CS16MB + -7.31692157388665 * PS1K + 3.05858488562753 * HAVE_HASH;27.9735252115893;27.9735252115893;27.9735252115893;27.9735252115893;0.2207064;4;3.05858488562753 * HAVE_HASH;1;7.95227713449018;
+4;7.57127010170941 * PAGESIZE + -6.62392151196582 * CS16MB + -7.48053242192983 * PS1K + 2.89497403758435 * HAVE_HASH + -1.03620203760684 * PS4K;23.1845331385509;23.1845331385509;23.1845331385509;23.1845331385509;0.2363297;5;-1.03620203760684 * PS4K;1;4.78899207303843;
+5;10.0910900081585 * PAGESIZE + -9.14374141841492 * CS16MB + -9.37039735176665 * PS1K + 1.00510910774752 * HAVE_HASH + -3.55602194405595 * PS4K + -9.44932464918415 * PS16K;14.1800871143154;14.1800871143154;14.1800871143154;14.1800871143154;0.251955;6;-9.44932464918415 * PS16K;1;9.00444602423551;
+6;10.1599344604589 * PAGESIZE + -9.21258587071526 * CS16MB + -9.61135293481783 * PS1K + 1.52144250000001 * HAVE_HASH + -3.62486639635628 * PS4K + -9.51816910148449 * PS16K + -0.757288975303654 * HAVE_HASH * HAVE_STATISTICS;11.2533534177053;11.2533534177053;11.2533534177053;11.2533534177053;0.2832055;8;-0.757288975303654 * HAVE_HASH * HAVE_STATISTICS;2;1.46336684830504;
+7;10.1599344604589 * PAGESIZE + -9.21258587071526 * CS16MB + -9.61135293481783 * PS1K + 1.5214425 * HAVE_HASH + -3.6377849989204 * PS4K + -9.5181691014845 * PS16K + -0.757288975303658 * HAVE_HASH * HAVE_STATISTICS + 0.0258372051282123 * PS4K * CS64MB;11.1968728471644;11.1968728471644;11.1968728471644;11.1968728471644;0.3144564;10;0.0258372051282123 * PS4K * CS64MB;2;0.028240285270452;
+Elapsed=00:00:00.3284813
+average model: 
+
+command: analyze-learning
+Round, Model, LearningError, LearningErrorRel, ValidationError, ValidationErrorRel, ElapsedSeconds, ModelComplexity, BestCandidate, BestCandidateSize, BestCandidateScore, TestError
+Models:
+Termination reason: minImprovementPerRound
+1;6.44062158540582 * PAGESIZE + -5.49327299566224 * CS16MB;59.8482226823075;59.8482226823075;59.8482226823075;59.8482226823075;0.1894559;2;-5.49327299566224 * CS16MB;1;1.79769313486232E+308;101.417566150713
+2;7.90922864715987 * PAGESIZE + -6.96188005741627 * CS16MB + -6.85349962151883 * PS1K;35.9258023460795;35.9258023460795;35.9258023460795;35.9258023460795;0.205082;3;-6.85349962151883 * PS1K;1;23.922420336228;111.679218545266
+3;7.35312230431849 * PAGESIZE + -6.4057737145749 * CS16MB + -7.31692157388665 * PS1K + 3.05858488562753 * HAVE_HASH;27.9735252115893;27.9735252115893;27.9735252115893;27.9735252115893;0.2207064;4;3.05858488562753 * HAVE_HASH;1;7.95227713449018;133.38199184991
+4;7.57127010170941 * PAGESIZE + -6.62392151196582 * CS16MB + -7.48053242192983 * PS1K + 2.89497403758435 * HAVE_HASH + -1.03620203760684 * PS4K;23.1845331385509;23.1845331385509;23.1845331385509;23.1845331385509;0.2363297;5;-1.03620203760684 * PS4K;1;4.78899207303843;132.077269894675
+5;10.0910900081585 * PAGESIZE + -9.14374141841492 * CS16MB + -9.37039735176665 * PS1K + 1.00510910774752 * HAVE_HASH + -3.55602194405595 * PS4K + -9.44932464918415 * PS16K;14.1800871143154;14.1800871143154;14.1800871143154;14.1800871143154;0.251955;6;-9.44932464918415 * PS16K;1;9.00444602423551;106.853772354214
+6;10.1599344604589 * PAGESIZE + -9.21258587071526 * CS16MB + -9.61135293481783 * PS1K + 1.52144250000001 * HAVE_HASH + -3.62486639635628 * PS4K + -9.51816910148449 * PS16K + -0.757288975303654 * HAVE_HASH * HAVE_STATISTICS;11.2533534177053;11.2533534177053;11.2533534177053;11.2533534177053;0.2832055;8;-0.757288975303654 * HAVE_HASH * HAVE_STATISTICS;2;1.46336684830504;108.900836349941
+7;10.1599344604589 * PAGESIZE + -9.21258587071526 * CS16MB + -9.61135293481783 * PS1K + 1.5214425 * HAVE_HASH + -3.6377849989204 * PS4K + -9.5181691014845 * PS16K + -0.757288975303658 * HAVE_HASH * HAVE_STATISTICS + 0.0258372051282123 * PS4K * CS64MB;11.1968728471644;11.1968728471644;11.1968728471644;11.1968728471644;0.3144564;10;0.0258372051282123 * PS4K * CS64MB;2;0.028240285270452;108.906649827411
+Analyze finished
+command: measurementstocsv ./sampledConfigurations_rand_0.csv
+command: clean-sampling
+command: clean-global
+command: script ./learn_rand_1.a
+command: log ./out_rand_1.log

@@ -1,0 +1,35 @@
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 considerEpsilonTube:False baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: mlsettings bagging:False stopOnLongRound:False parallelization:True lossFunction:RELATIVE useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False learn_logFunction:True numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 considerEpsilonTube:False baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: solver z3
+command: vm /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/Dune_disc/FeatureModel.xml
+Warning: Variability model contains outdated notation. Children nodes will no longer have effect on the model. Instead use the parent node to describe the parent of an configuration option. You can also use the converter providedby the Variability Model GUI in export>convert legacy model.
+Warning: Default value nodes in models are no longer used and should be removed. You can also use the converter provided by the Variability Model GUI in export>convert legacy model to update your model.
+command: all /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/Dune_disc/measurements.xml
+Configs with too large deviation: 0
+2304 configurations loaded.
+command: nfp Performance
+command: hybrid distribution-aware distance-metric:manhattan distribution:uniform onlyBinary:true selection:SolverSelection optimization:None numConfigs:25 seed:90
+command: learn-splconqueror
+Learning: NumberOfConfigurationsLearning:25 NumberOfConfigurationsValidation:25
+Learning progress:
+1;13210.1590909091 * Precon + -3888.20651437848 * GradientSolver;20.497748789609;20.497748789609;20.497748789609;20.497748789609;0.096001;2;-3888.20651437848 * GradientSolver;1;1.79769313486232E+308;
+2;17021.2501891009 * Precon + -4330.56530256145 * GradientSolver + -5240.25026001375 * pre_6;13.5902240778122;13.5902240778122;13.5902240778122;13.5902240778122;0.111914;3;-5240.25026001375 * pre_6;1;6.90752471179674;
+3;14336.4849220396 * Precon + -3321.9242077539 * GradientSolver + -3089.4714549094 * pre_6 + 4108.72916561315 * pre_1;10.8262612939989;10.8262612939989;10.8262612939989;10.8262612939989;0.134375;4;4108.72916561315 * pre_1;1;2.76396278381332;
+4;13655.1110657143 * Precon + -2640.55035142857 * GradientSolver + -2768.82493428572 * pre_6 + 1222.91047999999 * pre_1 + 13587.3963114286 * pre_1 * CGSolver;7.73514033790574;7.73514033790574;7.73514033790574;7.73514033790574;0.165856;6;13587.3963114286 * pre_1 * CGSolver;2;1.54556047804658;
+Elapsed=00:00:00.1682662
+average model: 
+command: analyze-learning
+Round, Model, LearningError, LearningErrorRel, ValidationError, ValidationErrorRel, ElapsedSeconds, ModelComplexity, BestCandidate, BestCandidateSize, BestCandidateScore, TestError
+Models:
+Termination reason: abortError
+1;13210.1590909091 * Precon + -3888.20651437848 * GradientSolver;20.497748789609;20.497748789609;20.497748789609;20.497748789609;0.096001;2;-3888.20651437848 * GradientSolver;1;1.79769313486232E+308;30.4296122676605
+2;17021.2501891009 * Precon + -4330.56530256145 * GradientSolver + -5240.25026001375 * pre_6;13.5902240778122;13.5902240778122;13.5902240778122;13.5902240778122;0.111914;3;-5240.25026001375 * pre_6;1;6.90752471179674;54.7856711020969
+3;14336.4849220396 * Precon + -3321.9242077539 * GradientSolver + -3089.4714549094 * pre_6 + 4108.72916561315 * pre_1;10.8262612939989;10.8262612939989;10.8262612939989;10.8262612939989;0.134375;4;4108.72916561315 * pre_1;1;2.76396278381332;40.6371878066884
+4;13655.1110657143 * Precon + -2640.55035142857 * GradientSolver + -2768.82493428572 * pre_6 + 1222.91047999999 * pre_1 + 13587.3963114286 * pre_1 * CGSolver;7.73514033790574;7.73514033790574;7.73514033790574;7.73514033790574;0.165856;6;13587.3963114286 * pre_1 * CGSolver;2;1.54556047804658;37.1447611915643
+Analyze finished
+command: printconfigs /scratch/kaltenec/Distribution-Aware-Sampling/Results_newTry/Dune_disc/Dune_disc_90/sampledConfigurations_solv_0.csv
+command: clean-sampling
+command: clean-global
+command: script /scratch/kaltenec/Distribution-Aware-Sampling/Results_newTry/Dune_disc/Dune_disc_90/learn_solv_1.a
+command: log /scratch/kaltenec/Distribution-Aware-Sampling/Results_newTry/Dune_disc/Dune_disc_90/out_solv_1.log

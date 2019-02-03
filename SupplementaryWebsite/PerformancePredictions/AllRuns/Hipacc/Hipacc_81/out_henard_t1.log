@@ -1,0 +1,36 @@
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 considerEpsilonTube:False baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: mlsettings bagging:False stopOnLongRound:False parallelization:True lossFunction:RELATIVE useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False learn_logFunction:True numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 considerEpsilonTube:False baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: solver z3
+command: vm /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/Hipacc_disc/FeatureModel.xml
+Warning: Variability model contains outdated notation. Children nodes will no longer have effect on the model. Instead use the parent node to describe the parent of an configuration option. You can also use the converter providedby the Variability Model GUI in export>convert legacy model.
+Warning: Default value nodes in models are no longer used and should be removed. You can also use the converter provided by the Variability Model GUI in export>convert legacy model to update your model.
+command: all /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/Hipacc_disc/measurements.xml
+Configs with too large deviation: 0
+13485 configurations loaded.
+command: nfp Performance
+command: binary satoutput henard:true numConfigs:49 seed:81
+command: learn-splconqueror
+Learning: NumberOfConfigurationsLearning:49 NumberOfConfigurationsValidation:49
+Learning progress:
+1;46.3377692307692 * API + -20.2339692307692 * pixelPerThread_3;39.6728325906303;39.6728325906303;39.6728325906303;39.6728325906303;0.045019;2;-20.2339692307692 * pixelPerThread_3;1;1.79769313486232E+308;
+2;36.7708148148148 * API + -10.6670148148148 * pixelPerThread_3 + 31.0926018518518 * bs_32x1;26.3559809045523;26.3559809045523;26.3559809045523;26.3559809045523;0.064403;3;31.0926018518518 * bs_32x1;1;13.3168516860779;
+3;30.6497414075287 * API + -4.54594140752865 * pixelPerThread_3 + 26.8843638843426 * bs_32x1 + 41.3172454991817 * LocalMemory;14.6496873507327;14.6496873507327;14.6496873507327;14.6496873507327;0.098112;4;41.3172454991817 * LocalMemory;1;11.7062935538196;
+4;35.3011121298116 * API + -4.42887670814233 * pixelPerThread_3 + 24.1216369788256 * bs_32x1 + 43.2995410754566 * LocalMemory + -9.5368708433384 * Linear1D;12.5644228372709;12.5644228372709;12.5644228372709;12.5644228372709;0.148777;5;-9.5368708433384 * Linear1D;1;2.08526451346185;
+5;33.8460370942813 * API + -4.63639165378671 * pixelPerThread_3 + 24.492199381762 * bs_32x1 + 32.9954358578052 * LocalMemory + -6.21169088098919 * Linear1D + 33.9509273570325 * LocalMemory * OpenCL;9.37141121493406;9.37141121493406;9.37141121493406;9.37141121493406;0.23395;7;33.9509273570325 * LocalMemory * OpenCL;2;1.59650581116841;
+Elapsed=00:00:00.2361785
+average model: 
+command: analyze-learning
+Round, Model, LearningError, LearningErrorRel, ValidationError, ValidationErrorRel, ElapsedSeconds, ModelComplexity, BestCandidate, BestCandidateSize, BestCandidateScore, TestError
+Models:
+Termination reason: abortError
+1;46.3377692307692 * API + -20.2339692307692 * pixelPerThread_3;39.6728325906303;39.6728325906303;39.6728325906303;39.6728325906303;0.045019;2;-20.2339692307692 * pixelPerThread_3;1;1.79769313486232E+308;48.0073296509589
+2;36.7708148148148 * API + -10.6670148148148 * pixelPerThread_3 + 31.0926018518518 * bs_32x1;26.3559809045523;26.3559809045523;26.3559809045523;26.3559809045523;0.064403;3;31.0926018518518 * bs_32x1;1;13.3168516860779;32.9215259954622
+3;30.6497414075287 * API + -4.54594140752865 * pixelPerThread_3 + 26.8843638843426 * bs_32x1 + 41.3172454991817 * LocalMemory;14.6496873507327;14.6496873507327;14.6496873507327;14.6496873507327;0.098112;4;41.3172454991817 * LocalMemory;1;11.7062935538196;45.8702498034645
+4;35.3011121298116 * API + -4.42887670814233 * pixelPerThread_3 + 24.1216369788256 * bs_32x1 + 43.2995410754566 * LocalMemory + -9.5368708433384 * Linear1D;12.5644228372709;12.5644228372709;12.5644228372709;12.5644228372709;0.148777;5;-9.5368708433384 * Linear1D;1;2.08526451346185;55.1616926970967
+5;33.8460370942813 * API + -4.63639165378671 * pixelPerThread_3 + 24.492199381762 * bs_32x1 + 32.9954358578052 * LocalMemory + -6.21169088098919 * Linear1D + 33.9509273570325 * LocalMemory * OpenCL;9.37141121493406;9.37141121493406;9.37141121493406;9.37141121493406;0.23395;7;33.9509273570325 * LocalMemory * OpenCL;2;1.59650581116841;48.5051559837758
+Analyze finished
+command: clean-sampling
+command: clean-global
+command: script /scratch/kaltenec/Distribution-Aware-Sampling/Results_newTry/Hipacc_disc/Hipacc_disc_81/learn_henard_1.a
+command: log /scratch/kaltenec/Distribution-Aware-Sampling/Results_newTry/Hipacc_disc/Hipacc_disc_81/out_henard_1.log

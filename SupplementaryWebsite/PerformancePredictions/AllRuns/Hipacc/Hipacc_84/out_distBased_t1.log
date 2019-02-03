@@ -1,0 +1,41 @@
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 considerEpsilonTube:False baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: mlsettings bagging:False stopOnLongRound:False parallelization:True lossFunction:RELATIVE useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False learn_logFunction:True numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 considerEpsilonTube:False baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: solver z3
+command: vm /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/Hipacc_disc/FeatureModel.xml
+Warning: Variability model contains outdated notation. Children nodes will no longer have effect on the model. Instead use the parent node to describe the parent of an configuration option. You can also use the converter providedby the Variability Model GUI in export>convert legacy model.
+Warning: Default value nodes in models are no longer used and should be removed. You can also use the converter provided by the Variability Model GUI in export>convert legacy model to update your model.
+command: all /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/Hipacc_disc/measurements.xml
+Configs with too large deviation: 0
+13485 configurations loaded.
+command: nfp Performance
+command: hybrid distribution-aware distance-metric:manhattan distribution:uniform onlyBinary:true selection:SolverSelection optimization:None numConfigs:49 seed:84
+command: learn-splconqueror
+Learning: NumberOfConfigurationsLearning:49 NumberOfConfigurationsValidation:49
+Learning progress:
+1;53.1561860465116 * API + -23.1063527131783 * bs_32x8;49.7937002585409;49.7937002585409;49.7937002585409;49.7937002585409;0.035086;2;-23.1063527131783 * bs_32x8;1;1.79769313486232E+308;
+2;45.3256756756757 * API + -15.2758423423423 * bs_32x8 + 56.1186576576577 * bs_1024x1;32.6851890420966;32.6851890420966;32.6851890420966;32.6851890420966;0.055701;3;56.1186576576577 * bs_1024x1;1;17.1085112164444;
+3;35.3127333333333 * API + -5.26289999999994 * bs_32x8 + 66.1316000000001 * bs_1024x1 + 52.9255523809524 * bs_32x1;19.4821759456954;19.4821759456954;19.4821759456954;19.4821759456954;0.089638;4;52.9255523809524 * bs_32x1;1;13.2030130964011;
+4;29.3066633756464 * API + -6.76441748942176 * bs_32x8 + 57.1224950634696 * bs_1024x1 + 48.2064974141984 * bs_32x1 + 15.0151748942172 * LocalMemory;13.9619882621238;13.9619882621238;13.9619882621238;13.9619882621238;0.150753;5;15.0151748942172 * LocalMemory;1;5.52018768357168;
+5;30.2940444979643 * API + -5.67209731062562 * bs_32x8 + 53.5307173576467 * bs_1024x1 + 45.3588330179483 * bs_32x1 + 17.6195714777223 * LocalMemory + -10.1456987785997 * Linear1D;12.0110538727412;12.0110538727412;12.0110538727412;12.0110538727412;0.296739;6;-10.1456987785997 * Linear1D;1;1.95093438938259;
+6;31.6996008583691 * API + -5.47822746781109 * bs_32x8 + 56.5841673819742 * bs_1024x1 + 27.0138991416309 * bs_32x1 + 13.16056509299 * LocalMemory + -8.25546781115876 * Linear1D + 28.17413490701 * bs_32x1 * LocalMemory;10.2382381640833;10.2382381640833;10.2382381640833;10.2382381640833;0.448512;8;28.17413490701 * bs_32x1 * LocalMemory;2;0.886407854328914;
+7;32.4146304 * API + -5.84540480000001 * bs_32x8 + 56.4295663999999 * bs_1024x1 + 26.2988696 * bs_32x1 + 12.6001365333334 * LocalMemory + -8.45838160000004 * Linear1D + 28.7345634666667 * bs_32x1 * LocalMemory + -6.75413039999995 * bs_128x2;9.63410561793443;9.63410561793443;9.63410561793443;9.63410561793443;0.714118;9;-6.75413039999995 * bs_128x2;1;0.604132546148918;
+Elapsed=00:00:00.7167197
+average model: 
+command: analyze-learning
+Round, Model, LearningError, LearningErrorRel, ValidationError, ValidationErrorRel, ElapsedSeconds, ModelComplexity, BestCandidate, BestCandidateSize, BestCandidateScore, TestError
+Models:
+Termination reason: abortError
+1;53.1561860465116 * API + -23.1063527131783 * bs_32x8;49.7937002585409;49.7937002585409;49.7937002585409;49.7937002585409;0.035086;2;-23.1063527131783 * bs_32x8;1;1.79769313486232E+308;72.3053628303984
+2;45.3256756756757 * API + -15.2758423423423 * bs_32x8 + 56.1186576576577 * bs_1024x1;32.6851890420966;32.6851890420966;32.6851890420966;32.6851890420966;0.055701;3;56.1186576576577 * bs_1024x1;1;17.1085112164444;56.7148952404115
+3;35.3127333333333 * API + -5.26289999999994 * bs_32x8 + 66.1316000000001 * bs_1024x1 + 52.9255523809524 * bs_32x1;19.4821759456954;19.4821759456954;19.4821759456954;19.4821759456954;0.089638;4;52.9255523809524 * bs_32x1;1;13.2030130964011;40.5302766128584
+4;29.3066633756464 * API + -6.76441748942176 * bs_32x8 + 57.1224950634696 * bs_1024x1 + 48.2064974141984 * bs_32x1 + 15.0151748942172 * LocalMemory;13.9619882621238;13.9619882621238;13.9619882621238;13.9619882621238;0.150753;5;15.0151748942172 * LocalMemory;1;5.52018768357168;28.8768886328454
+5;30.2940444979643 * API + -5.67209731062562 * bs_32x8 + 53.5307173576467 * bs_1024x1 + 45.3588330179483 * bs_32x1 + 17.6195714777223 * LocalMemory + -10.1456987785997 * Linear1D;12.0110538727412;12.0110538727412;12.0110538727412;12.0110538727412;0.296739;6;-10.1456987785997 * Linear1D;1;1.95093438938259;28.8374866206112
+6;31.6996008583691 * API + -5.47822746781109 * bs_32x8 + 56.5841673819742 * bs_1024x1 + 27.0138991416309 * bs_32x1 + 13.16056509299 * LocalMemory + -8.25546781115876 * Linear1D + 28.17413490701 * bs_32x1 * LocalMemory;10.2382381640833;10.2382381640833;10.2382381640833;10.2382381640833;0.448512;8;28.17413490701 * bs_32x1 * LocalMemory;2;0.886407854328914;28.4764139157466
+7;32.4146304 * API + -5.84540480000001 * bs_32x8 + 56.4295663999999 * bs_1024x1 + 26.2988696 * bs_32x1 + 12.6001365333334 * LocalMemory + -8.45838160000004 * Linear1D + 28.7345634666667 * bs_32x1 * LocalMemory + -6.75413039999995 * bs_128x2;9.63410561793443;9.63410561793443;9.63410561793443;9.63410561793443;0.714118;9;-6.75413039999995 * bs_128x2;1;0.604132546148918;28.5958202594673
+Analyze finished
+command: printconfigs /scratch/kaltenec/Distribution-Aware-Sampling/Results_newTry/Hipacc_disc/Hipacc_disc_84/sampledConfigurations_solv_0.csv
+command: clean-sampling
+command: clean-global
+command: script /scratch/kaltenec/Distribution-Aware-Sampling/Results_newTry/Hipacc_disc/Hipacc_disc_84/learn_solv_1.a
+command: log /scratch/kaltenec/Distribution-Aware-Sampling/Results_newTry/Hipacc_disc/Hipacc_disc_84/out_solv_1.log

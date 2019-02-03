@@ -1,0 +1,37 @@
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 considerEpsilonTube:False baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: mlsettings bagging:False stopOnLongRound:False parallelization:True lossFunction:RELATIVE useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False learn_logFunction:True numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 considerEpsilonTube:False baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: solver z3
+command: vm /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/BerkeleyDBC/FeatureModel.xml
+Warning: Variability model contains outdated notation. Children nodes will no longer have effect on the model. Instead use the parent node to describe the parent of an configuration option. You can also use the converter providedby the Variability Model GUI in export>convert legacy model.
+Warning: Default value nodes in models are no longer used and should be removed. You can also use the converter provided by the Variability Model GUI in export>convert legacy model to update your model.
+command: all /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/BerkeleyDBC/measurements.xml
+Configs with too large deviation: 0
+2560 configurations loaded.
+command: nfp Performance
+command: hybrid distribution-aware distance-metric:manhattan distribution:uniform onlyBinary:true selection:SolverSelection optimization:None numConfigs:15 seed:10
+command: learn-splconqueror
+Learning: NumberOfConfigurationsLearning:15 NumberOfConfigurationsValidation:15
+Learning progress:
+1;7.87386893975709 * PAGESIZE + 0.134943098299581 * CS16MB;538.901592692069;538.901592692069;538.901592692069;538.901592692069;0.123928;2;0.134943098299581 * CS16MB;1;1.79769313486232E+308;
+2;0.925231706169031 * PAGESIZE + -2.18126931289643 * CS16MB + 11.5810620559801 * HAVE_CRYPTO;90.0452891945244;90.0452891945244;90.0452891945244;90.0452891945244;0.131862;3;11.5810620559801 * HAVE_CRYPTO;1;448.856303497545;
+3;0.571857661780066 * PAGESIZE + -0.414399090951572 * CS16MB + 8.8045517072096 * HAVE_CRYPTO + 4.03856050730256 * HAVE_SEQUENCE;46.9119646912972;46.9119646912972;46.9119646912972;46.9119646912972;0.143969;4;4.03856050730256 * HAVE_SEQUENCE;1;43.1333245032272;
+4;0.486636325323945 * PAGESIZE + 0.0117075913289869 * CS16MB + 5.52353025364928 * HAVE_CRYPTO + 3.27156847919756 * HAVE_SEQUENCE + 12.186651113224 * PS16K;15.1024027145597;15.1024027145597;15.1024027145597;15.1024027145597;0.160755;5;12.186651113224 * PS16K;1;31.8095619767375;
+5;0.500846223026075 * PAGESIZE + -0.0593418971816463 * CS16MB + 5.36603722078403 * HAVE_CRYPTO + 2.69488346411951 * HAVE_SEQUENCE + 12.2683580250112 * PS16K + 0.704574094397196 * HAVE_VERIFY;14.9560555001515;14.9560555001515;14.9560555001515;14.9560555001515;0.184213;6;0.704574094397196 * HAVE_VERIFY;1;0.146347214408223;
+Elapsed=00:00:00.1859071
+average model: 
+command: analyze-learning
+Round, Model, LearningError, LearningErrorRel, ValidationError, ValidationErrorRel, ElapsedSeconds, ModelComplexity, BestCandidate, BestCandidateSize, BestCandidateScore, TestError
+Models:
+Termination reason: minImprovementPerRound
+1;7.87386893975709 * PAGESIZE + 0.134943098299581 * CS16MB;538.901592692069;538.901592692069;538.901592692069;538.901592692069;0.123928;2;0.134943098299581 * CS16MB;1;1.79769313486232E+308;613.54302587886
+2;0.925231706169031 * PAGESIZE + -2.18126931289643 * CS16MB + 11.5810620559801 * HAVE_CRYPTO;90.0452891945244;90.0452891945244;90.0452891945244;90.0452891945244;0.131862;3;11.5810620559801 * HAVE_CRYPTO;1;448.856303497545;120.026495163263
+3;0.571857661780066 * PAGESIZE + -0.414399090951572 * CS16MB + 8.8045517072096 * HAVE_CRYPTO + 4.03856050730256 * HAVE_SEQUENCE;46.9119646912972;46.9119646912972;46.9119646912972;46.9119646912972;0.143969;4;4.03856050730256 * HAVE_SEQUENCE;1;43.1333245032272;219.417777368243
+4;0.486636325323945 * PAGESIZE + 0.0117075913289869 * CS16MB + 5.52353025364928 * HAVE_CRYPTO + 3.27156847919756 * HAVE_SEQUENCE + 12.186651113224 * PS16K;15.1024027145597;15.1024027145597;15.1024027145597;15.1024027145597;0.160755;5;12.186651113224 * PS16K;1;31.8095619767375;304.867748979605
+5;0.500846223026075 * PAGESIZE + -0.0593418971816463 * CS16MB + 5.36603722078403 * HAVE_CRYPTO + 2.69488346411951 * HAVE_SEQUENCE + 12.2683580250112 * PS16K + 0.704574094397196 * HAVE_VERIFY;14.9560555001515;14.9560555001515;14.9560555001515;14.9560555001515;0.184213;6;0.704574094397196 * HAVE_VERIFY;1;0.146347214408223;306.530336579463
+Analyze finished
+command: printconfigs /scratch/kaltenec/Distribution-Aware-Sampling/Results_newTry/BerkeleyDBC/BerkeleyDBC_10/sampledConfigurations_solv_0.csv
+command: clean-sampling
+command: clean-global
+command: script /scratch/kaltenec/Distribution-Aware-Sampling/Results_newTry/BerkeleyDBC/BerkeleyDBC_10/learn_solv_1.a
+command: log /scratch/kaltenec/Distribution-Aware-Sampling/Results_newTry/BerkeleyDBC/BerkeleyDBC_10/out_solv_1.log

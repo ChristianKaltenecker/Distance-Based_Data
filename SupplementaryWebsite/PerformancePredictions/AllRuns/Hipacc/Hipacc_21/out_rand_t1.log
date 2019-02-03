@@ -1,0 +1,44 @@
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: mlsettings bagging:False stopOnLongRound:False parallelization:True lossFunction:RELATIVE useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False learn_logFunction:True numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: solver z3
+command: vm ../FeatureModel.xml
+Warning: Variability model contains outdated notation. Children nodes will no longer have effect on the model. Instead use the parent node to describe the parent of an configuration option. You can also use the converter providedby the Variability Model GUI in export>convert legacy model.
+Warning: Default value nodes in models are no longer used and should be removed. You can also use the converter provided by the Variability Model GUI in export>convert legacy model to update your model.
+command: all ../measurements.xml
+Configs with too large deviation: 0
+13485 configurations loaded.
+command: nfp Performance
+command: binary random numConfigs:49 seed:21 fromFile:../allConfigurations.csv
+command: learn-splconqueror
+Learning: NumberOfConfigurationsLearning:49 NumberOfConfigurationsValidation:49
+Learning progress:
+1;35.2007659574468 * API + 5.14973404255318 * Array2D;38.3560971976825;38.3560971976825;38.3560971976825;38.3560971976825;0.2023949;2;5.14973404255318 * Array2D;1;1.79769313486232E+308;
+2;25.3460384615385 * API + -7.05135714285713 * Array2D + 22.0558186813187 * LocalMemory;20.6015208134047;20.6015208134047;20.6015208134047;20.6015208134047;0.2336442;3;22.0558186813187 * LocalMemory;1;17.7545763842778;
+3;22.5621670898933 * API + -5.90245784662265 * Array2D + 23.6907907567293 * LocalMemory + 24.1268852209243 * bs_32x1;16.0422436972409;16.0422436972409;16.0422436972409;16.0422436972409;0.3430207;4;24.1268852209243 * bs_32x1;1;4.55927711616373;
+4;23.1520965732087 * API + -5.22403894080997 * Array2D + 22.4224423676013 * LocalMemory + 9.33440342679129 * bs_32x1 + 29.0392788161994 * bs_32x1 * pixelPerThread_1;13.6772659073875;13.6772659073875;13.6772659073875;13.6772659073875;0.4211473;6;29.0392788161994 * bs_32x1 * pixelPerThread_1;2;1.18248889492671;
+5;23.0898711162256 * API + -2.29944246260071 * Array2D + 19.5600713463752 * LocalMemory + 9.39662888377449 * bs_32x1 + 30.4704643268124 * bs_32x1 * pixelPerThread_1 + 29.9615575373993 * LocalMemory * padding_288;11.5600579409829;11.5600579409829;11.5600579409829;11.5600579409829;0.6398994;8;29.9615575373993 * LocalMemory * padding_288;2;1.05860398320231;
+6;22.7383653846154 * API + -2.28994230769229 * Array2D + 19.9020769230769 * LocalMemory + 9.74813461538459 * bs_32x1 + 30.2994615384615 * bs_32x1 * pixelPerThread_1 + 29.9710576923077 * LocalMemory * padding_288 + 8.25563461538463 * bs_256x4;10.775128420643;10.775128420643;10.775128420643;10.775128420643;0.8274017;9;8.25563461538463 * bs_256x4;1;0.784929520339951;
+7;22.7528246505718 * API + -2.94060927573062 * Array2D + 20.5382846251588 * LocalMemory + 9.7336753494282 * bs_32x1 + 29.9813576874206 * bs_32x1 * pixelPerThread_1 + 29.3203907242694 * LocalMemory * padding_288 + 8.24117534942823 * bs_256x4 + -12.0301092757306 * padding_32;10.1120619758962;10.1120619758962;10.1120619758962;10.1120619758962;1.1086532;10;-12.0301092757306 * padding_32;1;0.663066444746812;
+8;22.7322291105121 * API + -2.01380997304584 * Array2D + 19.6320808625337 * LocalMemory + 9.75427088948787 * bs_32x1 + 30.4344595687332 * bs_32x1 * pixelPerThread_1 + 30.2471900269542 * LocalMemory * padding_288 + 8.26177088948788 * bs_256x4 + -11.1033099730458 * padding_32 + 16.2086900269542 * padding_256;9.46817712703508;9.46817712703508;9.46817712703508;9.46817712703508;1.3899059;11;16.2086900269542 * padding_256;1;0.643884848861083;
+Elapsed=00:00:01.3836683
+average model: 
+
+command: analyze-learning
+Round, Model, LearningError, LearningErrorRel, ValidationError, ValidationErrorRel, ElapsedSeconds, ModelComplexity, BestCandidate, BestCandidateSize, BestCandidateScore, TestError
+Models:
+Termination reason: abortError
+1;35.2007659574468 * API + 5.14973404255318 * Array2D;38.3560971976825;38.3560971976825;38.3560971976825;38.3560971976825;0.2023949;2;5.14973404255318 * Array2D;1;1.79769313486232E+308;33.2378136475109
+2;25.3460384615385 * API + -7.05135714285713 * Array2D + 22.0558186813187 * LocalMemory;20.6015208134047;20.6015208134047;20.6015208134047;20.6015208134047;0.2336442;3;22.0558186813187 * LocalMemory;1;17.7545763842778;20.82799689286
+3;22.5621670898933 * API + -5.90245784662265 * Array2D + 23.6907907567293 * LocalMemory + 24.1268852209243 * bs_32x1;16.0422436972409;16.0422436972409;16.0422436972409;16.0422436972409;0.3430207;4;24.1268852209243 * bs_32x1;1;4.55927711616373;20.0520165904343
+4;23.1520965732087 * API + -5.22403894080997 * Array2D + 22.4224423676013 * LocalMemory + 9.33440342679129 * bs_32x1 + 29.0392788161994 * bs_32x1 * pixelPerThread_1;13.6772659073875;13.6772659073875;13.6772659073875;13.6772659073875;0.4211473;6;29.0392788161994 * bs_32x1 * pixelPerThread_1;2;1.18248889492671;18.3469916567728
+5;23.0898711162256 * API + -2.29944246260071 * Array2D + 19.5600713463752 * LocalMemory + 9.39662888377449 * bs_32x1 + 30.4704643268124 * bs_32x1 * pixelPerThread_1 + 29.9615575373993 * LocalMemory * padding_288;11.5600579409829;11.5600579409829;11.5600579409829;11.5600579409829;0.6398994;8;29.9615575373993 * LocalMemory * padding_288;2;1.05860398320231;18.5053474397423
+6;22.7383653846154 * API + -2.28994230769229 * Array2D + 19.9020769230769 * LocalMemory + 9.74813461538459 * bs_32x1 + 30.2994615384615 * bs_32x1 * pixelPerThread_1 + 29.9710576923077 * LocalMemory * padding_288 + 8.25563461538463 * bs_256x4;10.775128420643;10.775128420643;10.775128420643;10.775128420643;0.8274017;9;8.25563461538463 * bs_256x4;1;0.784929520339951;18.5893314920906
+7;22.7528246505718 * API + -2.94060927573062 * Array2D + 20.5382846251588 * LocalMemory + 9.7336753494282 * bs_32x1 + 29.9813576874206 * bs_32x1 * pixelPerThread_1 + 29.3203907242694 * LocalMemory * padding_288 + 8.24117534942823 * bs_256x4 + -12.0301092757306 * padding_32;10.1120619758962;10.1120619758962;10.1120619758962;10.1120619758962;1.1086532;10;-12.0301092757306 * padding_32;1;0.663066444746812;20.1923585513292
+8;22.7322291105121 * API + -2.01380997304584 * Array2D + 19.6320808625337 * LocalMemory + 9.75427088948787 * bs_32x1 + 30.4344595687332 * bs_32x1 * pixelPerThread_1 + 30.2471900269542 * LocalMemory * padding_288 + 8.26177088948788 * bs_256x4 + -11.1033099730458 * padding_32 + 16.2086900269542 * padding_256;9.46817712703508;9.46817712703508;9.46817712703508;9.46817712703508;1.3899059;11;16.2086900269542 * padding_256;1;0.643884848861083;21.9563286507681
+Analyze finished
+command: measurementstocsv ./sampledConfigurations_rand_0.csv
+command: clean-sampling
+command: clean-global
+command: script ./learn_rand_1.a
+command: log ./out_rand_1.log

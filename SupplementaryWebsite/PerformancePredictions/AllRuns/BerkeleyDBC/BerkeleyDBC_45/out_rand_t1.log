@@ -1,0 +1,40 @@
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: mlsettings bagging:False stopOnLongRound:False parallelization:True lossFunction:RELATIVE useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False learn_logFunction:True numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: solver z3
+command: vm ../FeatureModel.xml
+Warning: Variability model contains outdated notation. Children nodes will no longer have effect on the model. Instead use the parent node to describe the parent of an configuration option. You can also use the converter providedby the Variability Model GUI in export>convert legacy model.
+Warning: Default value nodes in models are no longer used and should be removed. You can also use the converter provided by the Variability Model GUI in export>convert legacy model to update your model.
+command: all ../measurements.xml
+Configs with too large deviation: 0
+2560 configurations loaded.
+command: nfp Performance
+command: binary random numConfigs:15 seed:45 fromFile:../allConfigurations.csv
+command: learn-splconqueror
+Learning: NumberOfConfigurationsLearning:15 NumberOfConfigurationsValidation:15
+Learning progress:
+1;4.97328391811789 * PAGESIZE + 1.40737959099141 * CS16MB;153.143541021836;153.143541021836;153.143541021836;153.143541021836;0.2343758;2;1.40737959099141 * CS16MB;1;1.79769313486232E+308;
+2;6.08556794843892 * PAGESIZE + 0.295095560670383 * CS16MB + -4.81989746472444 * PS16K;61.7281444244852;61.7281444244852;61.7281444244852;61.7281444244852;0.2656263;3;-4.81989746472444 * PS16K;1;91.4153965973506;
+3;7.86829113430465 * PAGESIZE + 1.48357768458087 * CS16MB + -6.60262065059016 * PS16K + -5.94241061955243 * PS1K;30.4590840349303;30.4590840349303;30.4590840349303;30.4590840349303;0.2812511;4;-5.94241061955243 * PS1K;1;31.2690603895549;
+4;7.74355997946861 * PAGESIZE + 2.48142692326923 * CS16MB + -6.47788949575412 * PS16K + -7.68864678725706 * PS1K + 3.24301002573718 * PS1K * CS32MB;15.8008047877293;15.8008047877293;15.8008047877293;15.8008047877293;0.3125021;6;3.24301002573718 * PS1K * CS32MB;2;7.32913962360054;
+5;7.67004014978454 * PAGESIZE + 3.06958556074176 * CS16MB + -6.40436966607005 * PS16K + -7.10048814978454 * PS1K + 2.72837121794871 * PS1K * CS32MB + -1.61743625304946 * CS16MB * HAVE_HASH;12.5358405001377;12.5358405001377;12.5358405001377;12.5358405001377;0.3437522;8;-1.61743625304946 * CS16MB * HAVE_HASH;2;1.63248214379578;
+6;0.790982318938372 * PAGESIZE + 9.94864339158794 * CS16MB + -11.5636630392047 * PS16K + -0.221430318938368 * PS1K + 2.72837121794873 * PS1K * CS32MB + -20.5348452878764 * CS16MB * HAVE_HASH + 12.0383512039808 * HAVE_HASH;9.71767197761469;9.71767197761469;9.71767197761469;9.71767197761469;0.3593786;9;12.0383512039808 * HAVE_HASH;1;2.81816852252302;
+Elapsed=00:00:00.3630806
+average model: 
+
+command: analyze-learning
+Round, Model, LearningError, LearningErrorRel, ValidationError, ValidationErrorRel, ElapsedSeconds, ModelComplexity, BestCandidate, BestCandidateSize, BestCandidateScore, TestError
+Models:
+Termination reason: abortError
+1;4.97328391811789 * PAGESIZE + 1.40737959099141 * CS16MB;153.143541021836;153.143541021836;153.143541021836;153.143541021836;0.2343758;2;1.40737959099141 * CS16MB;1;1.79769313486232E+308;94.8512919755812
+2;6.08556794843892 * PAGESIZE + 0.295095560670383 * CS16MB + -4.81989746472444 * PS16K;61.7281444244852;61.7281444244852;61.7281444244852;61.7281444244852;0.2656263;3;-4.81989746472444 * PS16K;1;91.4153965973506;77.3627292677598
+3;7.86829113430465 * PAGESIZE + 1.48357768458087 * CS16MB + -6.60262065059016 * PS16K + -5.94241061955243 * PS1K;30.4590840349303;30.4590840349303;30.4590840349303;30.4590840349303;0.2812511;4;-5.94241061955243 * PS1K;1;31.2690603895549;67.8715787042504
+4;7.74355997946861 * PAGESIZE + 2.48142692326923 * CS16MB + -6.47788949575412 * PS16K + -7.68864678725706 * PS1K + 3.24301002573718 * PS1K * CS32MB;15.8008047877293;15.8008047877293;15.8008047877293;15.8008047877293;0.3125021;6;3.24301002573718 * PS1K * CS32MB;2;7.32913962360054;75.854264989765
+5;7.67004014978454 * PAGESIZE + 3.06958556074176 * CS16MB + -6.40436966607005 * PS16K + -7.10048814978454 * PS1K + 2.72837121794871 * PS1K * CS32MB + -1.61743625304946 * CS16MB * HAVE_HASH;12.5358405001377;12.5358405001377;12.5358405001377;12.5358405001377;0.3437522;8;-1.61743625304946 * CS16MB * HAVE_HASH;2;1.63248214379578;70.4494647439872
+6;0.790982318938372 * PAGESIZE + 9.94864339158794 * CS16MB + -11.5636630392047 * PS16K + -0.221430318938368 * PS1K + 2.72837121794873 * PS1K * CS32MB + -20.5348452878764 * CS16MB * HAVE_HASH + 12.0383512039808 * HAVE_HASH;9.71767197761469;9.71767197761469;9.71767197761469;9.71767197761469;0.3593786;9;12.0383512039808 * HAVE_HASH;1;2.81816852252302;149.420516399621
+Analyze finished
+command: measurementstocsv ./sampledConfigurations_rand_0.csv
+command: clean-sampling
+command: clean-global
+command: script ./learn_rand_1.a
+command: log ./out_rand_1.log

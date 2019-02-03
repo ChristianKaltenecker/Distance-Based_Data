@@ -1,0 +1,37 @@
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 considerEpsilonTube:False baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: mlsettings bagging:False stopOnLongRound:False parallelization:True lossFunction:RELATIVE useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False learn_logFunction:True numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 considerEpsilonTube:False baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: solver z3
+command: vm /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/lrzip/FeatureModel.xml
+Warning: Variability model contains outdated notation. Children nodes will no longer have effect on the model. Instead use the parent node to describe the parent of an configuration option. You can also use the converter providedby the Variability Model GUI in export>convert legacy model.
+Warning: Default value nodes in models are no longer used and should be removed. You can also use the converter provided by the Variability Model GUI in export>convert legacy model to update your model.
+command: all /scratch/kaltenec/Distribution-Aware-Sampling/DistOut/ConstraintData/lrzip/measurements.xml
+Configs with too large deviation: 0
+432 configurations loaded.
+command: nfp Performance
+command: hybrid distribution-aware distance-metric:manhattan distribution:uniform onlyBinary:true selection:SolverSelection optimization:local numConfigs:18 seed:68
+command: learn-splconqueror
+Learning: NumberOfConfigurationsLearning:18 NumberOfConfigurationsValidation:18
+Learning progress:
+1;647171.999999999 * level + -443450.461538461 * encryption;358.908005357903;358.908005357903;358.908005357903;358.908005357903;0.055207;2;-443450.461538461 * encryption;1;1.79769313486232E+308;
+2;240910 * level + -37188.4615384611 * encryption + 2031310 * compressionZpaq;206.948383772402;206.948383772402;206.948383772402;206.948383772402;0.063876;3;2031310 * compressionZpaq;1;151.959621585501;
+3;125035.427135679 * level + -99582.4623115583 * encryption + 2147184.57286432 * compressionZpaq + 463498.291457287 * compressionLrzip;76.3486864386546;76.3486864386546;76.3486864386546;76.3486864386546;0.076059;4;463498.291457287 * compressionLrzip;1;130.599697333747;
+4;45150.0000000005 * level + 10259.9999999999 * encryption + 2227070 * compressionZpaq + 385610 * compressionLrzip + 397430 * level9;21.9774656918871;21.9774656918871;21.9774656918871;21.9774656918871;0.094625;5;397430 * level9;1;54.3712207467675;
+5;45149.9999999996 * level + 10260.0000000006 * encryption + 2227070 * compressionZpaq + 229080 * compressionLrzip + 553960 * level9 + 782649.999999999 * compressionLrzip * level7;9.98766270787286;9.98766270787286;9.98766270787286;9.98766270787286;0.119185;7;782649.999999999 * compressionLrzip * level7;2;5.99490149200711;
+Elapsed=00:00:00.1214376
+average model: 
+command: analyze-learning
+Round, Model, LearningError, LearningErrorRel, ValidationError, ValidationErrorRel, ElapsedSeconds, ModelComplexity, BestCandidate, BestCandidateSize, BestCandidateScore, TestError
+Models:
+Termination reason: abortError
+1;647171.999999999 * level + -443450.461538461 * encryption;358.908005357903;358.908005357903;358.908005357903;358.908005357903;0.055207;2;-443450.461538461 * encryption;1;1.79769313486232E+308;340.53570432568
+2;240910 * level + -37188.4615384611 * encryption + 2031310 * compressionZpaq;206.948383772402;206.948383772402;206.948383772402;206.948383772402;0.063876;3;2031310 * compressionZpaq;1;151.959621585501;150.145339094806
+3;125035.427135679 * level + -99582.4623115583 * encryption + 2147184.57286432 * compressionZpaq + 463498.291457287 * compressionLrzip;76.3486864386546;76.3486864386546;76.3486864386546;76.3486864386546;0.076059;4;463498.291457287 * compressionLrzip;1;130.599697333747;85.7651094602715
+4;45150.0000000005 * level + 10259.9999999999 * encryption + 2227070 * compressionZpaq + 385610 * compressionLrzip + 397430 * level9;21.9774656918871;21.9774656918871;21.9774656918871;21.9774656918871;0.094625;5;397430 * level9;1;54.3712207467675;75.7984321511508
+5;45149.9999999996 * level + 10260.0000000006 * encryption + 2227070 * compressionZpaq + 229080 * compressionLrzip + 553960 * level9 + 782649.999999999 * compressionLrzip * level7;9.98766270787286;9.98766270787286;9.98766270787286;9.98766270787286;0.119185;7;782649.999999999 * compressionLrzip * level7;2;5.99490149200711;84.5559182136787
+Analyze finished
+command: printconfigs /scratch/kaltenec/Distribution-Aware-Sampling/Results_newTry/lrzip/lrzip_68/sampledConfigurations_local_0.csv
+command: clean-sampling
+command: clean-global
+command: script /scratch/kaltenec/Distribution-Aware-Sampling/Results_newTry/lrzip/lrzip_68/learn_local_1.a
+command: log /scratch/kaltenec/Distribution-Aware-Sampling/Results_newTry/lrzip/lrzip_68/out_local_1.log

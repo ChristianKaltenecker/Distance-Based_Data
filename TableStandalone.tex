@@ -1,0 +1,134 @@
+\documentclass{standalone}
+
+
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{xspace}
+
+%%%additional packages
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{multirow}
+
+\usepackage[]{algorithm2e}
+
+\usepackage[dvipsnames]{xcolor}
+
+\usepackage{booktabs}
+
+\usepackage{subcaption}
+
+\usepackage{colortbl}
+%\usepackage[dvipsnames]{xcolor}
+\usepackage{textcomp}
+
+\usepackage{adjustbox}
+\usepackage{array}
+
+\usepackage{varioref}
+
+%%%%%% Tikz Part
+\usepackage{tikz}
+\usepackage{calc}
+\usetikzlibrary{matrix,arrows,positioning,backgrounds,fit,patterns}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{arrows.meta}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\newdimen\nodeDist
+\nodeDist=15mm 
+%%%%%% Tikz Part end
+
+
+%% all for todonotes
+\usepackage[textsize=footnotesize,textwidth=\marginparwidth]{todonotes}
+%\reversemarginpar
+\usepackage[xcolor=dvipdf
+%,final
+]{changes}
+\definechangesauthor[color=green]{CE}
+\definechangesauthor[color=blue]{AG}
+\definechangesauthor[color=blue!50!green]{CK}
+\definechangesauthor[color=red]{SA}
+\setremarkmarkup{\todo[color=Changes@Color#1!40]{\textcolor{black}{#1: {#2}}}}
+\setauthormarkupposition{left}
+\newcommand\redout{\bgroup\markoverwith
+{\textcolor{red}{\rule[.5ex]{2pt}{0.4pt}}}\ULon}
+\setdeletedmarkup{\redout{#1}}
+%\newcommand{\comment}[3][]{\todo[color=Changes@Color#2!40,#1]{\color{black}#2: #3}}
+\newcommand{\todox}[3][]{\todo[color=Changes@Color#2!40,#1]{\color{black}ToDo #2: #3}}
+\newcommand{\todocite}[1]{[?\todo[color=red]{TODO cite: {#1}}]}
+\newcommand\todoblock[3][]{\todo[inline,prepend,caption={\textbf{#2}},#1]{#3}}
+\newcommand\todobox[4][]{\parbox{#2}{\todo[inline,prepend,caption={\textbf{#3}},#1]{#4}}}
+%%%additional packages end
+
+%%% Marks
+\usepackage{amssymb}% http://ctan.org/pkg/amssymb
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\definecolor{ao}{rgb}{0.0, 0.5, 0.0}
+\definecolor{bostonuniversityred}{rgb}{0.8, 0.0, 0.0}
+\newcommand{\cmark}{\color{ao}\ding{51}}%
+\newcommand{\xmark}{\color{bostonuniversityred}\ding{55}}%
+
+
+
+\newcommand{\cL}{{\cal L}}
+
+
+\usepackage{listings}
+
+\lstset{language=C++,
+basicstyle=\ttfamily,
+keywordstyle=\color{blue}\ttfamily,
+stringstyle=\color{red}\ttfamily,
+commentstyle=\color{green}\ttfamily,
+morecomment=[l][\color{magenta}]{\#},
+numbers=left,
+stepnumber=1,    
+firstnumber=1,
+numberfirstline=true
+}
+
+\newcommand{\cpp}{C\texttt{++}\ }
+\newcommand{\cppws}{C\texttt{++}}
+\newcommand{\cProgLang}{C\ }
+\newcommand{\csharp}{C\texttt{\#}\ }
+\newcommand{\python}{Python\ }
+\newcommand{\java}{Java\ }
+
+\newcommand{\LLVM}{LLVM}
+\newcommand{\Hipacc}{HIPA$^{cc}$}
+\newcommand{\HipaccSolver}{\Hipacc \ Solver}
+
+\newcolumntype{a}{>{\columncolor[gray]{0.93}}r}
+\newcolumntype{b}{>{\columncolor[gray]{0.85}}r}
+\newcolumntype{d}{>{\columncolor[gray]{0.7}}r}
+\newcolumntype{e}{>{\columncolor{white}}l}
+\newcolumntype{f}{>{\columncolor[gray]{0.93}}l}
+\newcolumntype{g}{>{\columncolor[gray]{0.85}}l}
+\newcolumntype{h}{>{\columncolor[gray]{0.7}}l}
+
+\newcommand{\percent}{\,\%}
+\newcommand{\plusminus}{$\pm$\,}
+
+% Column definition for the case study table
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\makeatletter
+\renewcommand{\@algocf@capt@boxed}{above}% formerly {bottom}
+\makeatother
+
+\setlength\parindent{0pt}
+
+\begin{document}
+		\centering
+		\setlength{\aboverulesep}{0pt}
+		\setlength{\belowrulesep}{0pt}
+		\setlength{\tabcolsep}{0.18em}
+		\small 
+		\input{./mwuTable.tex}
+\end{document}

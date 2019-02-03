@@ -1,0 +1,41 @@
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:1 limitFeatureSize:False featureSizeTreshold:4 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:False learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.1 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:True candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: mlsettings bagging:False stopOnLongRound:False parallelization:True lossFunction:RELATIVE useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False learn_logFunction:True numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False
+Current machine learning settings: epsilon:0 lossFunction:RELATIVE parallelization:True bagging:False baggingNumbers:3 baggingTestDataFraction:50 useBackward:False abortError:10 limitFeatureSize:False featureSizeTreshold:7 quadraticFunctionSupport:True crossValidation:False crossValidation-k:5 learn-logFunction:True learn-accumulatedLogFunction:False learn-asymFunction:False learn-ratioFunction:False learn-mirrowedFunction:False numberOfRounds:70 backwardErrorDelta:1 minImprovementPerRound:0.25 withHierarchy:False bruteForceCandidates:False ignoreBadFeatures:False stopOnLongRound:False candidateSizePenalty:True learnTimeLimit:00:00:00 scoreMeasure:RELERROR outputRoundsToStdout:False blacklisted: 
+command: solver z3
+command: vm ../FeatureModel.xml
+Warning: Variability model contains outdated notation. Children nodes will no longer have effect on the model. Instead use the parent node to describe the parent of an configuration option. You can also use the converter providedby the Variability Model GUI in export>convert legacy model.
+command: all ../measurements.xml
+Configs with too large deviation: 0
+60000 configurations loaded.
+command: nfp Performance
+command: binary random numConfigs:28 seed:38 fromFile:../allConfigurations.csv
+command: learn-splconqueror
+Learning: NumberOfConfigurationsLearning:28 NumberOfConfigurationsValidation:28
+Learning progress:
+1;27.5056862745098 * polly_vectorizer + 1.74552584670233 * max;14.8550493033787;14.8550493033787;14.8550493033787;14.8550493033787;0.296878;2;1.74552584670233 * max;1;1.79769313486232E+308;
+2;26.6752239939256 * polly_vectorizer + 1.93426727410782 * max + 3.52946469248291 * parallel;14.1643075593902;14.1643075593902;14.1643075593902;14.1643075593902;0.3281273;3;3.52946469248291 * parallel;1;0.690741743988438;
+3;26.4610256410256 * polly_vectorizer + 2.45786324786325 * max + 1.82777777777777 * parallel + 2.61202991452992 * parallel * min;13.6333211733493;13.6333211733493;13.6333211733493;13.6333211733493;0.3750047;5;2.61202991452992 * parallel * min;2;0.265493193020484;
+4;24.8377124469797 * polly_vectorizer + 3.69037882112038 * max + 2.21857539856663 * parallel + 2.96525084101214 * parallel * min + 3.51717858709961 * pollyoptmaxconstantterm_10000;13.2318396148357;13.2318396148357;13.2318396148357;13.2318396148357;0.4375041;6;3.51717858709961 * pollyoptmaxconstantterm_10000;1;0.401481558513602;
+5;21.8580603096984 * polly_vectorizer + 5.72894865525674 * max + 3.15965770171149 * parallel + 4.39675631621843 * parallel * min + 5.94543602281989 * pollyoptmaxconstantterm_10000 + 6.04148329258357 * pollyoptmaxconstantterm_1;12.6383922148898;12.6383922148898;12.6383922148898;12.6383922148898;0.5156296;7;6.04148329258357 * pollyoptmaxconstantterm_1;1;0.593447399945818;
+6;22.1811442525728 * polly_vectorizer + 6.38826530612245 * max + 2.17725710797139 * parallel + 6.5381266352695 * parallel * min + 6.16332984475842 * pollyoptmaxconstantterm_10000 + 6.20114686900401 * pollyoptmaxconstantterm_1 + -3.07305424733995 * pollyrtcmaxparameters_4;11.0661483918099;11.0661483918099;11.0661483918099;11.0661483918099;0.6562554;8;-3.07305424733995 * pollyrtcmaxparameters_4;1;1.57224382307992;
+7;24.5504841869577 * polly_vectorizer + 3.71271830394627 * max + 2.48346417576267 * parallel + 3.20498740554155 * parallel * min + 3.89438567030505 * pollyoptmaxconstantterm_10000 + 3.87698502658831 * pollyoptmaxconstantterm_1 + -0.623397705009787 * pollyrtcmaxparameters_4 + -12.7904198152813 * pollyrtcmaxparameters_4 * pollydefaulttilesize_4;7.76847254103237;7.76847254103237;7.76847254103237;7.76847254103237;0.8125092;10;-12.7904198152813 * pollyrtcmaxparameters_4 * pollydefaulttilesize_4;2;1.64883792538877;
+Elapsed=00:00:00.8195409
+average model: 
+
+command: analyze-learning
+Round, Model, LearningError, LearningErrorRel, ValidationError, ValidationErrorRel, ElapsedSeconds, ModelComplexity, BestCandidate, BestCandidateSize, BestCandidateScore, TestError
+Models:
+Termination reason: abortError
+1;27.5056862745098 * polly_vectorizer + 1.74552584670233 * max;14.8550493033787;14.8550493033787;14.8550493033787;14.8550493033787;0.296878;2;1.74552584670233 * max;1;1.79769313486232E+308;29.4251774020638
+2;26.6752239939256 * polly_vectorizer + 1.93426727410782 * max + 3.52946469248291 * parallel;14.1643075593902;14.1643075593902;14.1643075593902;14.1643075593902;0.3281273;3;3.52946469248291 * parallel;1;0.690741743988438;29.2079141746071
+3;26.4610256410256 * polly_vectorizer + 2.45786324786325 * max + 1.82777777777777 * parallel + 2.61202991452992 * parallel * min;13.6333211733493;13.6333211733493;13.6333211733493;13.6333211733493;0.3750047;5;2.61202991452992 * parallel * min;2;0.265493193020484;28.5502185615385
+4;24.8377124469797 * polly_vectorizer + 3.69037882112038 * max + 2.21857539856663 * parallel + 2.96525084101214 * parallel * min + 3.51717858709961 * pollyoptmaxconstantterm_10000;13.2318396148357;13.2318396148357;13.2318396148357;13.2318396148357;0.4375041;6;3.51717858709961 * pollyoptmaxconstantterm_10000;1;0.401481558513602;29.5950868016553
+5;21.8580603096984 * polly_vectorizer + 5.72894865525674 * max + 3.15965770171149 * parallel + 4.39675631621843 * parallel * min + 5.94543602281989 * pollyoptmaxconstantterm_10000 + 6.04148329258357 * pollyoptmaxconstantterm_1;12.6383922148898;12.6383922148898;12.6383922148898;12.6383922148898;0.5156296;7;6.04148329258357 * pollyoptmaxconstantterm_1;1;0.593447399945818;33.3894902193803
+6;22.1811442525728 * polly_vectorizer + 6.38826530612245 * max + 2.17725710797139 * parallel + 6.5381266352695 * parallel * min + 6.16332984475842 * pollyoptmaxconstantterm_10000 + 6.20114686900401 * pollyoptmaxconstantterm_1 + -3.07305424733995 * pollyrtcmaxparameters_4;11.0661483918099;11.0661483918099;11.0661483918099;11.0661483918099;0.6562554;8;-3.07305424733995 * pollyrtcmaxparameters_4;1;1.57224382307992;33.9491866609738
+7;24.5504841869577 * polly_vectorizer + 3.71271830394627 * max + 2.48346417576267 * parallel + 3.20498740554155 * parallel * min + 3.89438567030505 * pollyoptmaxconstantterm_10000 + 3.87698502658831 * pollyoptmaxconstantterm_1 + -0.623397705009787 * pollyrtcmaxparameters_4 + -12.7904198152813 * pollyrtcmaxparameters_4 * pollydefaulttilesize_4;7.76847254103237;7.76847254103237;7.76847254103237;7.76847254103237;0.8125092;10;-12.7904198152813 * pollyrtcmaxparameters_4 * pollydefaulttilesize_4;2;1.64883792538877;32.6531492532309
+Analyze finished
+command: measurementstocsv ./sampledConfigurations_rand_0.csv
+command: clean-sampling
+command: clean-global
+command: script ./learn_rand_1.a
+command: log ./out_rand_1.log

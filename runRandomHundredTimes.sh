@@ -146,12 +146,16 @@ for i in `seq ${BEGIN_AT} ${REPETITIONS}`; do
         createAFiles ${caseStudyPath} ${currentTmp} ${i} ${twisePath}
         cd ${currentTmp}
 
-        if [ "${DRY_RUN}" = false ]; then
-          echo "${MONO_PATH} ${SPL_CONQUEROR_PATH} ${currentTmp}${SUPER_SCRIPT_NAME} >> /dev/null;";
-          ${MONO_PATH} ${SPL_CONQUEROR_PATH} ${currentTmp}${SUPER_SCRIPT_NAME} >> /dev/null;
+	if [ "${DRY_RUN}" = false ]; then
+          echo "timeout 10h ${MONO_PATH} ${SPL_CONQUEROR_PATH} ${currentTmp}${SUPER_SCRIPT_NAME} >> /dev/null;";
+          timeout 10h ${MONO_PATH} ${SPL_CONQUEROR_PATH} ${currentTmp}${SUPER_SCRIPT_NAME} >> /dev/null;
         fi
 
-        if [ $? -ne 0 ]
+        if [ $? == 124 ]
+        then
+          echo "Timeout!";
+          exit 0;
+        elif [ $? -ne 0 ]
         then 
           echo "An error occurred when performing SPL Conqueror.";
           exit -1; 

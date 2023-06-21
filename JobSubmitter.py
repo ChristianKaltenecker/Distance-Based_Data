@@ -77,8 +77,8 @@ def main() -> None:
     jobs = []
     case_studies = list_directories(os.path.join(PREFIX, "FeatureModels"))
     save_location = os.path.join(PREFIX, "Results")
-    for sampling_strategy in STRATEGIES:
-        for case_study in case_studies:
+    for case_study in case_studies:
+        for sampling_strategy in STRATEGIES:
             for run in range(RUNS_FROM, RUNS_TO + 1):
                 job_string = "export LD_LIBRARY_PATH=/scratch/kaltenec/lib:$LD_LIBRARY_PATH && "
                 log_location = os.path.join(PREFIX, f"{case_study}_{sampling_strategy}_{run}.log")

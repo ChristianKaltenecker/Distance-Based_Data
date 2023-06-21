@@ -28,7 +28,7 @@ createAFiles () {
         for twCounter in $CONFIG_COUNTER
         do
           file="${tmp}learn_${FILE_NAME}_$((${twCounter})).a";
-          sampleFile="${scriptPath}${SAMPLED_CONFIGURATION_FILE_PREFIX}${FILE_NAME}_$((${twCounter})).csv";
+          sampleFile="${scriptPath}${SAMPLED_CONFIGURATION_FILE_PREFIX}${FILE_NAME}_$((${twCounter}))_{seed}.csv";
 
           echo "timeout 10s ${MONO_PATH} ${SPL_CONQUEROR_PATH} ${file}" >> $scriptFile;
 
@@ -102,18 +102,17 @@ fi
 MONO_PATH="/usr/bin/mono"
 
 # SPL Conqueror variables
-SPL_CONQUEROR_PATH="${CURRENT_SOURCE_DIR}/../SPLConqueror/SPLConqueror/CommandLine/bin/Release/CommandLine.exe"
+SPL_CONQUEROR_PATH="${CURRENT_SOURCE_DIR}/../../SPLConqueror/SPLConqueror/CommandLine/bin/Release/CommandLine.exe"
 
 
-caseStudyPath="${CURRENT_SOURCE_DIR}/SupplementaryWebsite/FeatureModels/${CASE_STUDY}/"
-twisePath="${CURRENT_SOURCE_DIR}/SupplementaryWebsite/PerformancePredictions/Summary/${CASE_STUDY}/"
+caseStudyPath="${CURRENT_SOURCE_DIR}/../FeatureModels/${CASE_STUDY}/"
 
 for i in `seq ${BEGIN_AT} ${REPETITIONS}`; do
         echo "Run $i out of ${REPETITIONS}.";
         currentTmp="${LOCATION}${CASE_STUDY}_${i}/";
         mkdir -p $currentTmp;
         # SPL Conqueror call
-        createAFiles ${caseStudyPath} ${currentTmp} ${i} ${twisePath}
+        createAFiles ${caseStudyPath} ${currentTmp} ${i}
         cd ${currentTmp}
 
 	      if [ "${DRY_RUN}" = false ]; then

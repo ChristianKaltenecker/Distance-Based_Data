@@ -16,7 +16,7 @@ HOME = "/scratch/kaltenec/"
 PREFIX = os.path.join(HOME, "Distance-Based_Scalability")
 
 SBATCH = "sbatch"
-SBATCH_OPTIONS = f"--constraints={CLUSTER} --exclusive --exclude='maxl[17-20]' -n 1 -c 1 --mem=255000M --time='07:00:00' --qos=norm " \
+SBATCH_OPTIONS = f" --exclusive --exclude='maxl[17-20]' -n 1 -c 1 --mem=255000M --time='07:00:00' --qos=norm " \
                  f"--output={PREFIX}/slurm_out.log "
 SBATCH_SCRIPT = os.path.join(PREFIX, "Scripts", "runDistributionAware.sh")
 

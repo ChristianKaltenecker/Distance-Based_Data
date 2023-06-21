@@ -17,7 +17,7 @@ PREFIX = os.path.join(HOME, "Distance-Based_Scalability")
 
 SBATCH = "sbatch"
 SBATCH_OPTIONS = f"--constraints={CLUSTER} --exclusive --exclude='maxl[17-20]' -n 1 -c 1 --mem=255000M --time='07:00:00' --qos=norm " \
-                 f"--output={PREFIX}slurm_out.log "
+                 f"--output={PREFIX}/slurm_out.log "
 SBATCH_SCRIPT = os.path.join(PREFIX, "Scripts", "runDistributionAware.sh")
 
 JOB_DIR = HOME + "Jobs/"
@@ -71,27 +71,25 @@ def main() -> None:
     options_to_add += " --constraint=\"" + CLUSTER
 
     options_to_add += "\""
-    SBATCH_OPTIONS = f"{options_to_add} {SBATCH_OPTIONS}"
+    SBATCH_OPTIONS = f"{options_to_add} {SBATCH_OPTIONS} -J SamplingScalability"
 
+    # Construct the jobs for the job-file
+    jobs = []
+    case_studies = list_directories(os.path.join(PREFIX, "FeatureModels"))
     for sampling_strategy in STRATEGIES:
-
-        sbatch_options = SBATCH_OPTIONS + " -J " + sampling_strategy
-
-        # Construct the jobs for the job-file
-        jobs = []
-        case_studies = list_directories(os.path.join(PREFIX, "FeatureModels"))
         for case_study in case_studies:
             for run in range(RUNS_FROM, RUNS_TO + 1):
                 job_string = "export LD_LIBRARY_PATH=/scratch/kaltenec/lib:$LD_LIBRARY_PATH && "
-                job_string += f"{JOB_SCRIPT} {case_study} {sampling_strategy} {run} {run} >> ./{case_study}_{sampling_strategy}_{run}.log"
+                location = os.path.join(PREFIX, f"{case_study}_{sampling_strategy}_{run}.log")
+                job_string += f"{JOB_SCRIPT} {case_study} {sampling_strategy} {run} {run} >> {location}"
                 jobs.append(job_string)
 
-        # Write to the job file
-        job_file = f"{JOB_DIR}anywhere{JOB_FILE_PREFIX}{JOB_ID}{JOB_FILE_SUFFIX}"
-        write_to_file(job_file, jobs)
+    # Write to the job file
+    job_file = f"{JOB_DIR}anywhere{JOB_FILE_PREFIX}{JOB_ID}{JOB_FILE_SUFFIX}"
+    write_to_file(job_file, jobs)
 
     # Submit the array job
-    sbatch_options = f"{sbatch_options} --array=1-{len(jobs)}"
+    sbatch_options = f"{SBATCH_OPTIONS} --array=1-{len(jobs)}"
     command_to_submit = f"{SBATCH} {sbatch_options} {SBATCH_SCRIPT} {JOB_ID}"
     print(command_to_submit)
     #output_string = execute_command(command_to_submit)

@@ -67,7 +67,7 @@ def main() -> None:
         exit(-1)
 
 
-    options_to_add = "-A anywhere -p anywhere "
+    options_to_add = "-A ls-apel -p anywhere "
     options_to_add += " --constraint=\"" + CLUSTER
 
     options_to_add += "\""

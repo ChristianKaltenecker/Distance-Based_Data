@@ -7,7 +7,7 @@ import os
 from typing import List
 
 RUNS_FROM = 1
-RUNS_TO = 100
+RUNS_TO = 10
 CLUSTER = "maxl"
 
 JOB_ID=int(time.time() * 1000)
@@ -16,7 +16,7 @@ HOME = "/scratch/kaltenec/"
 PREFIX = os.path.join(HOME, "Distance-Based_Scalability")
 
 SBATCH = "sbatch"
-SBATCH_OPTIONS = f"--constraints={CLUSTER} --exclusive --exclude='maxl[17-20]' -n 1 -c 1 --mem=255000M --time='15:00:00' --qos=norm " \
+SBATCH_OPTIONS = f"--constraints={CLUSTER} --exclusive --exclude='maxl[17-20]' -n 1 -c 1 --mem=255000M --time='07:00:00' --qos=norm " \
                  f"--output={PREFIX}slurm_out.log "
 SBATCH_SCRIPT = os.path.join(PREFIX, "Scripts", "runDistributionAware.sh")
 
@@ -25,7 +25,7 @@ JOB_FILE_PREFIX = "_jobs_"
 JOB_FILE_SUFFIX = ".txt"
 JOB_SCRIPT = os.path.join(PREFIX, "Scripts", "runRandomHundredTimes.sh")
 
-STRATEGIES = ["solverBased", "henard", "distBased", "divDistBased"]
+STRATEGIES = ["solvBased", "henard", "distBased", "divDistBased"]
 
 def print_usage() -> None:
     print("Usage:")
@@ -83,7 +83,7 @@ def main() -> None:
         for case_study in case_studies:
             for run in range(RUNS_FROM, RUNS_TO + 1):
                 job_string = "export LD_LIBRARY_PATH=/scratch/kaltenec/lib:$LD_LIBRARY_PATH && "
-                job_string += f"{JOB_SCRIPT} {case_study} {sampling_strategy} {run} {run}"
+                job_string += f"{JOB_SCRIPT} {case_study} {sampling_strategy} {run} {run} >> ./{case_study}_{sampling_strategy}_{run}.log"
                 jobs.append(job_string)
 
         # Write to the job file

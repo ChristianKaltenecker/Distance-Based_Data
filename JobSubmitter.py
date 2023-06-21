@@ -93,8 +93,8 @@ def main() -> None:
     sbatch_options = f"{SBATCH_OPTIONS} --array=1-{len(jobs)}"
     command_to_submit = f"{SBATCH} {sbatch_options} {SBATCH_SCRIPT} {JOB_ID}"
     print(command_to_submit)
-    #output_string = execute_command(command_to_submit)
-    #print(output_string)
+    output_string = execute_command(command_to_submit)
+    print(output_string)
 
 
 if __name__ == "__main__":

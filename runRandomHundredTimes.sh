@@ -28,7 +28,7 @@ createAFiles () {
         for twCounter in $CONFIG_COUNTER
         do
           file="${tmp}learn_${FILE_NAME}_$((${twCounter})).a";
-          sampleFile="${scriptPath}${SAMPLED_CONFIGURATION_FILE_PREFIX}${FILE_NAME}_$((${twCounter}))_{seed}.csv";
+          sampleFile="${scriptPath}${SAMPLED_CONFIGURATION_FILE_PREFIX}${FILE_NAME}_$((${twCounter}))_${seed}.csv";
 
           echo "timeout 2h ${MONO_PATH} ${SPL_CONQUEROR_PATH} ${file}" >> $scriptFile;
 

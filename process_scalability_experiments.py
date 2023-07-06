@@ -63,7 +63,7 @@ def write_to_latex_file(path: str, performance_data: Dict[str, Dict[str, Dict[in
         latex_file.write("\\midrule\n")
 
         for case_study in case_studies:
-            latex_file.write(case_study)
+            latex_file.write(f"\\textsc{{{case_study}}}")
             for strategy in sorted(strategies):
                 for size in SIZES:
                     latex_file.write(" & ")

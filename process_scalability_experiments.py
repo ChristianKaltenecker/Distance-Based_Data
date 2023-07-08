@@ -1,11 +1,13 @@
 #!/bin/env python3
+import math
 import os
 import sys
 
-import numpy as np
+from scipy.stats import mannwhitneyu
 
 from typing import List, Dict
 
+import numpy as np
 
 SIZES = [10, 100, 1000]
 
@@ -41,6 +43,42 @@ def parse_time(time: str) -> int:
     return 3600 * int(split_time[0]) + 60 * int(split_time[1]) + int(seconds[0])
 
 
+def rank_list(all_runs: Dict[str, List[int]]) -> List[int]:
+    # Create new list with the mean values
+    list_to_rank = list()
+    strategy_to_rank = list()
+    for strategy in all_runs.keys():
+        strategy_to_rank.append(strategy)
+        if len(all_runs[strategy]) > 0:
+            list_to_rank.append(np.mean(all_runs[strategy]))
+        else:
+            list_to_rank.append(float('inf'))
+
+    order = sorted(list_to_rank, key=lambda x : float('inf') if math.isnan(x) else x)
+
+    ranking = list(list_to_rank)
+    for i in range(0, len(list_to_rank)):
+        ranking[i] = order.index(list_to_rank[i]) + 1
+
+    first_to_compare = all_runs[strategy_to_rank[ranking.index(1)]]
+
+    # find the second rank (which can be 2 or a larger number)
+    tmp_rank = list(ranking)
+    tmp_rank.remove(1)
+    reduced_ranking = sorted(list(set(tmp_rank)))
+    second_to_compare = all_runs[strategy_to_rank[ranking.index(reduced_ranking[reduced_ranking.index(min(reduced_ranking))])]]
+
+    if len(second_to_compare) == 0:
+        return ranking
+
+    _, pvalue = mannwhitneyu(first_to_compare, second_to_compare)
+
+    if pvalue > 0.05:
+        ranking[ranking.index(1)] = 2
+
+    return ranking
+
+
 def write_to_latex_file(path: str, performance_data: Dict[str, Dict[str, Dict[int, List[int]]]]) -> None:
     with open(path, 'w') as latex_file:
         case_studies = list(performance_data.keys())
@@ -48,7 +86,7 @@ def write_to_latex_file(path: str, performance_data: Dict[str, Dict[str, Dict[in
         latex_file.write("\\toprule\n")
         # Write header
         for strategy in sorted(strategies):
-            latex_file.write(f"& \\multirow{{{len(SIZES)}}}{{c}}{{{strategy}}}")
+            latex_file.write(f"& \\multicolumn{{{len(SIZES)}}}{{c}}{{{strategy}}}")
         latex_file.write("\\\\")
         current_column = 1
         for _ in sorted(strategies):
@@ -62,12 +100,35 @@ def write_to_latex_file(path: str, performance_data: Dict[str, Dict[str, Dict[in
 
         latex_file.write("\\midrule\n")
 
-        for case_study in case_studies:
+        for case_study in sorted(case_studies, key=str.casefold):
             latex_file.write(f"\\textsc{{{case_study}}}")
+            # Prepare data for ranking
+            case_study_data: Dict[int, Dict[str, List[int]]] = dict()
             for strategy in sorted(strategies):
                 for size in SIZES:
+                    if size not in case_study_data:
+                        case_study_data[size] = dict()
+                    if size not in performance_data[case_study][strategy]:
+                        case_study_data[size][strategy] = list()
+                    else:
+                        case_study_data[size][strategy] = performance_data[case_study][strategy][size]
+            ranking_per_size = dict()
+            for size in SIZES:
+                ranking_per_size[size] = rank_list(case_study_data[size])
+
+            for strategy in sorted(strategies):
+                strategy_index = list(sorted(strategies)).index(strategy)
+                for size in SIZES:
                     latex_file.write(" & ")
-                    latex_file.write(time_to_str(avg(performance_data[case_study][strategy][size])))
+                    if size in performance_data[case_study][strategy]:
+                        if ranking_per_size[size][strategy_index] == 1:
+                            latex_file.write("\\textbf{\\color{Green}")
+                            latex_file.write(time_to_str(avg(performance_data[case_study][strategy][size])))
+                            latex_file.write("}")
+                        else:
+                            latex_file.write(time_to_str(avg(performance_data[case_study][strategy][size])))
+                    else:
+                        latex_file.write("$>3$h")
             latex_file.write("\\\\\n")
         latex_file.write("\\bottomrule\n")
 
@@ -78,16 +139,16 @@ def avg(int_list: List[int]) -> int:
 
 def time_to_str(time: int) -> str:
     if time == -1:
-        return "$>$3h"
+        return "$>3$h"
     hours = int(time / 3600)
     minutes = int(time % 3600 / 60)
     seconds = int(time % 60)
     if hours >= 1:
-        return str(hours) + "h " + str(minutes).rjust(2, '0') + "m"
-    elif (minutes >= 2):
-        return str(minutes) + "m " + str(seconds).rjust(2, '0') + "s"
+        return "$" + str(hours) + "$h $" + str(minutes).rjust(2, '0') + "$m"
+    elif minutes >= 2:
+        return "$" + str(minutes) + "$m $" + str(seconds).rjust(2, '0') + "$s"
     elif minutes == 0 and seconds == 0:
-        return "$<$1s"
+        return "$<1$s"
     else:
         return str(minutes * 60 + seconds) + "s"
 

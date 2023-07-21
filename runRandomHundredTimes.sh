@@ -105,7 +105,7 @@ MONO_PATH="/usr/bin/mono"
 SPL_CONQUEROR_PATH="${CURRENT_SOURCE_DIR}/../../SPLConqueror/SPLConqueror/CommandLine/bin/Release/CommandLine.exe"
 
 
-caseStudyPath="${CURRENT_SOURCE_DIR}/../FeatureModels/${CASE_STUDY}/"
+caseStudyPath="${CURRENT_SOURCE_DIR}/../SupplementaryWebsite/FeatureModels/${CASE_STUDY}/"
 
 for i in `seq ${BEGIN_AT} ${REPETITIONS}`; do
         echo "Run $i out of ${REPETITIONS}.";

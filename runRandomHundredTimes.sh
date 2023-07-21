@@ -1,6 +1,6 @@
 #!/bin/bash
 
-REPETITIONS=100;
+REPETITIONS=10;
 BEGIN_AT=1;
 DRY_RUN=false;
 INSERT_CONFIGS=true;

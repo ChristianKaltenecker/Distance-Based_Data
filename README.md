@@ -2,8 +2,8 @@
 
 # Distance-Based Sampling
 
-Distance-based sampling is a novel black-box sampling strategy presented in the paper "Distance-Based Sampling of Software Configuration Spaces" by Christian Kaltenecker, Alexander Grebhahn, Norbert Siegmund, Jianmei Guo, and Sven Apel published at the ICSE 2019.
-In this repository, we describe how to reproduce our results of the paper. 
+Distance-based sampling is a novel black-box sampling strategy presented in the paper "Distance-Based Sampling of Software Configuration Spaces" by Christian Kaltenecker, Alexander Grebhahn, Norbert Siegmund, Jianmei Guo, and Sven Apel published at the ICSE 2019 and in the dissertation entitled "Black-Box Performance Modeling of Configurable Software Systems" submittet by Christian Kaltenecker.
+In this repository, we describe how to reproduce our results of the paper and dissertation.
 
 ## Overview
 
@@ -54,6 +54,18 @@ Additionally, some of the identified perfomance characteristrics might be affect
 In this directory, we provide files containing the predicted performance values of all configurations of the different subject systems, when using a specific sampling strategy.
 Since using a random seed in all sampling strategies (except for t-wise) leads to different sample sets and in this vein also to slightly different predicion errors, we have performed the experiments using these sampling strategies 100 times using different seeds.
 To examine the influence of these random seeds on the prediction accuracy, we provide one file for each random seed.
+
+### Feature Models (`FeatureModels`)
+
+This directory contains the large feature models for the scalability experiments.
+Each folder of this directory represents one directory and each directory contains one feature model.
+
+### Scalability Experiments (`ScalabilityExperiments`)
+
+In this directory, we provide the log files of our scalability experiments on large real-world configurable software systems.
+We have repeated the measurements 10 times using different seeds.
+For each configurable software system and each seed, we provide log files and the sampled configurations.
+The log files are used by scripts for further processing.
 
 ## Programs & Scripts
 
@@ -274,3 +286,19 @@ For the aggregation of our results, we provide two scripts:
   ```
   pdflatex TableStandalone.tex
   ```
+
+**III. process_scalability_experiments.py**: 
+
+A script that processes the log files of the scalability experiments and writes the information into a tex file.
+
+In our example, we use the script to process the provided log files from the directory `ScalabilityExperiments` and write the LaTeX formatted table into `/tmp/table.tex`:
+```
+./process_scalability_experiments.py /application/Distance-Based_Data/SupplementaryWebsite/ScalabilityExperiments/ /tmp/table.tex
+```
+This will produce the contents of the table we provide in the paper.
+
+Note that you can also perform the scalability experiments on your own using the script `sampleRandomHundredTimes.sh` by providing the case study name, the sampling strategy name, and the location to store the log files.
+For instance, you can use the following command to run 10 repetitions of the scalability experiments using distance-based sampling for `axTLS` and store the log files in `/tmp/`:
+```
+./sampleRandomHundredTimes.sh axTLS distBased /tmp/
+```
